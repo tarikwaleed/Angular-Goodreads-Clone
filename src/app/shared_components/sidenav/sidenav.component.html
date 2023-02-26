@@ -1,0 +1,22 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav class="mat-elevation-z10 col-3 bg-dark text-light" mode="side" closed style="position:fixed">
+        <h2 class="m-3">Menu</h2>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+        <mat-toolbar color="primary">
+            <button mat-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <label for="titile">Book Store</label>
+        </mat-toolbar>
+        <!-- home -->
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<footer class="bg-light text-center text-lg-start fixed-bottom">
+    <div class="text-center p-3 bg-dark text-light">
+        <span>
+            Made with <i class="fa fa-heart pulse" style="color:rgb(187, 0, 0)"></i> in Egypt 🇪🇬
+        </span>
+        <p>Copyright:2023© </p>
+    </div>
+</footer>
