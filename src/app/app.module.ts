@@ -15,6 +15,8 @@ import { BookCardComponent } from './shared_components/book-card/book-card.compo
 import { BooksListComponent } from './shared_components/books-list/books-list.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FooterComponent } from './shared_components/footer/footer.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     SidenavComponent,
     BookCardComponent,
     BooksListComponent,
-    HomePageComponent
+    HomePageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
