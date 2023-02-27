@@ -14,6 +14,7 @@ import { SidenavComponent } from './shared_components/sidenav/sidenav.component'
 import { BookCardComponent } from './shared_components/book-card/book-card.component';
 import { BooksListComponent } from './shared_components/books-list/books-list.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
