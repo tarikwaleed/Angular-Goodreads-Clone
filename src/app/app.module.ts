@@ -11,11 +11,17 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { SidenavComponent } from './shared_components/sidenav/sidenav.component';
+import { BookCardComponent } from './shared_components/book-card/book-card.component';
+import { BooksListComponent } from './shared_components/books-list/books-list.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidenavComponent
+    SidenavComponent,
+    BookCardComponent,
+    BooksListComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,8 @@ import { SidenavComponent } from './shared_components/sidenav/sidenav.component'
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

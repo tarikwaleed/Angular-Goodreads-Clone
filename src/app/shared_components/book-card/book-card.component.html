@@ -1,0 +1,19 @@
+<div class="col-4">
+    <mat-card class="example-card shadow m-3">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{book.title}}</mat-card-title>
+            <mat-card-subtitle>{{book.author.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <img class="img-fluid " mat-card-lg-image [src]="book.imageUrl" alt="Book Photo">
+        <mat-card-content>
+            <p class="my-2">
+                {{book.summary}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button class="bg-primary text-light">Add to shelf</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<!-- /.col-3 -->
