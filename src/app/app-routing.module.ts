@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BooksListComponent } from './shared_components/books-list/books-list.component';
+import { BooksListComponent } from './book/components/books-list/books-list.component';
 import { AuthorListComponent } from './shared_components/author-list/author-list.component';
 
 const routes: Routes = [

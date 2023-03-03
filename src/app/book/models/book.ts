@@ -1,5 +1,5 @@
-import { Author } from "./author"
-import { Genre } from "./genre"
+import { Author } from "../../models/author"
+import { Genre } from "../../models/genre"
 
 export interface Book {
     id:number
