@@ -1,0 +1,10 @@
+<!-- <ng-container *ngFor="author of authors; let i =index">
+  <app-author-card [author]="authors"></app-author-card>
+</ng-container>
+ -->
+
+<mat-grid-list class="mb-5" cols="3" rowHeight="400px" gutterSize="10px">
+  <mat-grid-tile *ngFor="let author of authors;let i=index">
+   <app-author-card [author]="author"></app-author-card>
+  </mat-grid-tile>
+</mat-grid-list>
