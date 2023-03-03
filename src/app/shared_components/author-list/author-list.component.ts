@@ -10,23 +10,23 @@ export class AuthorListComponent {
   authors: Author[]
 
   constructor() {
-    this.authors=[
-    {
-      id:1,
-      name:"nor"
-    },
-    {
-      id:2,
-      name:"nor1"
-    },
-    {
-      id:3,
-      name:"nor22"
-    }
+    this.authors = [
+      {
+        id: 1,
+        name: "nor"
+      },
+      {
+        id: 2,
+        name: "nor1"
+      },
+      {
+        id: 3,
+        name: "nor22"
+      }
     ]
 
 
-   }
+  }
 
 
 }

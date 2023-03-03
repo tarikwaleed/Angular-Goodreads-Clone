@@ -2,16 +2,16 @@
     <mat-sidenav #sidenav class="mat-elevation-z10 col-3 " mode="side" closed style="position:fixed">
         <mat-list>
             <div mat-subheader>Menu</div>
-            <button mat-list-item>
+            <button mat-list-item (click)="navigateTo('books')">
                 <div matListItemTitle>Books</div>
                 <div matListItemLine>Browse all books</div>
             </button>
 
-            <button mat-list-item>
+            <button mat-list-item (click)="navigateTo('authors')">
                 <div matListItemTitle>Authors</div>
                 <div matListItemLine>Browse all authors</div>
             </button>
-            <button mat-list-item>
+            <button mat-list-item (click)="navigateTo('categories')">
                 <div matListItemTitle>Categories</div>
                 <div matListItemLine>Browse all categories</div>
             </button>
@@ -27,6 +27,7 @@
         </mat-toolbar>
         <!-- home -->
         <app-home-page></app-home-page>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
 
