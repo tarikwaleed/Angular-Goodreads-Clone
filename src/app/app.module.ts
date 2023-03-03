@@ -17,8 +17,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FooterComponent } from './shared_components/footer/footer.component';
 import { MatListModule } from '@angular/material/list';
-import { AuthorCardComponent } from './shared_components/author-card/author-card.component';
-import { AuthorListComponent } from './shared_components/author-list/author-list.component';
+import { AuthorCardComponent } from './author/components/author-card/author-card.component';
+import { AuthorListComponent } from './author/components/author-list/author-list.component';
 
 @NgModule({
   declarations: [

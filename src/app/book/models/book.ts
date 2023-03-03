@@ -1,4 +1,4 @@
-import { Author } from "../../models/author"
+import { Author } from "../../author/models/author"
 import { Genre } from "../../models/genre"
 
 export interface Book {
