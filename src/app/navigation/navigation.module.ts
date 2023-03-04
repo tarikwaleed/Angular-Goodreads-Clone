@@ -17,7 +17,9 @@ import { NavigationRoutingModule } from "./navigation-routing.module";
     CommonModule,
     SharedModule,
     NavigationRoutingModule
-
+  ],
+  exports:[
+    SidenavComponent
   ]
 })
 export class NavigationModule { }
