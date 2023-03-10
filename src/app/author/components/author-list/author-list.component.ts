@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Author } from 'src/app/author/models/author';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-author-list',
@@ -7,7 +9,14 @@ import { Author } from 'src/app/author/models/author';
   styleUrls: ['./author-list.component.css']
 })
 export class AuthorListComponent {
-  authors: Author[]
+  authors!: Author[]
+  pageSize = 10;
+  pageSizeOptions = [5, 10, 20];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  dataSource = new MatTableDataSource<Author>(this.authors);
+  ngOnInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor() {
     this.authors = [
