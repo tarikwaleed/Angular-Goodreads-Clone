@@ -17,12 +17,15 @@
     </mat-sidenav>
     <mat-sidenav-content class="sidenav-content">
         <mat-toolbar color="secondary">
-            <button mat-button (click)="sidenav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <label for="titile">Book Store</label>
-            <app-login-button></app-login-button>
-            <!-- /.d-flex -->
+            <div class="container-fluid d-flex flex-row justify-content-between">
+                <button mat-button (click)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <label for="titile">Book Store</label>
+                <app-login-button></app-login-button>
+
+            </div>
+            <!-- /.container -->
         </mat-toolbar>
         <!-- home -->
         <router-outlet></router-outlet>
