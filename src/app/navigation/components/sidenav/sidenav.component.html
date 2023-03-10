@@ -1,25 +1,22 @@
-<mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav class="mat-elevation-z10 col-3 " mode="side" closed style="position:fixed">
-        <mat-list>
+<mat-sidenav-container class="example-container ">
+    <mat-sidenav #sidenav class="mat-elevation-z10 col-3 " mode="side" opened style="position:fixed">
+        <mat-list >
             <div mat-subheader>Menu</div>
-            <button mat-list-item (click)="navigateTo('books')">
-                <div matListItemTitle>Books</div>
-                <div matListItemLine>Browse all books</div>
-            </button>
+            <mat-list-item matRipple (click)="navigateTo('books')" >
+                <div matListItemTitle >Books</div>
+            </mat-list-item>
 
-            <button mat-list-item (click)="navigateTo('authors')">
-                <div matListItemTitle>Authors</div>
-                <div matListItemLine>Browse all authors</div>
-            </button>
-            <button mat-list-item (click)="navigateTo('categories')">
-                <div matListItemTitle>Categories</div>
-                <div matListItemLine>Browse all categories</div>
-            </button>
+            <mat-list-item matRipple (click)="navigateTo('authors')">
+                <div matListItemTitle >Authors</div>
+            </mat-list-item>
+            <mat-list-item matRipple (click)="navigateTo('categories')">
+                <div matListItemTitle >Categories</div>
+            </mat-list-item>
         </mat-list>
 
     </mat-sidenav>
     <mat-sidenav-content class="sidenav-content">
-        <mat-toolbar color="primary">
+        <mat-toolbar color="secondary">
             <button mat-button (click)="sidenav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
@@ -30,4 +27,4 @@
     </mat-sidenav-content>
 </mat-sidenav-container>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
