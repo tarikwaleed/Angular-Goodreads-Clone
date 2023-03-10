@@ -6,6 +6,7 @@ import { AuthorListComponent } from '../author/components/author-list/author-lis
 import { CategoryListComponent } from '../category/components/category-list/category-list.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/books', pathMatch: 'full' },
   { path: 'books', component: BooksListComponent },
   { path: 'authors', component: AuthorListComponent },
   { path: 'categories', component: CategoryListComponent },
