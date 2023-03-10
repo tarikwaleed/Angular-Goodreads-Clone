@@ -1,1 +1,27 @@
-<p>signup-form works!</p>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="container-fluid d-flex flex-column my-3">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="signupForm.controls['email'].errors?.['required']">
+                Email is required
+            </mat-error>
+            <mat-error *ngIf="signupForm.controls['email'].errors?.['email']">
+                Email is invalid
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error *ngIf="signupForm.controls['password'].errors?.['required']">
+                Password is required
+            </mat-error>
+            <mat-error *ngIf="signupForm.controls['password'].errors?.['minlength']">
+                Password Must be at least 8 characters long
+            </mat-error>
+        </mat-form-field>
+        <button matRipple mat-raised-button class="bg-dark text-light" type="submit"
+            [disabled]="signupForm.invalid">Register</button>
+    </div>
+    <!-- /.container -->
+</form>
