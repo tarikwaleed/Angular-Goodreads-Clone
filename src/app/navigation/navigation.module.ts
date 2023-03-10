@@ -19,10 +19,10 @@ import { RegistrationModule } from "../registration/registration.module";
     SharedModule,
     NavigationRoutingModule,
     RegistrationModule
-    
+
 
   ],
-  exports:[
+  exports: [
     SidenavComponent
   ]
 })
