@@ -1,18 +1,28 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email">
-    <mat-error *ngIf="loginForm.controls['email'].errors!['required']">
-      Email is required
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Password</mat-label>
-    <input matInput type="password" formControlName="password">
-    <mat-error *ngIf="loginForm.controls['password'].errors!['required']">
-      Password is required
-    </mat-error>
-  </mat-form-field>
-  <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
-</form>
+  <div class="container-fluid d-flex flex-column my-5">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="loginForm.controls['email'].errors?.['required']">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls['email'].errors?.['email']">
+        Email is invalid
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="loginForm.controls['password'].errors?.['required']">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls['password'].errors?.['minlength']">
+        Password Must be at least 8 characters long
+      </mat-error>
+    </mat-form-field>
+    <button matRipple mat-raised-button class="bg-dark text-light" type="submit"
+      [disabled]="loginForm.invalid">Login</button>
 
+  </div>
+  <!-- /.container -->
+</form>

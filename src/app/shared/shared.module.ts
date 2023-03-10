@@ -10,7 +10,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatList, MatListModule } from '@angular/material/list';
 import { MatRippleModule } from "@angular/material/core";
 import { MatPaginatorModule } from "@angular/material/paginator";
-import { ReactiveFormsModule } from "@angular/forms";
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -31,7 +34,10 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatRippleModule,
     MatPaginatorModule,
     ReactiveFormsModule,
-    
+    MatDialogModule,
+    MatInputModule,
+    FormsModule
+
   ],
   exports: [
     CommonModule,
@@ -46,6 +52,9 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatRippleModule,
     MatPaginatorModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

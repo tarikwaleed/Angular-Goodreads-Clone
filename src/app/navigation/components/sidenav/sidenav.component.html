@@ -1,16 +1,16 @@
 <mat-sidenav-container class="example-container ">
     <mat-sidenav #sidenav class="mat-elevation-z10 col-3 " mode="side" opened style="position:fixed">
-        <mat-list >
+        <mat-list>
             <div mat-subheader>Menu</div>
-            <mat-list-item matRipple (click)="navigateTo('books')" >
-                <div matListItemTitle >Books</div>
+            <mat-list-item matRipple (click)="navigateTo('books')">
+                <div matListItemTitle>Books</div>
             </mat-list-item>
 
             <mat-list-item matRipple (click)="navigateTo('authors')">
-                <div matListItemTitle >Authors</div>
+                <div matListItemTitle>Authors</div>
             </mat-list-item>
             <mat-list-item matRipple (click)="navigateTo('categories')">
-                <div matListItemTitle >Categories</div>
+                <div matListItemTitle>Categories</div>
             </mat-list-item>
         </mat-list>
 
@@ -21,6 +21,8 @@
                 <mat-icon>menu</mat-icon>
             </button>
             <label for="titile">Book Store</label>
+            <app-login-button></app-login-button>
+            <!-- /.d-flex -->
         </mat-toolbar>
         <!-- home -->
         <router-outlet></router-outlet>
