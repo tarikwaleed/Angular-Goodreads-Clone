@@ -1,6 +1,13 @@
 <h1 class="mx-3">Browse All Books</h1>
 <mat-grid-list class="mb-5" cols="3" rowHeight="400px" gutterSize="10px">
-    <mat-grid-tile *ngFor="let book of books;let i=index">
+    <mat-grid-tile
+        *ngFor="let book of books.slice((paginator.pageIndex * paginator.pageSize), ((paginator.pageIndex * paginator.pageSize) + paginator.pageSize))">
         <app-book-card [book]="book"></app-book-card>
     </mat-grid-tile>
 </mat-grid-list>
+
+<div class="fixed-bottom d-flex justify-content-center">
+    <mat-paginator #paginator [length]="books.length" [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+
+</div>

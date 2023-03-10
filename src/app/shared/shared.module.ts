@@ -9,6 +9,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatList, MatListModule } from '@angular/material/list';
 import { MatRippleModule } from "@angular/material/core";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 
 
@@ -26,7 +27,9 @@ import { MatRippleModule } from "@angular/material/core";
     MatCardModule,
     MatFormFieldModule,
     MatListModule,
-    MatRippleModule
+    MatRippleModule,
+    MatPaginatorModule,
+    
   ],
   exports: [
     CommonModule,
@@ -38,7 +41,8 @@ import { MatRippleModule } from "@angular/material/core";
     MatCardModule,
     MatFormFieldModule,
     MatListModule,
-    MatRippleModule
+    MatRippleModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }
