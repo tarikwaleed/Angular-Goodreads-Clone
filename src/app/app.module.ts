@@ -6,6 +6,7 @@ import { BookModule } from "./book/book.module";
 import { AuthorModule } from "./author/author.module";
 import { NavigationModule } from "./navigation/navigation.module";
 import { CategoryModule } from "./category/category.module";
+import { RegistrationModule } from "./registration/registration.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CategoryModule } from "./category/category.module";
     BookModule,
     AuthorModule,
     NavigationModule,
-    CategoryModule
+    CategoryModule,
+    RegistrationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

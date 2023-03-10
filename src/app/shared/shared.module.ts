@@ -10,6 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatList, MatListModule } from '@angular/material/list';
 import { MatRippleModule } from "@angular/material/core";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 
@@ -29,6 +30,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatListModule,
     MatRippleModule,
     MatPaginatorModule,
+    ReactiveFormsModule,
     
   ],
   exports: [
@@ -42,7 +44,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatFormFieldModule,
     MatListModule,
     MatRippleModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }
