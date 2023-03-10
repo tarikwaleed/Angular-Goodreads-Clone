@@ -1,3 +1,4 @@
+<h1 class="mx-3">Browse All Books</h1>
 <mat-grid-list class="mb-5" cols="3" rowHeight="400px" gutterSize="10px">
     <mat-grid-tile *ngFor="let book of books;let i=index">
         <app-book-card [book]="book"></app-book-card>

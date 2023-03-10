@@ -15,7 +15,9 @@ export class BooksListComponent {
         title: "The C Programming Language",
         author: {
           id: 1,
-          name: "Dennis Richie"
+          name: "Dennis Richie",
+          photo: "https://fakeimg.pl/200x100"
+
         },
         genre: {
           id: 1,
@@ -30,7 +32,8 @@ export class BooksListComponent {
         title: "The C Programming Language",
         author: {
           id: 1,
-          name: "Dennis Richie"
+          name: "Dennis Richie",
+          photo: "https://fakeimg.pl/200x100"
         },
         genre: {
           id: 1,
@@ -45,7 +48,8 @@ export class BooksListComponent {
         title: "The C Programming Language",
         author: {
           id: 1,
-          name: "Dennis Richie"
+          name: "Dennis Richie",
+          photo: "https://fakeimg.pl/200x100"
         },
         genre: {
           id: 1,
@@ -60,7 +64,8 @@ export class BooksListComponent {
         title: "The C Programming Language",
         author: {
           id: 1,
-          name: "Dennis Richie"
+          name: "Dennis Richie",
+          photo: "https://fakeimg.pl/200x100"
         },
         genre: {
           id: 1,

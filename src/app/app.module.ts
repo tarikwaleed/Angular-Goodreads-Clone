@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookModule } from "./book/book.module";
 import { AuthorModule } from "./author/author.module";
 import { NavigationModule } from "./navigation/navigation.module";
+import { CategoryModule } from "./category/category.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NavigationModule } from "./navigation/navigation.module";
     BrowserAnimationsModule,
     BookModule,
     AuthorModule,
-    NavigationModule
+    NavigationModule,
+    CategoryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

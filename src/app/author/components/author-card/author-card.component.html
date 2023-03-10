@@ -1,9 +1,17 @@
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-  <h5 class="card-title">{{author.id}}</h5>
-    <p class="card-text">{{author.name}}</p>
-     <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
+<mat-card matRipple class="example-card shadow m-3" style="width: 400px;height: 300px;">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{author.name}}</mat-card-title>
+    <mat-card-subtitle>{{author.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="img-fluid " mat-card-lg-image [src]="author.photo" alt="Book Photo">
+  <mat-card-content>
+    <p class="my-2">
+      arbitrary content
+      arbitrary content
+      arbitrary content
+      arbitrary content
+      <br>
+    </p>
+  </mat-card-content>
+</mat-card>
