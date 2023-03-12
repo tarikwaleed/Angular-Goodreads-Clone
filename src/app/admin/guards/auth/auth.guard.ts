@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard {
-  loggedin: Boolean = false
+  loggedin: Boolean = true
 
   // in the constructor inject authservice and toaster  service and router 
   constructor(private router: Router) { }
