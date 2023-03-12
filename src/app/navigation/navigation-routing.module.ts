@@ -7,13 +7,15 @@ import { CategoryListComponent } from '../category/components/category-list/cate
 import { AdminDashboardComponent } from '../admin/components/admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from '../admin/guards/auth/auth.guard';
 import { NotAuthErrorComponent } from '../admin/components/not-auth-error/not-auth-error.component';
+import { BookDetailsComponent } from '../book/components/book-details/book-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/books', pathMatch: 'full' },
   { path: 'books', component: BooksListComponent },
+  { path: 'book/:id', component: BookDetailsComponent },
   { path: 'authors', component: AuthorListComponent },
   { path: 'categories', component: CategoryListComponent },
-  { path: 'admin', component: AdminDashboardComponent,canActivate:[AuthGuard] },
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   { path: 'not-auth-error', component: NotAuthErrorComponent },
 
 ];
