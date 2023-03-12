@@ -7,6 +7,7 @@ import { AuthorModule } from "./author/author.module";
 import { NavigationModule } from "./navigation/navigation.module";
 import { CategoryModule } from "./category/category.module";
 import { RegistrationModule } from "./registration/registration.module";
+import { AdminModule } from "./admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegistrationModule } from "./registration/registration.module";
     AuthorModule,
     NavigationModule,
     CategoryModule,
-    RegistrationModule
+    RegistrationModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

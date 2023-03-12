@@ -36,7 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
 
   ],
   exports: [
@@ -54,7 +54,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class SharedModule { }
