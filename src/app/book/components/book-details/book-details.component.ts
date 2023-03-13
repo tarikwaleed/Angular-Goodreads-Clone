@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-details',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent {
+  constructor(private route: ActivatedRoute) { }
+  bookId!: string
+
+  ngOnInit() {
+    this.bookId = this.route.snapshot.params['id'];
+    // Use the bookId to fetch the book details from the server
+  }
 
 }

@@ -33,7 +33,7 @@ export class BooksListComponent {
 
         },
         genre: {
-          id: 1,
+          id: 2,
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -41,7 +41,7 @@ export class BooksListComponent {
         imageUrl: "https://fakeimg.pl/200x100"
       },
       {
-        id: 1,
+        id: 2,
         title: "The C Programming Language",
         author: {
           id: 1,
@@ -57,7 +57,7 @@ export class BooksListComponent {
         imageUrl: "https://fakeimg.pl/200x100"
       },
       {
-        id: 1,
+        id: 3,
         title: "The C Programming Language",
         author: {
           id: 1,

@@ -1,4 +1,5 @@
-<mat-card matRipple class="example-card shadow m-4" style="width: 400px;height: 300px;">
+<mat-card (click)="navigateToBookDetails(book.id)" matRipple class="example-card shadow m-4"
+    style="width: 400px;height: 300px;">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{book.title}}</mat-card-title>
