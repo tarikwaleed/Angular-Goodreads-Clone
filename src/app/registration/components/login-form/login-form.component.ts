@@ -23,6 +23,7 @@ export class LoginFormComponent implements OnInit {
     });
   }
   openSignupForm() {
+    this.dialog.closeAll()
     const dialogRef = this.dialog.open(SignupFormComponent, {
       width: '400px',
       height: '300px'
@@ -32,7 +33,10 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     this.authService.login(this.loginForm.value)
       .pipe(
-        tap(() => console.log('Logged in successfully!')),
+        tap(() => {
+          console.log('Logged in successfully!');
+          this.dialog.closeAll()
+        }),
         catchError(error => {
           console.error(error);
           return of(null);

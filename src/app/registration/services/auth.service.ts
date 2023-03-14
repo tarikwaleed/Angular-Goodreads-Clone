@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { mapTo, tap } from 'rxjs/operators';
+import { User } from 'src/app/user/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
   private readonly API_URL = 'http://localhost:3000/api/auth';
   private token: string | null = null;
-  private user$: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+  private user$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +19,7 @@ export class AuthService {
       .pipe(
         tap((response: any) => {
           this.setToken(response.token);
-          this.setUser(response.username);
+          this.setUser(response.user);
         })
       );
   }
@@ -28,10 +29,12 @@ export class AuthService {
       .pipe(
         tap((response: any) => {
           this.setToken(response.token);
-          this.setUser(response.username);
+          this.setUser(response.user);
         })
       );
   }
+
+
 
   logout(): void {
     this.setToken(null);
@@ -55,11 +58,11 @@ export class AuthService {
     }
   }
 
-  private setUser(username: string | null): void {
-    this.user$.next(username);
+  private setUser(user: User | null): void {
+    this.user$.next(user);
   }
 
-  getUser(): Observable<string | null> {
+  getUser(): Observable<any> {
     return this.user$.asObservable();
   }
 

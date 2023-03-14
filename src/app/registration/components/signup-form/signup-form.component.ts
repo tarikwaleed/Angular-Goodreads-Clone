@@ -25,7 +25,10 @@ export class SignupFormComponent implements OnInit {
   onSubmit() {
     this.authService.register(this.signupForm.value)
       .pipe(
-        tap(() => console.log('Registerd successfully!')),
+        tap(() => {
+          console.log('Registerd successfully!');
+          this.dialogRef.close()
+        }),
         catchError(error => {
           console.error(error);
           return of(null);
