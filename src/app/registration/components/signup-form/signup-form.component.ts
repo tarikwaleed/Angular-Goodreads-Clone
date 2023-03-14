@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from '../../services/auth.service';
+import { catchError, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-signup-form',
@@ -10,20 +12,28 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class SignupFormComponent implements OnInit {
   signupForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private dialogRef: MatDialogRef<SignupFormComponent>) { }
+  constructor(private formBuilder: FormBuilder, private dialogRef: MatDialogRef<SignupFormComponent>, private authService: AuthService) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
+      username: ['', [Validators.required,]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   onSubmit() {
-    // Handle form submission here
-
-    console.log(this.signupForm.value);
-    this.dialogRef.close()
+    this.authService.register(this.signupForm.value)
+      .pipe(
+        tap(() => console.log('Registerd successfully!')),
+        catchError(error => {
+          console.error(error);
+          return of(null);
+        })
+      )
+      .subscribe();
+    this.authService.getUser().subscribe(user => console.log(user))
   }
+
 
 }
