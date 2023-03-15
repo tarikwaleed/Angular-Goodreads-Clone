@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
 import { User } from 'src/app/user/models/user';
-import { MessageService } from 'primeng/api';
 
 
 @Injectable({
@@ -14,7 +13,8 @@ export class AuthService {
   private token: string | null = null;
   private user$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
-  constructor(private http: HttpClient, private messageService: MessageService) {
+  constructor(private http: HttpClient,
+  ) {
     const storedToken = localStorage.getItem('token');
     const storedUser = JSON.parse(localStorage.getItem('user') ?? '{}');
 
@@ -47,7 +47,6 @@ export class AuthService {
           const { token, user } = response;
           this.setToken(token);
           this.setUser(user);
-          this.messageService.add({ severity: 'success', summary: 'Logged In successfully', detail: 'Welcome back!' });
         }),
         map(() => undefined)
       );

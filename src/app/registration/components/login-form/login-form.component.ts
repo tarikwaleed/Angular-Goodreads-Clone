@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SignupFormComponent } from '../signup-form/signup-form.component';
 import { AuthService } from '../../services/auth.service';
 import { catchError, of, tap } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +15,13 @@ export class LoginFormComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, public dialog: MatDialog, private authService: AuthService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog,
+    private authService: AuthService,
+    private messageService: MessageService
+
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -34,16 +41,16 @@ export class LoginFormComponent implements OnInit {
     this.authService.login(this.loginForm.value)
       .pipe(
         tap(() => {
-          console.log('Logged in successfully!');
           this.dialog.closeAll()
+          this.messageService.add({ severity: 'success', summary: 'Logged In successfully', detail: 'Welcome back!' });
         }),
         catchError(error => {
           console.error(error);
+          this.messageService.add({ severity: 'error', summary: 'Invalid Credentials' });
           return of(null);
         })
       )
       .subscribe();
-    this.authService.getUser().subscribe(user => console.log(user))
   }
 
 }

@@ -38,7 +38,7 @@ export class BookDashboardComponent {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.products = this.products.filter(val => !this.selectedProducts.includes(val));
-        this.selectedProducts =[]
+        this.selectedProducts = []
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Products Deleted', life: 3000 });
       }
     });

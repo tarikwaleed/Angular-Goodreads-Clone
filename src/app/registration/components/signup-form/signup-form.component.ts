@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 import { catchError, of, tap } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-signup-form',
@@ -12,7 +13,11 @@ import { catchError, of, tap } from 'rxjs';
 export class SignupFormComponent implements OnInit {
   signupForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private dialogRef: MatDialogRef<SignupFormComponent>, private authService: AuthService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<SignupFormComponent>,
+    private authService: AuthService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
@@ -26,16 +31,16 @@ export class SignupFormComponent implements OnInit {
     this.authService.register(this.signupForm.value)
       .pipe(
         tap(() => {
-          console.log('Registerd successfully!');
+          this.messageService.add({ severity: 'success', summary: 'Registerd Successfully', detail: 'Welcome on Board 🙌' });
           this.dialogRef.close()
         }),
         catchError(error => {
           console.error(error);
+          this.messageService.add({ severity: 'error', summary: 'Email Already esixts, try again' });
           return of(null);
         })
       )
       .subscribe();
-    this.authService.getUser().subscribe(user => console.log(user))
   }
 
 
