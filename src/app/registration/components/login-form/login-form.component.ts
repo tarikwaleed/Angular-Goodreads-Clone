@@ -42,11 +42,11 @@ export class LoginFormComponent implements OnInit {
       .pipe(
         tap(() => {
           this.dialog.closeAll()
-          this.messageService.add({ severity: 'success', summary: 'Logged In successfully', detail: 'Welcome back!' });
+          this.messageService.add({ life: 1000, severity: 'success', summary: 'Logged In successfully', detail: 'Welcome back!' });
         }),
         catchError(error => {
           console.error(error);
-          this.messageService.add({ severity: 'error', summary: 'Invalid Credentials' });
+          this.messageService.add({ life: 1000, severity: 'error', summary: 'Invalid Credentials' });
           return of(null);
         })
       )

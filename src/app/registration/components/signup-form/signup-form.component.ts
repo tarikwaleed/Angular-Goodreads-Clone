@@ -31,12 +31,12 @@ export class SignupFormComponent implements OnInit {
     this.authService.register(this.signupForm.value)
       .pipe(
         tap(() => {
-          this.messageService.add({ severity: 'success', summary: 'Registerd Successfully', detail: 'Welcome on Board 🙌' });
+          this.messageService.add({ life: 1000, severity: 'success', summary: 'Registerd Successfully', detail: 'Welcome on Board 🙌' });
           this.dialogRef.close()
         }),
         catchError(error => {
           console.error(error);
-          this.messageService.add({ severity: 'error', summary: 'Email Already esixts, try again' });
+          this.messageService.add({ life: 1000, severity: 'error', summary: 'Email Already esixts, try again' });
           return of(null);
         })
       )

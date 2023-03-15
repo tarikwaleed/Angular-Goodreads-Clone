@@ -15,9 +15,7 @@ export class SidenavComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService) { }
   ngOnInit(): void {
-    this.user$=this.authService.getUser()
-
-
+    this.user$ = this.authService.getUser()
   }
 
   navigateTo(route: string) {
