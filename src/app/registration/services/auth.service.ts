@@ -18,23 +18,23 @@ export class AuthService {
 
     if (storedToken) {
       this.token = storedToken;
-      console.log(storedToken);
     }
 
     if (storedUser) {
       this.user$.next(storedUser);
-      console.log(storedUser);
     }
 
   }
 
   register(userData: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/register`, userData)
+    return this.http.post<{ token: string, user: User }>(`${this.API_URL}/register`, userData)
       .pipe(
         tap((response: any) => {
-          this.setToken(response.token);
-          this.setUser(response.user);
-        })
+          const { token, user } = response;
+          this.setToken(token);
+          this.setUser(user);
+        }),
+        map(() => undefined)
       );
   }
 
@@ -49,9 +49,6 @@ export class AuthService {
         map(() => undefined)
       );
   }
-
-
-
 
 
   getToken(): string | null {
@@ -91,6 +88,10 @@ export class AuthService {
     const token = localStorage.getItem('token');
     if (token) {
       this.setToken(token);
+    }
+    const user = JSON.parse(localStorage.getItem('user') ?? '{}');
+    if (user) {
+      this.setUser(user);
     }
   }
 }
