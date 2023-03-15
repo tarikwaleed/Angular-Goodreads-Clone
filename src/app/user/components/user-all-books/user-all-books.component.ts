@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Product } from '../../../admin/product';
 import { ProductService } from '../../../admin/product-service.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-user-all-books',
@@ -9,6 +10,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   styleUrls: ['./user-all-books.component.css']
 })
 export class UserAllBooksComponent {
+  @ViewChild('dt') dt: Table | undefined;
+
   productDialog!: boolean;
 
   products!: Product[];
@@ -60,6 +63,9 @@ export class UserAllBooksComponent {
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Deleted', life: 3000 });
       }
     });
+  }
+  applyFilterGlobal($event: any, stringVal: any) {
+    this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 
   hideDialog() {
