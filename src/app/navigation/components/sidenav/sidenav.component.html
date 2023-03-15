@@ -24,10 +24,13 @@
                 <button mat-button (click)="sidenav.toggle()">
                     <mat-icon>menu</mat-icon>
                 </button>
-                <label for="titile">Book Store {{(user$|async)?.username}}, {{(user$|async)?.role}}</label>
-                <mat-icon>person</mat-icon>
-                <app-login-button *ngIf="!(isLoggedIn$|async)"></app-login-button>
-                <app-logout-button *ngIf="(isLoggedIn$|async)"></app-logout-button>
+                <label for="titile">Book Store {{(user$|async)?.username}} {{(user$|async)?.role}}</label>
+                <div class="d-flex flex-row align-items-center">
+                    <app-user-avatar class="mx-3"></app-user-avatar>
+                    <app-login-button *ngIf="!(isLoggedIn$|async)"></app-login-button>
+                    <app-logout-button *ngIf="(isLoggedIn$|async)"></app-logout-button>
+
+                </div>
 
 
 

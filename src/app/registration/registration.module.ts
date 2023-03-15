@@ -6,6 +6,8 @@ import { SharedModule } from "../shared/shared.module";
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
+import { AvatarModule } from "primeng/avatar";
 
 
 @NgModule({
@@ -13,17 +15,20 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
     LoginFormComponent,
     LoginButtonComponent,
     SignupFormComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    UserAvatarComponent
   ],
   imports: [
     CommonModule,
     RegistrationRoutingModule,
     SharedModule,
+    AvatarModule
   ],
   exports: [
     LoginButtonComponent,
     LoginFormComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    UserAvatarComponent,
 
   ],
 })
