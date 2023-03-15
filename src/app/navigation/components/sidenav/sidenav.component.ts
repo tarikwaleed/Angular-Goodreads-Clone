@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/registration/services/auth.service';
 import { User } from 'src/app/user/models/user';
 
@@ -9,20 +10,13 @@ import { User } from 'src/app/user/models/user';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  user!: User | null
-  isAuthenticated!: boolean
+  user$!: Observable<User | null>;
+  isLoggedIn$ = this.authService.isAuthenticated$;
 
   constructor(private router: Router, private authService: AuthService) { }
   ngOnInit(): void {
-    // this.authService.getUser().subscribe(user => this.user = user)
-    this.authService.getUser().subscribe(user => {
-      // here i'm checkeing for the existance of user.email because just chekcing for
-      //user will always return true because user is store in local storage as {}
-      this.isAuthenticated = !!user?.email;
-      this.user = user;
-    });
-    console.log(this.isAuthenticated);
-    console.log(!!this.user);
+    this.user$=this.authService.getUser()
+
 
   }
 

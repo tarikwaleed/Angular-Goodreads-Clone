@@ -24,9 +24,9 @@
                 <button mat-button (click)="sidenav.toggle()">
                     <mat-icon>menu</mat-icon>
                 </button>
-                <label for="titile">Book Store {{user?.username}}, {{user?.role}}</label>
-                <app-login-button *ngIf="!isAuthenticated"></app-login-button>
-                <app-logout-button *ngIf="isAuthenticated"></app-logout-button>
+                <label for="titile">Book Store {{(user$|async)?.username}}, {{(user$|async)?.role}}</label>
+                <app-login-button *ngIf="!(isLoggedIn$|async)"></app-login-button>
+                <app-logout-button *ngIf="(isLoggedIn$|async)"></app-logout-button>
 
 
 
