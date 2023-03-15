@@ -8,6 +8,7 @@ import { NavigationModule } from "./navigation/navigation.module";
 import { CategoryModule } from "./category/category.module";
 import { RegistrationModule } from "./registration/registration.module";
 import { AdminModule } from "./admin/admin.module";
+import {  ToastModule } from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AdminModule } from "./admin/admin.module";
     CategoryModule,
     RegistrationModule,
     AdminModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

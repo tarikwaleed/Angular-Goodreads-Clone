@@ -24,7 +24,7 @@
                 <button mat-button (click)="sidenav.toggle()">
                     <mat-icon>menu</mat-icon>
                 </button>
-                <label for="titile">Book Store</label>
+                <label for="titile">Book Store {{user?.username}}, {{user?.role}}</label>
                 <app-login-button></app-login-button>
 
             </div>
