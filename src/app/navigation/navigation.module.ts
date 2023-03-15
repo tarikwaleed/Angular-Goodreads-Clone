@@ -5,6 +5,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { SidenavComponent } from "./components/sidenav/sidenav.component";
 import { NavigationRoutingModule } from "./navigation-routing.module";
 import { RegistrationModule } from "../registration/registration.module";
+import { UserModule } from "../user/user.module";
 
 
 
@@ -18,7 +19,8 @@ import { RegistrationModule } from "../registration/registration.module";
     CommonModule,
     SharedModule,
     NavigationRoutingModule,
-    RegistrationModule
+    RegistrationModule,
+    UserModule
 
 
   ],

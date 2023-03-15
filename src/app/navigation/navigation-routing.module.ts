@@ -8,6 +8,7 @@ import { AdminDashboardComponent } from '../admin/components/admin-dashboard/adm
 import { AuthGuard } from '../admin/guards/auth/auth.guard';
 import { NotAuthErrorComponent } from '../admin/components/not-auth-error/not-auth-error.component';
 import { BookDetailsComponent } from '../book/components/book-details/book-details.component';
+import { UserProfileComponent } from '../user/components/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/books', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoryListComponent },
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   { path: 'not-auth-error', component: NotAuthErrorComponent },
+  { path: 'profile', component: UserProfileComponent },
 
 ];
 
