@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient,
   ) {
     const storedToken = localStorage.getItem('token');
-    const storedUser = JSON.parse(localStorage.getItem('user') ?? '{}');
+    let storedUser = JSON.parse(localStorage.getItem('user') ?? '{}');
 
     if (storedToken) {
       this.token = storedToken;

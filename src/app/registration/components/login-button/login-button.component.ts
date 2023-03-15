@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginFormComponent } from "../login-form/login-form.component";
 import { MatDialog } from '@angular/material/dialog';
-import { SignupFormComponent } from '../signup-form/signup-form.component';
 
 @Component({
   selector: 'app-login-button',

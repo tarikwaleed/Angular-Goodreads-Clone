@@ -25,7 +25,10 @@
                     <mat-icon>menu</mat-icon>
                 </button>
                 <label for="titile">Book Store {{user?.username}}, {{user?.role}}</label>
-                <app-login-button></app-login-button>
+                <app-login-button *ngIf="!isAuthenticated"></app-login-button>
+                <app-logout-button *ngIf="isAuthenticated"></app-logout-button>
+
+
 
             </div>
             <!-- /.container -->
