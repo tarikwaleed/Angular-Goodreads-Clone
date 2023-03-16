@@ -42,9 +42,9 @@
                 <td>{{book.title}}</td>
                 <td><img [src]="'http://localhost:3000/1678248343966-Dennis_Ritchie_2011.jpg'" [alt]="book.name"
                         width="100" class="shadow-4" /></td>
-                <td>{{book.genre}}</td>
-                <td><span [class]="'product-badge status-' + book.author">{{book.author}}</span>
-                </td>
+                <td>{{book.genre[0].name}}</td>
+                <!-- <td><span [class]="'product-badge status-' + book.author">{{book.author}}</span> -->
+                <td>{{book.author[0].first_name}} {{book.author[0].last_name}}</td>
                 <td>
                     <!-- <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning p-mr-2"
                         (click)="editProduct(product)"></button>
