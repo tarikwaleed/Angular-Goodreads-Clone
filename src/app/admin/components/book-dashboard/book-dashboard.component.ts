@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Product } from '../../product';
 import { ProductService } from '../../product-service.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-book-dashboard',
@@ -9,6 +10,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   styleUrls: ['./book-dashboard.component.css']
 })
 export class BookDashboardComponent {
+  @ViewChild('dt') dt: Table | undefined;
   productDialog!: boolean;
 
   products!: Product[];
@@ -109,4 +111,7 @@ export class BookDashboardComponent {
     return id;
   }
 
+  applyFilterGlobal($event: any, stringVal: any) {
+    this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+  }
 }
