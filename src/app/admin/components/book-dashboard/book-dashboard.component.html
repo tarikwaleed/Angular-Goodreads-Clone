@@ -40,7 +40,7 @@
         <ng-template pTemplate="body" let-book>
             <tr>
                 <td>{{book.title}}</td>
-                <td><img [src]="'http://localhost:3000/1678248343966-Dennis_Ritchie_2011.jpg'" [alt]="book.name"
+                <td><img [src]="'http://localhost:3000/'+book.coverImage" [alt]="book.name"
                         width="100" class="shadow-4" /></td>
                 <td>{{book.genre[0].name}}</td>
                 <!-- <td><span [class]="'product-badge status-' + book.author">{{book.author}}</span> -->
