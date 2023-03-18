@@ -33,7 +33,7 @@ export class BooksListComponent {
 
         },
         category: {
-          id: "2",
+          _id: "2",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -49,7 +49,7 @@ export class BooksListComponent {
           photo: "https://fakeimg.pl/200x100"
         },
         category: {
-          id: "3",
+          _id: "3",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -65,7 +65,7 @@ export class BooksListComponent {
           photo: "https://fakeimg.pl/200x100"
         },
         category: {
-          id: "3",
+          _id: "3",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -81,7 +81,7 @@ export class BooksListComponent {
           photo: "https://fakeimg.pl/200x100"
         },
         category: {
-          id: "4",
+          _id: "4",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -98,7 +98,7 @@ export class BooksListComponent {
 
         },
         category: {
-          id: "5",
+          _id: "5",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
