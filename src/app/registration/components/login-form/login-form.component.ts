@@ -45,7 +45,7 @@ export class LoginFormComponent implements OnInit {
           this.messageService.add({ life: 1000, severity: 'success', summary: 'Logged In successfully', detail: 'Welcome back!' });
         }),
         catchError(error => {
-          console.error(error);
+          console.log(error);
           this.messageService.add({ life: 1000, severity: 'error', summary: 'Invalid Credentials' });
           return of(null);
         })

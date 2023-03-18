@@ -2,8 +2,8 @@
 <div class="card">
     <p-toolbar styleClass="p-mb-4">
         <ng-template pTemplate="left">
-            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
-                (click)="openNew()"></button>
+            <!-- <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                (click)="openNew()"></button> -->
             <!-- <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger"
                 (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button> -->
         </ng-template>
@@ -14,7 +14,7 @@
         </ng-template> -->
     </p-toolbar>
 
-    <p-table #dt [value]="products" [rows]="10" [paginator]="true"
+    <p-table #dt [value]="books" [rows]="10" [paginator]="true"
         [globalFilterFields]="['name','country.name','representative.name','status']" [(selection)]="selectedProducts"
         [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [showCurrentPageReport]="true">
@@ -37,32 +37,31 @@
                 <th></th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-book>
             <tr>
-                <td>{{product.name}}</td>
-                <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
-                        [alt]="product.name" width="100" class="shadow-4" /></td>
-                <td>{{product.category}}</td>
-                <td><span
-                        [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
-                </td>
+                <td>{{book.title}}</td>
+                <td><img [src]="'http://localhost:3000/'+book.coverImage" [alt]="book.name"
+                        width="100" class="shadow-4" /></td>
+                <td>{{book.genre[0].name}}</td>
+                <!-- <td><span [class]="'product-badge status-' + book.author">{{book.author}}</span> -->
+                <td>{{book.author[0].first_name}} {{book.author[0].last_name}}</td>
                 <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning p-mr-2"
+                    <!-- <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning p-mr-2"
                         (click)="editProduct(product)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
-                        (click)="deleteProduct(product)"></button>
+                        (click)="deleteProduct(product)"></button> -->
                 </td>
             </tr>
         </ng-template>
         <ng-template pTemplate="summary">
             <div class="p-d-flex p-ai-center p-jc-between">
-                In total there are {{products ? products.length : 0 }} products.
+                <!-- In total there are {{products ? products.length : 0 }} products. -->
             </div>
         </ng-template>
     </p-table>
 </div>
 
-<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true"
+<!-- <p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true"
     styleClass="p-fluid">
     <ng-template pTemplate="content">
         <div class="p-field">
@@ -121,4 +120,4 @@
     </ng-template>
 </p-dialog>
 
-<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog> -->
