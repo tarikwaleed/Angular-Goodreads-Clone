@@ -11,39 +11,51 @@ export class CategoryListComponent {
   constructor() {
     this.categories = [
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
       {
+        _id:"1",
         name: "Computer Science"
       },
     ]
