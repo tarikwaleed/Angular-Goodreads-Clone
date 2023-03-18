@@ -21,11 +21,12 @@ import { UserAllBooksComponent } from './components/user-all-books/user-all-book
     CommonModule,
     DashboardsSharedModule
   ],
-  exports:[
+  exports: [
     UserReadBooksComponent,
     UserCurrentlyReadingBooksComponent,
     UserWantToReadBooksComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserAllBooksComponent,
   ]
 
 })

@@ -32,8 +32,8 @@ export class BooksListComponent {
           photo: "https://fakeimg.pl/200x100"
 
         },
-        genre: {
-          id: 2,
+        category: {
+          _id: "2",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -48,8 +48,8 @@ export class BooksListComponent {
           name: "Dennis Richie",
           photo: "https://fakeimg.pl/200x100"
         },
-        genre: {
-          id: 1,
+        category: {
+          _id: "3",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -64,8 +64,8 @@ export class BooksListComponent {
           name: "Dennis Richie",
           photo: "https://fakeimg.pl/200x100"
         },
-        genre: {
-          id: 1,
+        category: {
+          _id: "3",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -80,25 +80,8 @@ export class BooksListComponent {
           name: "Dennis Richie",
           photo: "https://fakeimg.pl/200x100"
         },
-        genre: {
-          id: 1,
-          name: "CS"
-        },
-        isbn: "iBd13489uyujfnUYH78hfee",
-        summary: "This book covers the basic fundamentals of the c programming language",
-        imageUrl: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 1,
-        title: "The C Programming Language",
-        author: {
-          id: 1,
-          name: "Dennis Richie",
-          photo: "https://fakeimg.pl/200x100"
-
-        },
-        genre: {
-          id: 1,
+        category: {
+          _id: "4",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
@@ -114,113 +97,130 @@ export class BooksListComponent {
           photo: "https://fakeimg.pl/200x100"
 
         },
-        genre: {
-          id: 1,
+        category: {
+          _id: "5",
           name: "CS"
         },
         isbn: "iBd13489uyujfnUYH78hfee",
         summary: "This book covers the basic fundamentals of the c programming language",
         imageUrl: "https://fakeimg.pl/200x100"
       },
-      {
-        id: 1,
-        title: "The C Programming Language",
-        author: {
-          id: 1,
-          name: "Dennis Richie",
-          photo: "https://fakeimg.pl/200x100"
+      // {
+      //   id: 1,
+      //   title: "The C Programming Language",
+      //   author: {
+      //     id: 1,
+      //     name: "Dennis Richie",
+      //     photo: "https://fakeimg.pl/200x100"
 
-        },
-        genre: {
-          id: 1,
-          name: "CS"
-        },
-        isbn: "iBd13489uyujfnUYH78hfee",
-        summary: "This book covers the basic fundamentals of the c programming language",
-        imageUrl: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 1,
-        title: "The C Programming Language",
-        author: {
-          id: 1,
-          name: "Dennis Richie",
-          photo: "https://fakeimg.pl/200x100"
-        },
-        genre: {
-          id: 1,
-          name: "CS"
-        },
-        isbn: "iBd13489uyujfnUYH78hfee",
-        summary: "This book covers the basic fundamentals of the c programming language",
-        imageUrl: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 1,
-        title: "The C Programming Language",
-        author: {
-          id: 1,
-          name: "Dennis Richie",
-          photo: "https://fakeimg.pl/200x100"
-        },
-        genre: {
-          id: 1,
-          name: "CS"
-        },
-        isbn: "iBd13489uyujfnUYH78hfee",
-        summary: "This book covers the basic fundamentals of the c programming language",
-        imageUrl: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 1,
-        title: "The C Programming Language",
-        author: {
-          id: 1,
-          name: "Dennis Richie",
-          photo: "https://fakeimg.pl/200x100"
-        },
-        genre: {
-          id: 1,
-          name: "CS"
-        },
-        isbn: "iBd13489uyujfnUYH78hfee",
-        summary: "This book covers the basic fundamentals of the c programming language",
-        imageUrl: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 1,
-        title: "The C Programming Language",
-        author: {
-          id: 1,
-          name: "Dennis Richie",
-          photo: "https://fakeimg.pl/200x100"
+      //   },
+      //   genre: {
+      //     id: 1,
+      //     name: "CS"
+      //   },
+      //   isbn: "iBd13489uyujfnUYH78hfee",
+      //   summary: "This book covers the basic fundamentals of the c programming language",
+      //   imageUrl: "https://fakeimg.pl/200x100"
+      // },
+      // {
+      //   id: 1,
+      //   title: "The C Programming Language",
+      //   author: {
+      //     id: 1,
+      //     name: "Dennis Richie",
+      //     photo: "https://fakeimg.pl/200x100"
 
-        },
-        genre: {
-          id: 1,
-          name: "CS"
-        },
-        isbn: "iBd13489uyujfnUYH78hfee",
-        summary: "This book covers the basic fundamentals of the c programming language",
-        imageUrl: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 1,
-        title: "The C Programming Language",
-        author: {
-          id: 1,
-          name: "Dennis Richie",
-          photo: "https://fakeimg.pl/200x100"
+      //   },
+      //   genre: {
+      //     id: 1,
+      //     name: "CS"
+      //   },
+      //   isbn: "iBd13489uyujfnUYH78hfee",
+      //   summary: "This book covers the basic fundamentals of the c programming language",
+      //   imageUrl: "https://fakeimg.pl/200x100"
+      // },
+      // {
+      //   id: 1,
+      //   title: "The C Programming Language",
+      //   author: {
+      //     id: 1,
+      //     name: "Dennis Richie",
+      //     photo: "https://fakeimg.pl/200x100"
+      //   },
+      //   genre: {
+      //     id: 1,
+      //     name: "CS"
+      //   },
+      //   isbn: "iBd13489uyujfnUYH78hfee",
+      //   summary: "This book covers the basic fundamentals of the c programming language",
+      //   imageUrl: "https://fakeimg.pl/200x100"
+      // },
+      // {
+      //   id: 1,
+      //   title: "The C Programming Language",
+      //   author: {
+      //     id: 1,
+      //     name: "Dennis Richie",
+      //     photo: "https://fakeimg.pl/200x100"
+      //   },
+      //   genre: {
+      //     id: 1,
+      //     name: "CS"
+      //   },
+      //   isbn: "iBd13489uyujfnUYH78hfee",
+      //   summary: "This book covers the basic fundamentals of the c programming language",
+      //   imageUrl: "https://fakeimg.pl/200x100"
+      // },
+      // {
+      //   id: 1,
+      //   title: "The C Programming Language",
+      //   author: {
+      //     id: 1,
+      //     name: "Dennis Richie",
+      //     photo: "https://fakeimg.pl/200x100"
+      //   },
+      //   genre: {
+      //     id: 1,
+      //     name: "CS"
+      //   },
+      //   isbn: "iBd13489uyujfnUYH78hfee",
+      //   summary: "This book covers the basic fundamentals of the c programming language",
+      //   imageUrl: "https://fakeimg.pl/200x100"
+      // },
+      // {
+      //   id: 1,
+      //   title: "The C Programming Language",
+      //   author: {
+      //     id: 1,
+      //     name: "Dennis Richie",
+      //     photo: "https://fakeimg.pl/200x100"
 
-        },
-        genre: {
-          id: 1,
-          name: "CS"
-        },
-        isbn: "iBd13489uyujfnUYH78hfee",
-        summary: "This book covers the basic fundamentals of the c programming language",
-        imageUrl: "https://fakeimg.pl/200x100"
-      },
+      //   },
+      //   genre: {
+      //     id: 1,
+      //     name: "CS"
+      //   },
+      //   isbn: "iBd13489uyujfnUYH78hfee",
+      //   summary: "This book covers the basic fundamentals of the c programming language",
+      //   imageUrl: "https://fakeimg.pl/200x100"
+      // },
+      // {
+      //   id: 1,
+      //   title: "The C Programming Language",
+      //   author: {
+      //     id: 1,
+      //     name: "Dennis Richie",
+      //     photo: "https://fakeimg.pl/200x100"
+
+      //   },
+      //   genre: {
+      //     id: 1,
+      //     name: "CS"
+      //   },
+      //   isbn: "iBd13489uyujfnUYH78hfee",
+      //   summary: "This book covers the basic fundamentals of the c programming language",
+      //   imageUrl: "https://fakeimg.pl/200x100"
+      // },
 
 
     ]
