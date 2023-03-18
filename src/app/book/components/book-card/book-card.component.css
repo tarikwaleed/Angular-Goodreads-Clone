@@ -2,3 +2,12 @@
 {
    background-color: #7B68EE;
 }
+.center_button{
+
+  display: flex;
+  justify-content: center;
+}
+
+.example-card{
+border-radius: 15px;
+}
