@@ -15,5 +15,14 @@ export class CategoryService {
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.baseUrl);
   }
+  createCategory(category: Category): Observable<Category> {
+    const data = { name: category.name }
+    return this.http.post<Category>(this.baseUrl, data)
+  }
+  updateCategory(cateory: Category) {
+    const data = { id: cateory._id, name: cateory.name }
+    return this.http.put<Category>(`${this.baseUrl}/${cateory._id}`, data)
+  }
+
 
 }

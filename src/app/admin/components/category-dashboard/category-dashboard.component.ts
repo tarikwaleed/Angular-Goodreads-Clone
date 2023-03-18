@@ -15,6 +15,7 @@ export class CategoryDashboardComponent {
   categories!: Category[];
   category!: Category;
   submitted!: boolean;
+  isPostRequest: boolean = false
 
   constructor(private categoryService: CategoryService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
@@ -23,6 +24,7 @@ export class CategoryDashboardComponent {
   }
 
   openNew() {
+    this.isPostRequest = true
     this.category = { _id: "", name: "" };
     this.submitted = false;
     this.categoryDialog = true;
@@ -30,7 +32,9 @@ export class CategoryDashboardComponent {
 
 
   editCategory(category: Category) {
+    this.isPostRequest = false
     this.category = { ...category };
+    console.log(category);
     this.categoryDialog = true;
   }
 
@@ -54,12 +58,38 @@ export class CategoryDashboardComponent {
 
   saveCategory() {
     this.submitted = true;
+    if (this.isPostRequest) {
+      this.categoryService.createCategory(this.category).subscribe(ceratedCategory => {
+        this.categories.push(ceratedCategory);
+        console.log(this.categories);
+      })
+    }
+    else {
+      //send PUT
+      this.categories[this.findIndexById(this.category._id)] = this.category
+      this.categoryService.updateCategory(this.category).subscribe(updatedCategory => {
+        this.categories[this.findIndexById(this.category._id)] = updatedCategory
+        console.log(this.categories);
+      })
+      console.log(`PUT ${this.category.name}??`);
+    }
 
 
+    this.categories = [...this.categories]
     this.categoryDialog = false;
     this.category = { _id: "", name: "" };
   }
+  findIndexById(id: string): number {
+    let index = -1;
+    for (let i = 0; i < this.categories.length; i++) {
+      if (this.categories[i]._id === id) {
+        index = i;
+        break;
+      }
+    }
 
+    return index;
+  }
 
 
   applyFilterGlobal($event: any, stringVal: any) {
