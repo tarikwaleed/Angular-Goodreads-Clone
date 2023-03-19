@@ -73,6 +73,7 @@ export class CategoryDashboardComponent {
       this.categoryService.createCategory(this.category).subscribe(ceratedCategory => {
         this.categories.push(ceratedCategory);
         console.log(this.categories);
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Category Added Successfully', life: 1000 });
       })
     }
     else {
@@ -81,6 +82,7 @@ export class CategoryDashboardComponent {
       this.categoryService.updateCategory(this.category).subscribe(updatedCategory => {
         this.categories[this.findIndexById(this.category._id)] = updatedCategory
         console.log(this.categories);
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Category Updated Successfully', life: 1000 });
       })
       console.log(`PUT ${this.category.name}??`);
     }
