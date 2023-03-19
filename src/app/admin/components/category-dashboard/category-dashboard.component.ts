@@ -16,6 +16,7 @@ export class CategoryDashboardComponent {
   category!: Category;
   submitted!: boolean;
   isPostRequest: boolean = false
+  errorMessage: string = ''
 
   constructor(private categoryService: CategoryService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
@@ -43,10 +44,20 @@ export class CategoryDashboardComponent {
       message: 'Are you sure you want to delete ' + category.name + '?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.categories = this.categories.filter(val => val._id !== category._id);
-        this.category = { _id: "", name: "" };
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'category Deleted', life: 3000 });
+      accept: async () => {
+        this.categoryService.deleteCategory(category,
+          () => {
+            this.errorMessage = '';
+            this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'category Deleted', life: 1000 });
+            this.categories = this.categories.filter(val => val._id !== category._id);
+            this.category = { _id: "", name: "" };
+          },
+          (message) => {
+            this.errorMessage = message;
+            this.messageService.add({ severity: 'warn', summary: 'Failed', detail: this.errorMessage, life: 1000 });
+          }
+        );
+
       }
     });
   }
