@@ -26,7 +26,7 @@ export class AdminBookService {
   }
 
   updateBook(book: Book): Observable<Book> {
-    const url = `${this.apiUrl}/${book.id}`;
+    const url = `${this.apiUrl}/${book._id}`;
     return this.http.put<Book>(url, book);
   }
 

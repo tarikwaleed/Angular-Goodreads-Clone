@@ -19,55 +19,6 @@ export class AuthorListComponent {
   }
 
   constructor() {
-    this.authors = [
-      {
-        id: 1,
-        name: "Dennis Richie",
-        photo: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 2,
-        name: "Brian Karenghan",
-        photo: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 3,
-        name: "Donald Knuth",
-        photo: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 3,
-        name: "Donald Knuth",
-        photo: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 3,
-        name: "Donald Knuth",
-        photo: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 3,
-        name: "Donald Knuth",
-        photo: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 3,
-        name: "Donald Knuth",
-        photo: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 3,
-        name: "Donald Knuth",
-        photo: "https://fakeimg.pl/200x100"
-      },
-      {
-        id: 3,
-        name: "Donald Knuth",
-        photo: "https://fakeimg.pl/200x100"
-      },
-    ]
-
-
   }
 
 

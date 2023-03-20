@@ -1,9 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Book } from '../models/book';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookDataService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  private readonly baseUrl = 'http://localhost:3000/api/book'
+  getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.baseUrl);
+  }
+
+
 }

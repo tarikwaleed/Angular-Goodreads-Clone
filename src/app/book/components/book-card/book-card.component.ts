@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Book } from 'src/app/book/models/book';
+import { BookCardModel } from '../../models/book-card.model';
 
 
 @Component({
@@ -10,9 +10,9 @@ import { Book } from 'src/app/book/models/book';
 })
 export class BookCardComponent {
   @Input()
-  book!: Book
+  book!: BookCardModel
   constructor(private router: Router) { }
-  navigateToBookDetails(bookId: number) {
+  navigateToBookDetails(bookId: string) {
     this.router.navigate(['/book', bookId]);
   }
 }
