@@ -12,7 +12,6 @@ export class BookDetailsComponent {
 
   ngOnInit() {
     this.bookId = this.route.snapshot.params['id'];
-    // Use the bookId to fetch the book details from the server
   }
 
 }

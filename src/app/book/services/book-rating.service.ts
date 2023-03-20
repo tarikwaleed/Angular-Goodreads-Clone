@@ -19,7 +19,7 @@ export class BookRatingService {
       userID: this.user?._id,
       rating: rating,
     }
-    this.http.put(this.url,body)
+    this.http.post(this.url, body)
   }
 
 
