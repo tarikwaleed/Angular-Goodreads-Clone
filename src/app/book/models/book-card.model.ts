@@ -3,8 +3,8 @@ import { Author } from "src/app/author/models/author"
 export interface BookCardModel{
 
     _id:string
+    author_name:string
     title:string
-    summary:string
-    author:Author
     coverImage:string
+    summary:string
 }

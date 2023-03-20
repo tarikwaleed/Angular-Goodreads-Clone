@@ -1,9 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Book } from 'src/app/book/models/book';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { BookCardModel } from '../../models/book-card.model';
-import { BookDataService } from '../../services/book-data.service';
+import { BookListService } from '../../services/book-list.service';
 
 
 @Component({
@@ -17,10 +16,13 @@ export class BooksListComponent {
   pageSizeOptions = [5, 10, 20];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource = new MatTableDataSource<BookCardModel>(this.books);
-  constructor(private bookDataService: BookDataService) { }
+  constructor(private bookListService: BookListService) { }
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-    this.bookDataService.getBooks().subscribe(data => console.log(data))
+    this.bookListService.getAllBooks().subscribe(data => {
+      this.books = data;
+      console.log(this.books);
+    })
 
   }
 
