@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BookRatingService } from '../../services/book-rating.service';
 
 @Component({
   selector: 'app-book-rating',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-rating.component.css']
 })
 export class BookRatingComponent implements OnInit {
+  @Input()
+  bookId!: string
+  rating!: number
 
-  constructor() { }
+  constructor(private bookRatingService: BookRatingService) { }
 
   ngOnInit() {
+  }
+  applyRating() {
+    this.bookRatingService.changeBookRating(this.bookId, this.rating)
+
   }
 
 }

@@ -13,7 +13,7 @@ export class BookRatingService {
   constructor(private authService: AuthService, private http: HttpClient) {
     this.authService.getUser().subscribe(data => this.user = data)
   }
-  changeBookStatus(bookId: string, rating: number) {
+  changeBookRating(bookId: string, rating: number) {
     const body: BookRatingModel = {
       bookID: bookId,
       userID: this.user?._id,
