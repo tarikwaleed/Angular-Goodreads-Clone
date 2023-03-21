@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
     <mat-label>Change Book Shelf</mat-label>
-    <mat-select (selectionChange)="printSelection($event)">
+    <mat-select [(ngModel)]="bookStatus" (selectionChange)="changeBookStatus()">
         <mat-option value="c">Currently Reading</mat-option>
         <mat-option value="w">Want To Read</mat-option>
         <mat-option value="r">Read</mat-option>
