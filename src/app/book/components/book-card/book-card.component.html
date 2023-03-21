@@ -1,4 +1,4 @@
-<mat-card (click)="navigateToBookDetails(book._id)" matRipple class="example-card shadow m-4"
+<!-- <mat-card (click)="navigateToBookDetails(book._id)" matRipple class="example-card shadow m-4"
     style="width: 400px;height: 300px;">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
@@ -14,4 +14,10 @@
     <mat-card-actions class="center_button">
         <button mat-button class=" text-light btn">Add to shelf</button>
     </mat-card-actions>
-</mat-card> 
+</mat-card>  -->
+
+
+<mat-card (click)="navigateToBookDetails(book._id)" matRipple class="example-card shadow m-4"
+    style="height: 300px; width: 300px;">
+    <img class="img-fluid " mat-card-lg-image  [src]="'http://localhost:3000/'+book.coverImage" alt="Book Photo">
+</mat-card>

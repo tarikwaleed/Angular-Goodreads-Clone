@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { BookShelfModel } from '../../models/book-shelf.model';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-book-shelf',
   templateUrl: './book-shelf.component.html',
@@ -12,5 +13,4 @@ export class BookShelfComponent implements OnInit {
   printSelection(event:any){
     console.log(event.value);
   }
-
 }

@@ -11,3 +11,9 @@
 .example-card{
 border-radius: 15px;
 }
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
