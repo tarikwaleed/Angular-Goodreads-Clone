@@ -3,32 +3,31 @@
 
 <div class="container">
   <div class="row d-flex">
-     <!-- div for book picture -->
+    <!-- div for book picture -->
     <div class="col-lg-4 col-md-4 col-sm-6 align-items-center">
       <div class="row bg-dark" style="width:400px;height: 400px;">
 
 
       </div>
       <div class="row d-flex justify-content-center">
-        <app-book-rating class="rate"></app-book-rating>
-
+        <app-book-rating [bookId]="bookId" class="rate"></app-book-rating>
       </div>
 
     </div>
 
     <div class="col-lg-8 col-md-8 col-sm-6 my-3">
-     <p class="fs-2 fw-bold mb-3">Book Name</p>
-     <div class="asd">
-     <a [routerLink]="" class="mb-3" >Book Author</a><br>
-     <a [routerLink]="" class="mb-5">Cateogery name</a>
+      <p class="fs-2 fw-bold mb-3">Book Name</p>
+      <div class="asd">
+        <a [routerLink]="" class="mb-3">Book Author</a><br>
+        <a [routerLink]="" class="mb-5">Cateogery name</a>
 
-    </div>
-    <app-book-rating></app-book-rating>
+      </div>
+      <app-book-rating [bookId]="bookId"></app-book-rating>
     </div>
   </div>
 
-<app-book-reviews></app-book-reviews>
+  <app-book-reviews></app-book-reviews>
 
-<app-book-shelf></app-book-shelf>
+  <app-book-shelf></app-book-shelf>
 
 </div>

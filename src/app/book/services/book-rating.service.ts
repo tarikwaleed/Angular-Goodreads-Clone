@@ -14,13 +14,13 @@ export class BookRatingService {
   constructor(private authService: AuthService, private http: HttpClient) {
     this.authService.getUser().subscribe(data => this.user = data)
   }
-  changeBookRating(bookId: string, rating: number):Observable<BookRatingModel> {
-    const body: BookRatingModel = {
+  changeBookRating(bookId: string, rating: number): Observable<any> {
+    const body = {
       bookID: bookId,
       userID: this.user?._id,
       rating: rating,
     }
-    return this.http.post<BookRatingModel>(this.url, body)
+    return this.http.post<{}>(this.url, body)
   }
 
 
