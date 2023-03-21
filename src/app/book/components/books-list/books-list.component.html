@@ -9,7 +9,7 @@
 
 <!-- this is fully responsive -->
 <h1 class="mat-h1 mx-3 mt-3 text-center">Browse All Books</h1>
-<div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="10px" class="mb-5">
+<div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" class="mb-5">
     <div fxFlex.gt-sm="33.33%" fxFlex.gt-xs="50%" fxFlex="100%" *ngFor="let book of books.slice((paginator.pageIndex * paginator.pageSize), ((paginator.pageIndex * paginator.pageSize) + paginator.pageSize))">
         <app-book-card [book]="book"></app-book-card>
     </div>

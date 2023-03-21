@@ -8,9 +8,8 @@ import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.m
 import {RatingModule} from 'primeng/rating';
 import { BookRatingComponent } from './components/book-rating/book-rating.component';
 import { BookShelfComponent } from './components/book-shelf/book-shelf.component';
-
-
-
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import { BookReviewsComponent } from './components/book-reviews/book-reviews.component';
 
 
 
@@ -21,13 +20,16 @@ import { BookShelfComponent } from './components/book-shelf/book-shelf.component
     BooksListComponent,
     BookCardComponent,
     BookRatingComponent,
-    BookShelfComponent
+    BookShelfComponent,
+    BookReviewsComponent,
+
   ],
   imports: [
     CommonModule,
     SharedModule,
     DashboardsSharedModule,
-    RatingModule
+    RatingModule,
+    InputTextareaModule
   ]
 })
 export class BookModule { }

@@ -1,0 +1,12 @@
+.yellow-stars .ui-rating-star {
+  color: yellow;
+}
+::ng-deep .ui-rating .ui-rating-star {
+  color: yellow;
+}
+.star .ui-rating-star {
+  color: yellow !important;
+}
+.star .ui-rating-icon svg path {
+  fill: yellow;
+}

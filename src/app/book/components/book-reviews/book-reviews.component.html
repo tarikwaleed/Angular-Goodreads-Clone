@@ -1,0 +1,21 @@
+<p>book-reviews works!</p>
+<div class="container">
+<div class="row d-flex  ">
+  <textarea [(ngModel)]="reviewText" name="review-text"></textarea>
+    <div class="col-sm-9 col-md-4 col-xl-6 my-2 ">
+    <button  (click)="addReview()" pButton type="button" class="p-button-raised p-button-rounded" style=" background-color:  #7B68EE ;">ADD review</button>
+    </div>
+  <p class="mx-3">All Reviews:</p>
+  <pre >{{ allReviews }}</pre>
+</div>
+</div>
+
+
+<!--
+<p-fieldset legend="Add Review">
+  <textarea style="width: 100%;"></textarea>
+  <button class="mt-5">Submit Review</button>
+</p-fieldset> -->
+<!--
+<textarea [(ngModel)]="reviewText" name="review-text" style="width: 100%;"></textarea>
+<button (click)="addReview()" >Add Review</button> -->

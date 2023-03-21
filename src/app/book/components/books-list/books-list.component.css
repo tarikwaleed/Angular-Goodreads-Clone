@@ -1,4 +1,4 @@
-mat-grid-list {
+/* mat-grid-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -12,5 +12,25 @@ mat-grid-tile {
 @media (min-width: 768px) {
   mat-grid-tile {
     flex: 1 1 300px;
+  }
+} */
+/* .asd{
+background-color: aquamarine;
+text-decoration: none;
+}
+a {
+  text-decoration: none;
+} */
+
+@media only screen and (min-width: 992px) {
+  .card {
+    width: calc(33.33% - 20px);
+  }
+}
+
+/* For small screens */
+@media only screen and (max-width: 991px) {
+  .card {
+    width: 100%;
   }
 }

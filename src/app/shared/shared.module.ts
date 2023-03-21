@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListOption } from '@angular/material/list';
 import {DropdownModule} from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import {FieldsetModule} from 'primeng/fieldset';
+import {ButtonModule} from 'primeng/button';
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import {DropdownModule} from 'primeng/dropdown';
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    DropdownModule
+    DropdownModule,
+    InputTextareaModule,
+    FieldsetModule,
+    ButtonModule
 
 
   ],
@@ -59,7 +65,10 @@ import {DropdownModule} from 'primeng/dropdown';
     FormsModule,
     MatSelectModule,
     MatListOption,
-    DropdownModule
+    DropdownModule,
+    InputTextareaModule,
+    FieldsetModule,
+    ButtonModule
 
 
   ]
