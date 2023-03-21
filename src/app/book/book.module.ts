@@ -4,6 +4,12 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { BooksListComponent } from "./components/books-list/books-list.component";
 import { BookCardComponent } from "./components/book-card/book-card.component";
 import { SharedModule } from "../shared/shared.module";
+import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
+import {RatingModule} from 'primeng/rating';
+import { BookRatingComponent } from './components/book-rating/book-rating.component';
+import { BookShelfComponent } from './components/book-shelf/book-shelf.component';
+
+
 
 
 
@@ -13,11 +19,15 @@ import { SharedModule } from "../shared/shared.module";
   declarations: [
     BookDetailsComponent,
     BooksListComponent,
-    BookCardComponent
+    BookCardComponent,
+    BookRatingComponent,
+    BookShelfComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    DashboardsSharedModule,
+    RatingModule
   ]
 })
 export class BookModule { }
