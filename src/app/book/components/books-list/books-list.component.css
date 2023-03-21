@@ -1,0 +1,16 @@
+mat-grid-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+mat-grid-tile {
+  flex: 1 1 100%;
+  margin: 10px;
+}
+
+@media (min-width: 768px) {
+  mat-grid-tile {
+    flex: 1 1 300px;
+  }
+}

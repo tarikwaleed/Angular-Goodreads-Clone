@@ -13,10 +13,9 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
-
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatListOption } from '@angular/material/list';
+import {DropdownModule} from 'primeng/dropdown';
 
 
 @NgModule({
@@ -37,6 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    MatSelectModule,
+    DropdownModule
+
 
   ],
   exports: [
@@ -55,6 +57,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    MatSelectModule,
+    MatListOption,
+    DropdownModule
+
+
   ]
 })
 export class SharedModule { }

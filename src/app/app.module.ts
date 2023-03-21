@@ -10,6 +10,7 @@ import { RegistrationModule } from "./registration/registration.module";
 import { AdminModule } from "./admin/admin.module";
 import {  ToastModule } from "primeng/toast";
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {DropdownModule} from 'primeng/dropdown';
 
 
 @NgModule({
@@ -26,7 +27,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RegistrationModule,
     AdminModule,
     ToastModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    DropdownModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
