@@ -5,7 +5,6 @@ import { BooksListComponent } from "./components/books-list/books-list.component
 import { BookCardComponent } from "./components/book-card/book-card.component";
 import { SharedModule } from "../shared/shared.module";
 import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
-import {RatingModule} from 'primeng/rating';
 import { BookRatingComponent } from './components/book-rating/book-rating.component';
 import { BookShelfComponent } from './components/book-shelf/book-shelf.component';
 import {InputTextareaModule} from 'primeng/inputtextarea';
@@ -28,7 +27,10 @@ import { BookReviewsComponent } from './components/book-reviews/book-reviews.com
     CommonModule,
     SharedModule,
     DashboardsSharedModule,
-    RatingModule,
+  ],
+  exports: [
+    BookShelfComponent
+,
     InputTextareaModule
   ]
 })

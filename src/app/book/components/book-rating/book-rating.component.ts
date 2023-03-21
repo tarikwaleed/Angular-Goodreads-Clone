@@ -16,8 +16,7 @@ export class BookRatingComponent implements OnInit {
   ngOnInit() {
   }
   applyRating() {
-    this.bookRatingService.changeBookRating(this.bookId, this.rating)
-
+    this.bookRatingService.changeBookRating(this.bookId, this.rating).subscribe(data => console.log(data))
   }
 
 }

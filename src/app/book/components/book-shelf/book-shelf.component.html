@@ -1,10 +1,8 @@
-<!-- <p>
-  book-shelf works!
-</p> -->
-<!--
-<mat-selection-list (selectionChange)="onSelectionChange($event)">
-  <mat-list-option value="read">Read</mat-list-option>
-  <mat-list-option value="want-to-read">Want to Read</mat-list-option>
-  <mat-list-option value="currently-reading">Currently Reading</mat-list-option>
-</mat-selection-list> -->
- <!-- <p-dropdown [options]="books" [(ngModel)]="selectedBook"></p-dropdown>  -->
+<mat-form-field appearance="fill">
+    <mat-label>Change Book Shelf</mat-label>
+    <mat-select [(ngModel)]="bookStatus" (selectionChange)="changeBookStatus()">
+        <mat-option value="c">Currently Reading</mat-option>
+        <mat-option value="w">Want To Read</mat-option>
+        <mat-option value="r">Read</mat-option>
+    </mat-select>
+</mat-form-field>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/registration/services/auth.service';
 import { BookShelfModel } from '../models/book-shelf.model';
 import { User } from 'src/app/user/models/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,15 @@ export class BookShelfService {
   constructor(private authService: AuthService, private http: HttpClient) {
     this.authService.getUser().subscribe(data => this.user = data)
   }
-  changeBookStatus(bookId: string, bookStatus: string) {
+  changeBookStatus(bookId: string, bookStatus: string)  {
     const body: BookShelfModel = {
-      bookID: bookId,
+      bookId: bookId,
       bookStatus: bookStatus,
-      userID: this.user?._id
+      userId: this.user?._id
     }
-    this.http.put(this.url, body)
+    // return this.http.put<BookShelfModel>(this.url, body)
+   console.log(this.user?._id); 
+   console.log(bookId);
+   console.log(bookStatus);
   }
 }
