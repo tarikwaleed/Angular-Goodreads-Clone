@@ -9,7 +9,6 @@ import { CategoryModule } from "./category/category.module";
 import { RegistrationModule } from "./registration/registration.module";
 import { AdminModule } from "./admin/admin.module";
 import {  ToastModule } from "primeng/toast";
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -26,7 +25,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RegistrationModule,
     AdminModule,
     ToastModule,
-    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

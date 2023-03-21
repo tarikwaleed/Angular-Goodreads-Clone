@@ -13,6 +13,11 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RatingModule } from 'primeng/rating';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 
 
@@ -37,6 +42,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    RatingModule,
+    FlexLayoutModule,
+    MatSelectModule
 
   ],
   exports: [
@@ -55,6 +63,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    RatingModule,
+    FlexLayoutModule,
+    MatSelectModule
   ]
 })
 export class SharedModule { }

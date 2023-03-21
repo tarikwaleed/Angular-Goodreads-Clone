@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-shelf.component.css']
 })
 export class BookShelfComponent implements OnInit {
-
   constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+  }
+  printSelection(event:any){
+    console.log(event.value);
   }
 
 }
