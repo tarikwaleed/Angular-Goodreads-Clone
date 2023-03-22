@@ -10,10 +10,11 @@ import { UserBookService } from 'src/app/user/services/user-book.service';
 export class BookDetailsComponent {
   constructor(private route: ActivatedRoute, private userBookService: UserBookService) { }
   bookId!: string
+  bookData!: any
 
   ngOnInit() {
     this.bookId = this.route.snapshot.params['id'];
-    this.userBookService.getUserBook(this.bookId).subscribe(data => console.log(data))
+    this.userBookService.getUserBook(this.bookId).subscribe(data => this.bookData = data)
   }
 
 }
