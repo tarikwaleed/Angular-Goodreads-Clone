@@ -1,5 +1,4 @@
 <p>book-details works! {{bookId}}</p>
-<h1 class="mx-3 mt-3 text-center ">Browse All Books</h1>
 
 <div class="container">
   <div class="row d-flex">
@@ -9,25 +8,25 @@
         <img [src]="'http://localhost:3000/'+bookData.data[0].coverImage"alt="">
       </div>
       <div class="row d-flex justify-content-center">
-        <app-book-rating [bookId]="bookId" class="rate"></app-book-rating>
-        <app-book-shelf></app-book-shelf>
+        <app-book-rating [rating]="bookData.data[0].rating" [bookId]="bookId"
+          [editable]="true"></app-book-rating>
       </div>
 
     </div>
 
     <div class="col-lg-8 col-md-8 col-sm-6 my-3">
-      <p class="fs-2 fw-bold mb-3">Book Name</p>
+      <p class="fs-2 fw-bold mb-3">{{bookData.data[0].title}}</p>
       <div class="asd">
-        <a [routerLink]="" class="mb-3">Book Author</a><br>
-        <a [routerLink]="" class="mb-5">Cateogery name</a>
+        <a [routerLink]="" class="mb-3">{{bookData.data[0].author[0].authorName}}</a><br>
 
       </div>
-      <app-book-rating [bookId]="bookId"></app-book-rating>
+
+      <app-book-rating [rating]="bookData.data[0].averageRating" [bookId]="bookId" [editable]="false"></app-book-rating>
 
     </div>
   </div>
 
-  <app-book-shelf [bookId]="bookId"></app-book-shelf>
+  <app-book-shelf [bookStatus]="bookData.data[0].shelf" [bookId]="bookId"></app-book-shelf>
   <app-book-reviews></app-book-reviews>
 
 
