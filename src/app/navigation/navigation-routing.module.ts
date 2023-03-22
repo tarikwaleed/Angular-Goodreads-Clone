@@ -9,7 +9,7 @@ import { AuthGuard } from '../admin/guards/auth/auth.guard';
 import { NotAuthErrorComponent } from '../admin/components/not-auth-error/not-auth-error.component';
 import { BookDetailsComponent } from '../book/components/book-details/book-details.component';
 import { UserProfileComponent } from '../user/components/user-profile/user-profile.component';
-
+import { LandingPageComponent } from '../landing-page/landing-page.component';
 const routes: Routes = [
   { path: '', redirectTo: '/books', pathMatch: 'full' },
   { path: 'books', component: BooksListComponent },
