@@ -1,0 +1,12 @@
+.text_area{
+width: 70%;
+margin-top:3rem ;
+display: flex;
+justify-content: center;
+}
+
+.review_area{
+  border-style: solid;
+  border-color: #7B68EE;
+border-radius: 10px;
+}

@@ -11,7 +11,10 @@ import { BookDetailsComponent } from '../book/components/book-details/book-detai
 import { UserProfileComponent } from '../user/components/user-profile/user-profile.component';
 import { LandingPageComponent } from '../landing-page/landing-page.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/books', pathMatch: 'full' },
+  // { path: '', redirectTo: '/books', pathMatch: 'full' },
+  // { path: 'home', redirectTo: '/home', component: LandingPageComponent },
+
+  { path: 'home', component: LandingPageComponent },
   { path: 'books', component: BooksListComponent },
   { path: 'book/:id', component: BookDetailsComponent },
   { path: 'authors', component: AuthorListComponent },
