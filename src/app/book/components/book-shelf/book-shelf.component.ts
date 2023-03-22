@@ -10,6 +10,7 @@ import { BookShelfService } from '../../services/book-shelf.service';
 export class BookShelfComponent implements OnInit {
   @Input()
   bookId!: string
+  @Input()
   bookStatus!: string
   constructor(private bookShelfService: BookShelfService) { }
   ngOnInit(): void {

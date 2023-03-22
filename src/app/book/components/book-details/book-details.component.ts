@@ -14,7 +14,11 @@ export class BookDetailsComponent {
 
   ngOnInit() {
     this.bookId = this.route.snapshot.params['id'];
-    this.userBookService.getUserBook(this.bookId).subscribe(data => this.bookData = data)
+    this.userBookService.getUserBook(this.bookId).subscribe(data => {
+      this.bookData = data
+      console.log(this.bookData);
+
+    })
   }
 
 }
