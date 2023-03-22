@@ -10,6 +10,7 @@ import { BookShelfService } from '../../services/book-shelf.service';
 export class BookShelfComponent implements OnInit {
   @Input()
   bookId!: string
+  @Input()
   bookStatus!: string
   constructor(private bookShelfService: BookShelfService) { }
   ngOnInit(): void {
@@ -18,6 +19,6 @@ export class BookShelfComponent implements OnInit {
     console.log(event.value);
   }
   changeBookStatus() {
-    this.bookShelfService.changeBookStatus(this.bookId,this.bookStatus)
+    this.bookShelfService.changeBookStatus(this.bookId, this.bookStatus).subscribe(data => console.log(data))
   }
 }

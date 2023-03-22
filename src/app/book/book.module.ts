@@ -29,8 +29,8 @@ import { BookReviewsComponent } from './components/book-reviews/book-reviews.com
     DashboardsSharedModule,
   ],
   exports: [
-    BookShelfComponent
-,
+    BookShelfComponent,
+    BookRatingComponent,
     InputTextareaModule
   ]
 })

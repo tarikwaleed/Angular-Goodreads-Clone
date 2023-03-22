@@ -9,7 +9,10 @@ import { BookRatingService } from '../../services/book-rating.service';
 export class BookRatingComponent implements OnInit {
   @Input()
   bookId!: string
+  @Input()
   rating!: number
+  @Input()
+  editable!:boolean
 
   constructor(private bookRatingService: BookRatingService) { }
 
