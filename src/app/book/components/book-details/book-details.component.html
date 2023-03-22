@@ -11,6 +11,7 @@
       </div>
       <div class="row d-flex justify-content-center">
         <app-book-rating [bookId]="bookId" class="rate"></app-book-rating>
+        <app-book-shelf></app-book-shelf>
       </div>
 
     </div>
@@ -23,11 +24,13 @@
 
       </div>
       <app-book-rating [bookId]="bookId"></app-book-rating>
+
     </div>
   </div>
 
   <app-book-shelf [bookId]="bookId"></app-book-shelf>
   <app-book-reviews></app-book-reviews>
+
 
 
 </div>

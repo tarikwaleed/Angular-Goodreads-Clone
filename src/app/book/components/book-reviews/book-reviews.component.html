@@ -1,14 +1,27 @@
-<p>book-reviews works!</p>
-<div class="container">
-<div class="row d-flex  ">
-  <textarea [(ngModel)]="reviewText" name="review-text"></textarea>
+<!-- <p>book-reviews works!</p>
+<div class="container rounded-pill border border-primary">
+<div class="row d-flex ">
+  <textarea [(ngModel)]="reviewText" name="review-text" class="text_area"></textarea>
     <div class="col-sm-9 col-md-4 col-xl-6 my-2 ">
     <button  (click)="addReview()" pButton type="button" class="p-button-raised p-button-rounded" style=" background-color:  #7B68EE ;">ADD review</button>
     </div>
   <p class="mx-3">All Reviews:</p>
   <pre >{{ allReviews }}</pre>
+
 </div>
+</div> -->
+<div class="container review_area mb-3 ">
+  <div class="row d-flex justify-content-center">
+    <textarea [(ngModel)]="reviewText" name="review-text" class="text_area"></textarea>
+    <div class="col-sm-9 col-md-4 col-xl-6 my-2 d-flex justify-content-center">
+      <button (click)="addReview()" pButton type="button" class="p-button-raised p-button-rounded text-center justify-content-center" style="background-color: #7B68EE;">ADD review</button>
+    </div>
+  </div>
 </div>
+    <div class="container  mb-3 review_area">
+      <p class=" fst-italic fw-bold">All Reviews:</p>
+      <pre class="fs-5">{{ allReviews }}</pre>
+    </div>
 
 
 <!--
