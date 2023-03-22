@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   { path: 'not-auth-error', component: NotAuthErrorComponent },
   { path: 'profile', component: UserProfileComponent },
- {path:'/home',redirectTo:'',component:LandingPageComponent}
 
 ];
 
