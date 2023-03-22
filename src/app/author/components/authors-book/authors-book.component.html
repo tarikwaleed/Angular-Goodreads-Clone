@@ -1,1 +1,47 @@
 <p>authors-book works!</p>
+
+
+<h1 class="mx-3 mt-3 text-center ">Browse All Books</h1>
+
+<div class="container">
+  <div class="row d-flex">
+    <!-- div for book picture -->
+    <div class="col-lg-4 col-md-4 col-sm-6 align-items-center">
+      <div class="row bg-dark" style="width:400px;height: 400px;">
+      </div>
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-6 my-3">
+      <p class="fs-2 fw-bold mb-3">Author Name</p>
+
+      <app-book-rating [bookId]="bookId"></app-book-rating>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="container">
+    <div class="row justify-content-between">
+         <div class="col-lg-4 col-md-4 col-sm-6 align-items-center">
+      <div class="row bg-dark" style="width:400px;height: 400px;">
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-6 my-3">
+        <p class="fs-2 fw-bold mb-3">Book Name</p>
+        <app-book-rating [bookId]="bookId"></app-book-rating>
+      </div>
+
+    </div>
+    <div>
+            <app-book-shelf></app-book-shelf>
+            <app-book-rating [bookId]="bookId" class="rate"></app-book-rating>
+        </div>
+
+    </div>
+
+</div>
