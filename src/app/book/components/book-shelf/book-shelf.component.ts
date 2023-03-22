@@ -18,6 +18,6 @@ export class BookShelfComponent implements OnInit {
     console.log(event.value);
   }
   changeBookStatus() {
-    this.bookShelfService.changeBookStatus(this.bookId,this.bookStatus)
+    this.bookShelfService.changeBookStatus(this.bookId, this.bookStatus).subscribe(data => console.log(data))
   }
 }

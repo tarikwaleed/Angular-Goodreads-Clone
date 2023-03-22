@@ -15,15 +15,15 @@ export class BookShelfService {
   constructor(private authService: AuthService, private http: HttpClient) {
     this.authService.getUser().subscribe(data => this.user = data)
   }
-  changeBookStatus(bookId: string, bookStatus: string)  {
+  changeBookStatus(bookId: string, bookStatus: string) {
     const body: BookShelfModel = {
       bookId: bookId,
       bookStatus: bookStatus,
       userId: this.user?._id
     }
-    // return this.http.put<BookShelfModel>(this.url, body)
-   console.log(this.user?._id); 
-   console.log(bookId);
-   console.log(bookStatus);
+    console.log(this.user?._id);
+    console.log(bookId);
+    console.log(bookStatus);
+    return this.http.put<BookShelfModel>(this.url, body)
   }
 }
