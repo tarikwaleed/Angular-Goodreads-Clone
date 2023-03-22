@@ -4,10 +4,8 @@
   <div class="row d-flex">
     <!-- div for book picture -->
     <div class="col-lg-4 col-md-4 col-sm-6 align-items-center">
-      <div class="row" style="width:400px;height: 400px;">
-        <img [src]="'http://localhost:3000/'+bookData.data[0].coverImage"alt="">
-      </div>
-      <div class="row d-flex justify-content-center">
+        <img [src]="'http://localhost:3000/'+bookData.data[0].coverImage" class="w-75" alt="">
+      <div class="row d-flex justify-content-center my-3">
         <app-book-rating [rating]="bookData.data[0].rating" [bookId]="bookId"
           [editable]="true"></app-book-rating>
       </div>

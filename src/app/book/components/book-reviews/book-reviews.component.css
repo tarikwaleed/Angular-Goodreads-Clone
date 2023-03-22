@@ -1,5 +1,6 @@
 .text_area{
 width: 70%;
+border-radius: 5px;
 margin-top:3rem ;
 display: flex;
 justify-content: center;
