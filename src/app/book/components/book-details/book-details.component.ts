@@ -18,7 +18,9 @@ export class BookDetailsComponent {
     this.bookId = this.route.snapshot.params['id'];
     this.bookDetailsService.getBook(this.bookId).subscribe(data => {
       this.bookData = data
-
+    })
+    this.userBookService.getUserBook(this.bookId).subscribe(data=>{
+      this.userBookData=data
     })
   }
 
