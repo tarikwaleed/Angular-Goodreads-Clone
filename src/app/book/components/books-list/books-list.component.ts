@@ -21,7 +21,7 @@ export class BooksListComponent {
     this.dataSource.paginator = this.paginator;
     this.bookListService.getAllBooks().subscribe(data => {
       this.books = data;
-      console.log(this.books);
+      console.log(data);
     })
 
   }

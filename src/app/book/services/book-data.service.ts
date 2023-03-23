@@ -10,8 +10,8 @@ export class BookDataService {
 
   constructor(private http: HttpClient) { }
   private readonly baseUrl = 'http://localhost:3000/api/book'
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.baseUrl);
+  getBooks(): Observable<any> {
+    return this.http.get(this.baseUrl);
   }
 
 

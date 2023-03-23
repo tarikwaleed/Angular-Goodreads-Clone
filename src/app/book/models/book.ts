@@ -1,8 +1,8 @@
 import { Category } from "src/app/category/models/category"
 import { Author } from "../../author/models/author"
 import { Review } from "./review"
-import { Rating } from "primeng/rating"
 import { User } from "src/app/user/models/user"
+import { Rating } from "./rating"
 
 export interface Book {
     _id: string

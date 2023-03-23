@@ -5,6 +5,7 @@ import { AuthorCardComponent } from "./components/author-card/author-card.compon
 import { AuthorListComponent } from "./components/author-list/author-list.component";
 
 import { BookModule } from '../book/book.module';
+import { AuthorDetailsComponent } from './components/author-details/author-details.component';
 
 
 
@@ -12,7 +13,7 @@ import { BookModule } from '../book/book.module';
   declarations: [
     AuthorCardComponent,
     AuthorListComponent,
-    // BookModule
+    AuthorDetailsComponent
   ],
   imports: [
     CommonModule,

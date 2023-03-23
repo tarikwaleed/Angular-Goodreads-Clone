@@ -10,10 +10,10 @@ import { Book } from '../models/book';
 export class BookListService {
 
   constructor(private bookDataService: BookDataService) { }
-  getAllBooks(): Observable<BookCardModel[]> {
+  getAllBooks(): Observable<any[]> {
     return this.bookDataService.getBooks().pipe(
-      map((books: Book[]) => {
-        return books.map((book: Book) => {
+      map((books: any[]) => {
+        return books.map((book: any) => {
           //sanitize the data
           const author_name: string = `${book.author[0].first_name} ${book.author[0].last_name}}`
           let coverImage!: string
@@ -32,7 +32,7 @@ export class BookListService {
             title: book.title,
             coverImage: coverImage,
             summary: book.summary
-          } as BookCardModel;
+          };
         });
       })
     );

@@ -10,6 +10,7 @@ import { NotAuthErrorComponent } from '../admin/components/not-auth-error/not-au
 import { BookDetailsComponent } from '../book/components/book-details/book-details.component';
 import { UserProfileComponent } from '../user/components/user-profile/user-profile.component';
 import { LandingPageComponent } from '../landing-page/landing-page.component';
+import { AuthorDetailsComponent } from '../author/components/author-details/author-details.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/books', pathMatch: 'full' },
   // { path: 'home', redirectTo: '/home', component: LandingPageComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'books', component: BooksListComponent },
   { path: 'book/:id', component: BookDetailsComponent },
   { path: 'authors', component: AuthorListComponent },
+  { path: 'authors/:id', component: AuthorDetailsComponent },
   { path: 'categories', component: CategoryListComponent },
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   { path: 'not-auth-error', component: NotAuthErrorComponent },
