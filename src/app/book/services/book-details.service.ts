@@ -13,7 +13,7 @@ export class BookDetailsService {
     return this.bookDataService.getBook(bookId).pipe(
       map((book: any) => {
         //sanitize the data
-        const author_name: string = `${book.author[0].first_name} ${book.author[0].last_name}}`
+        const author_name: string = `${book.author[0].first_name} ${book.author[0].last_name}`
         let coverImage!: string
         const originalCoverImage = book.coverImage.split('/')
         if (originalCoverImage[0] === 'uploads') {
@@ -26,7 +26,6 @@ export class BookDetailsService {
         book.ratings.map((rating: Rating) => {
           totoalRating += rating.rating
         })
-        console.log(totoalRating);
         const averageRating=totoalRating/book.ratingCount
         // then return
         return {
