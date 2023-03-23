@@ -2,7 +2,7 @@
   <div class="row d-flex">
     <!-- div for book picture -->
     <div class="col-lg-4 col-md-4 col-sm-6 align-items-center">
-        <img [src]="'http://localhost:3000/'+coverImage" class="w-75" alt="">
+      <img [src]="'http://localhost:3000/'+bookData.coverImage" class="w-75" alt="">
       <div class="row d-flex justify-content-center my-3">
         <!-- <app-book-rating [rating]="bookData.data[0].rating" [bookId]="bookId"
           [editable]="true"></app-book-rating> -->
@@ -13,11 +13,12 @@
     <div class="col-lg-8 col-md-8 col-sm-6 my-3">
       <p class="fs-2 fw-bold mb-3">{{bookData.title}}</p>
       <div class="asd">
-        <a [routerLink]="" class="mb-3">{{bookData.author[0].first_name+' '+bookData.author[0].last_name}}</a><br>
+        <a class="mb-3">{{bookData.author_name}}</a><br>
 
       </div>
 
       <app-book-rating [rating]="bookData.averageRating" [bookId]="bookId" [editable]="false"></app-book-rating>
+      <p>{{bookData.summary}}</p>
 
     </div>
   </div>
