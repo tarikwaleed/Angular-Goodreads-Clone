@@ -10,3 +10,10 @@
 .star .ui-rating-icon svg path {
   fill: yellow;
 }
+.ui-rating a {
+  color: purple !important;
+}
+
+.yellow-star .pi-star {
+  color: yellow;
+}
