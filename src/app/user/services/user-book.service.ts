@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { AuthService } from 'src/app/registration/services/auth.service';
 import { UserBook } from '../models/user-book';
 
@@ -26,6 +26,25 @@ export class UserBookService {
     const params = new HttpParams()
       .set('userId', `${this.userId}`)
       .set('bookId', `${bookId}`);
-    return this.http.get(url, { params })
+    return this.http.get<any>(url, { params }).pipe(
+      map((userBook: any) => {
+        let data
+        if (userBook.length === 0) {
+          data = {
+            shelf: "d",
+            rating: 0
+          }
+        }
+        else {
+          data = {
+            shelf: userBook.data[0].shelf,
+            rating: userBook.data[0].rating
+          }
+
+        }
+        return data
+
+      })
+    )
   }
 }

@@ -1,30 +1,31 @@
-<p>book-details works! {{bookId}}</p>
-
 <div class="container">
   <div class="row d-flex">
     <!-- div for book picture -->
     <div class="col-lg-4 col-md-4 col-sm-6 align-items-center">
-        <img [src]="'http://localhost:3000/'+bookData.data[0].coverImage" class="w-75" alt="">
+      <img [src]="'http://localhost:3000/'+bookData.coverImage" class="w-75" alt="">
       <div class="row d-flex justify-content-center my-3">
-        <app-book-rating [rating]="bookData.data[0].rating" [bookId]="bookId"
+       <!-- user rating  -->
+        <app-book-rating [rating]="userBookData.rating" [bookId]="bookId"
           [editable]="true"></app-book-rating>
       </div>
 
     </div>
 
     <div class="col-lg-8 col-md-8 col-sm-6 my-3">
-      <p class="fs-2 fw-bold mb-3">{{bookData.data[0].title}}</p>
-      <div class="asd">
-        <a [routerLink]="" class="mb-3">{{bookData.data[0].author[0].authorName}}</a><br>
+      <p class="fs-2 fw-bold mb-3">{{bookData.title}}</p>
+      <p class="mb-3">{{bookData.author_name}}</p>
 
-      </div>
 
-      <app-book-rating [rating]="bookData.data[0].averageRating" [bookId]="bookId" [editable]="false"></app-book-rating>
+      <!-- average rating -->
+      <app-book-rating [rating]="bookData.averageRating" [bookId]="bookId" [editable]="false"></app-book-rating>
+      <span *ngIf="bookData.ratingCount>0 ">({{bookData.averageRating|number:'1.1-1'}}) </span>
+      <span>{{bookData.ratingCount}} Ratings</span>
+      <p>{{bookData.summary}}</p>
 
     </div>
   </div>
 
-  <app-book-shelf [bookStatus]="bookData.data[0].shelf" [bookId]="bookId"></app-book-shelf>
+  <app-book-shelf [bookStatus]="userBookData.shelf" [bookId]="bookId"></app-book-shelf>
   <app-book-reviews></app-book-reviews>
 
 
