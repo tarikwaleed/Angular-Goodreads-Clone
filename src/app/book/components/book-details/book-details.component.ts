@@ -13,15 +13,21 @@ export class BookDetailsComponent {
   bookId!: string
   bookData!: any
   userBookData!: any
+  reviewText!: string
+
 
   ngOnInit() {
     this.bookId = this.route.snapshot.params['id'];
     this.bookDetailsService.getBook(this.bookId).subscribe(data => {
       this.bookData = data
     })
-    this.userBookService.getUserBook(this.bookId).subscribe(data=>{
-      this.userBookData=data
+    this.userBookService.getUserBook(this.bookId).subscribe(data => {
+      this.userBookData = data
     })
+  }
+  submitReview(){
+    console.log(this.reviewText);
+
   }
 
 }

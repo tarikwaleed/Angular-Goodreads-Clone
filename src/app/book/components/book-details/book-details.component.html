@@ -4,9 +4,8 @@
     <div class="col-lg-4 col-md-4 col-sm-6 align-items-center">
       <img [src]="'http://localhost:3000/'+bookData.coverImage" class="w-75" alt="">
       <div class="row d-flex justify-content-center my-3">
-       <!-- user rating  -->
-        <app-book-rating [rating]="userBookData.rating" [bookId]="bookId"
-          [editable]="true"></app-book-rating>
+        <!-- user rating  -->
+        <app-book-rating [rating]="userBookData.rating" [bookId]="bookId" [editable]="true"></app-book-rating>
       </div>
 
     </div>
@@ -26,6 +25,15 @@
   </div>
 
   <app-book-shelf [bookStatus]="userBookData.shelf" [bookId]="bookId"></app-book-shelf>
+  <div>
+    <div>
+      <textarea rows="5" cols="60" pInputTextarea [(ngModel)]="reviewText"></textarea>
+
+    </div>
+    <div>
+      <p-button label="Submit" (onClick)="submitReview()"></p-button>
+    </div>
+  </div>
   <app-review-list [bookId]="bookId "></app-review-list>
 
 
