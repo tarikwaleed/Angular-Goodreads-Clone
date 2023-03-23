@@ -17,10 +17,11 @@ import { RatingModule } from 'primeng/rating';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListOption } from '@angular/material/list';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import {FieldsetModule} from 'primeng/fieldset';
-import {ButtonModule} from 'primeng/button';
+import { FieldsetModule } from 'primeng/fieldset';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import {ButtonModule} from 'primeng/button';
     DropdownModule,
     InputTextareaModule,
     FieldsetModule,
-    ButtonModule
+    ButtonModule, CardModule
 
 
   ],
@@ -70,7 +71,7 @@ import {ButtonModule} from 'primeng/button';
     DropdownModule,
     InputTextareaModule,
     FieldsetModule,
-    ButtonModule
+    ButtonModule, CardModule
 
 
   ]

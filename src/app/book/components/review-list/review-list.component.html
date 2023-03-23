@@ -1,0 +1,7 @@
+<h1 *ngIf="reviews.length>0">All Reviews</h1>
+<p-card class="m-1" *ngFor="let rev of reviews" [header]="rev.userName">
+    <p class="m-0">
+        {{rev.reviewText}}
+    </p>
+</p-card>
+<h1 class="text-warning" *ngIf="reviews.length==0">Book has no Reviews</h1>

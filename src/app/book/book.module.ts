@@ -9,6 +9,7 @@ import { BookRatingComponent } from './components/book-rating/book-rating.compon
 import { BookShelfComponent } from './components/book-shelf/book-shelf.component';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { BookReviewsComponent } from './components/book-reviews/book-reviews.component';
+import { ReviewListComponent } from './components/review-list/review-list.component';
 
 
 
@@ -21,6 +22,7 @@ import { BookReviewsComponent } from './components/book-reviews/book-reviews.com
     BookRatingComponent,
     BookShelfComponent,
     BookReviewsComponent,
+    ReviewListComponent,
 
   ],
   imports: [

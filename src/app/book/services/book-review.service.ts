@@ -17,8 +17,24 @@ export class BookReviewService {
   getBookReviews(bookId: string): Observable<any> {
     const params = new HttpParams()
       .set('bookId', `${bookId}`);
-    console.log(bookId);
-    return this.http.get(this.url, { params })
-    
+    return this.http.get(this.url, { params }).pipe(
+      map((reviews: any) => {
+        if (reviews.length > 0) {
+          return reviews.data.map((review: any) => {
+            let data
+            data = {
+              userName: review.user.username,
+              reviewText: review.review
+            }
+            return data
+          })
+        }
+        else {
+          return []
+
+
+        }
+      })
+    )
   }
 }
