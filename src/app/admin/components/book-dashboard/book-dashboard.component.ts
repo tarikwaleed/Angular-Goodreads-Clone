@@ -66,9 +66,6 @@ export class BookDashboardComponent {
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'book Updated', life: 3000 });
       }
       else {
-        this.book._id = this.createId();
-        this.book.image = 'book-placeholder.svg';
-        this.books.push(this.book);
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'book Created', life: 3000 });
       }
 
@@ -90,14 +87,6 @@ export class BookDashboardComponent {
     return index;
   }
 
-  createId(): string {
-    let _id = '';
-    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < 5; i++) {
-      _id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return _id;
-  }
 
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);

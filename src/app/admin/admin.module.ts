@@ -7,6 +7,7 @@ import { AuthorDashboardComponent } from './components/author-dashboard/author-d
 import { CategoryDashboardComponent } from './components/category-dashboard/category-dashboard.component';
 import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
 import { AuthorModule } from "../author/author.module";
+import { CategoryModule } from "../category/category.module";
 
 
 
@@ -21,7 +22,9 @@ import { AuthorModule } from "../author/author.module";
   ],
   imports: [
     CommonModule,
-    DashboardsSharedModule,AuthorModule
+    DashboardsSharedModule,
+    AuthorModule,
+    CategoryModule
 
   ],
 })

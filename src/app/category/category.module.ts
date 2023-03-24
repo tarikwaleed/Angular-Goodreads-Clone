@@ -4,6 +4,7 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 import { SharedModule } from "../shared/shared.module";
+import { CategorySelectComponent } from './components/category-select/category-select.component';
 
 
 
@@ -11,11 +12,16 @@ import { SharedModule } from "../shared/shared.module";
   declarations: [
     CategoryCardComponent,
     CategoryListComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    CategorySelectComponent
   ],
   imports: [
     CommonModule,
     SharedModule
+  ],
+  exports: [
+    CategorySelectComponent
   ]
+
 })
 export class CategoryModule { }
