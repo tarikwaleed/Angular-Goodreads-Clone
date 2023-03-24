@@ -25,16 +25,19 @@
   </div>
 
   <app-book-shelf [bookStatus]="userBookData.shelf" [bookId]="bookId"></app-book-shelf>
-  <div>
-    <div>
-      <textarea rows="5" cols="60" pInputTextarea [(ngModel)]="reviewText"></textarea>
 
+  <form [formGroup]="reviewForm">
+    <div>
+      <textarea rows="5" cols="60" formControlName="reviewText" pInputTextarea [(ngModel)]="reviewText"></textarea>
+      <p *ngIf="reviewForm.get('reviewText')?.invalid && reviewForm.get('reviewText')?.touched" style="color: red">
+        Please Enter a review</p>
     </div>
     <div>
       <p-button label="Submit" (onClick)="submitReview()"></p-button>
     </div>
-  </div>
+  </form>
   <app-review-list [bookId]="bookId "></app-review-list>
+
 
 
 

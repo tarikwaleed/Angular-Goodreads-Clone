@@ -37,4 +37,12 @@ export class BookReviewService {
       })
     )
   }
+  addBookReview(bookId: string, reviewText: string): Observable<any> {
+    const body = {
+      bookId: bookId,
+      userId: this.user?._id,
+      review: reviewText
+    }
+    return this.http.post<any>(this.url, body)
+  }
 }
