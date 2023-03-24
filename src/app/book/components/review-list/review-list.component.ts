@@ -12,10 +12,17 @@ export class ReviewListComponent implements OnInit {
   reviews!: any[]
   constructor(private bookReviewService: BookReviewService) { }
   ngOnInit(): void {
+    this.getReviews()
+    this.bookReviewService.reviewAdded.subscribe(() => {
+      this.getReviews();
+    });
+  }
+  getReviews() {
     this.bookReviewService.getBookReviews(this.bookId).subscribe(data => {
-      this.reviews=data
+      this.reviews = data
       console.log(this.reviews);
     })
+
   }
 
 }
