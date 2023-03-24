@@ -6,6 +6,7 @@ import { AuthorListComponent } from "./components/author-list/author-list.compon
 
 import { BookModule } from '../book/book.module';
 import { AuthorDetailsComponent } from './components/author-details/author-details.component';
+import { AuthorSelectComponent } from './components/author-select/author-select.component';
 
 
 
@@ -13,12 +14,16 @@ import { AuthorDetailsComponent } from './components/author-details/author-detai
   declarations: [
     AuthorCardComponent,
     AuthorListComponent,
-    AuthorDetailsComponent
+    AuthorDetailsComponent,
+    AuthorSelectComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     BookModule
+  ],
+  exports: [
+    AuthorSelectComponent
   ]
 })
 export class AuthorModule { }

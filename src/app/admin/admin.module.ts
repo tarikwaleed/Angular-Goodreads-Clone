@@ -6,6 +6,7 @@ import { BookDashboardComponent } from './components/book-dashboard/book-dashboa
 import { AuthorDashboardComponent } from './components/author-dashboard/author-dashboard.component';
 import { CategoryDashboardComponent } from './components/category-dashboard/category-dashboard.component';
 import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
+import { AuthorModule } from "../author/author.module";
 
 
 
@@ -20,7 +21,7 @@ import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.m
   ],
   imports: [
     CommonModule,
-    DashboardsSharedModule
+    DashboardsSharedModule,AuthorModule
 
   ],
 })
