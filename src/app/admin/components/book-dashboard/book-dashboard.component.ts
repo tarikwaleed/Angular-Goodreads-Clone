@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { Product } from '../../product';
-import { ProductService } from '../../product-service.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { Book } from 'src/app/book/models/book';
 import { AdminBookService } from '../../services/admin-book.service';
+import { BookListService } from 'src/app/book/services/book-list.service';
 
 @Component({
   selector: 'app-book-dashboard',
@@ -13,108 +12,92 @@ import { AdminBookService } from '../../services/admin-book.service';
 })
 export class BookDashboardComponent {
   @ViewChild('dt') dt: Table | undefined;
-  // productDialog!: boolean;
+  bookDialog!: boolean;
+  books!: any[];
+  book!: any;
+  selectedBooks!: any[];
+  submitted!: boolean;
 
-  books!: Book[];
-
-  // product!: Product;
-
-  selectedProducts!: Product[];
-
-  // submitted!: boolean;
-
-  constructor(private adminBookService: AdminBookService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(private bookListService:BookListService, private adminBookService: AdminBookService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
-    this.adminBookService.getBooks().subscribe((data: Book[]) => {
+    this.bookListService.getAllBooks().subscribe((data) => {
       this.books = data;
-      console.log(this.books);
+      console.log(data);
     });
   }
 
-  // openNew() {
-  //   this.product = {};
-  //   this.submitted = false;
-  //   this.productDialog = true;
-  // }
+  openNew() {
+    this.book = {};
+    this.submitted = false;
+    this.bookDialog = true;
+  }
 
-  // deleteSelectedProducts() {
-  //   this.confirmationService.confirm({
-  //     message: 'Are you sure you want to delete the selected products?',
-  //     header: 'Confirm',
-  //     icon: 'pi pi-exclamation-triangle',
-  //     accept: () => {
-  //       this.products = this.products.filter(val => !this.selectedProducts.includes(val));
-  //       this.selectedProducts = []
-  //       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Products Deleted', life: 3000 });
-  //     }
-  //   });
-  // }
 
-  // editProduct(product: Product) {
-  //   this.product = { ...product };
-  //   this.productDialog = true;
-  // }
+  editBook(book: Book) {
+    this.book = { ...book };
+    this.bookDialog = true;
+  }
 
-  // deleteProduct(product: Product) {
-  //   this.confirmationService.confirm({
-  //     message: 'Are you sure you want to delete ' + product.name + '?',
-  //     header: 'Confirm',
-  //     icon: 'pi pi-exclamation-triangle',
-  //     accept: () => {
-  //       this.products = this.products.filter(val => val.id !== product.id);
-  //       this.product = {};
-  //       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Deleted', life: 3000 });
-  //     }
-  //   });
-  // }
+  deleteBook(book: Book) {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete ' + book.title + '?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.books = this.books.filter(val => val._id !== book._id);
+        this.book = {};
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'book Deleted', life: 3000 });
+      }
+    });
+  }
 
-  // hideDialog() {
-  //   this.productDialog = false;
-  //   this.submitted = false;
-  // }
+  hideDialog() {
+    this.bookDialog = false;
+    this.submitted = false;
+  }
 
-  // saveProduct() {
-  //   this.submitted = true;
+  saveBook() {
+    this.submitted = true;
 
-  //   if (this.product.name?.trim()) {
-  //     if (this.product.id) {
-  //       this.products[this.findIndexById(this.product.id)] = this.product;
-  //       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Updated', life: 3000 });
-  //     }
-  //     else {
-  //       this.product.id = this.createId();
-  //       this.product.image = 'product-placeholder.svg';
-  //       this.products.push(this.product);
-  //       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Created', life: 3000 });
-  //     }
+    if (this.book.title?.trim()) {
+      if (this.book._id) {
+        this.books[this.findIndexById(this.book.id)] = this.book;
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'book Updated', life: 3000 });
+      }
+      else {
+        this.book._id = this.createId();
+        this.book.image = 'book-placeholder.svg';
+        this.books.push(this.book);
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'book Created', life: 3000 });
+      }
 
-  //     this.products = [...this.products];
-  //     this.productDialog = false;
-  //     this.product = {};
-  //   }
-  // }
+      this.books = [...this.books];
+      this.bookDialog = false;
+      this.book = {};
+    }
+  }
 
-  // findIndexById(id: string): number {
-  //   let index = -1;
-  //   for (let i = 0; i < this.products.length; i++) {
-  //     if (this.products[i].id === id) {
-  //       index = i;
-  //       break;
-  //     }
-  //   }
+  findIndexById(id: string): number {
+    let index = -1;
+    for (let i = 0; i < this.books.length; i++) {
+      if (this.books[i]._id === id) {
+        index = i;
+        break;
+      }
+    }
 
-  //   return index;
-  // }
+    return index;
+  }
 
-  // createId(): string {
-  //   let id = '';
-  //   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  //   for (var i = 0; i < 5; i++) {
-  //     id += chars.charAt(Math.floor(Math.random() * chars.length));
-  //   }
-  //   return id;
-  // }
+  createId(): string {
+    let _id = '';
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < 5; i++) {
+      _id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return _id;
+  }
 
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);

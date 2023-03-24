@@ -15,7 +15,7 @@ export class BookListService {
       map((books: any[]) => {
         return books.map((book: any) => {
           //sanitize the data
-          const author_name: string = `${book.author[0].first_name} ${book.author[0].last_name}}`
+          const author_name: string = `${book.author[0].first_name} ${book.author[0].last_name}`
           let coverImage!: string
           const originalCoverImage = book.coverImage.split('/')
           if (originalCoverImage[0] === 'uploads') {
@@ -31,7 +31,8 @@ export class BookListService {
             author_name: author_name,
             title: book.title,
             coverImage: coverImage,
-            summary: book.summary
+            summary: book.summary,
+            genre:book.genre[0]?.name
           };
         });
       })
