@@ -4,6 +4,7 @@ import { BookDataService } from 'src/app/book/services/book-data.service';
 import { AdminBookService } from '../../services/admin-book.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageService } from 'primeng/api';
+import { BookFormService } from '../../services/book-form.service';
 
 @Component({
   selector: 'app-book-form',
@@ -19,7 +20,7 @@ export class BookFormComponent implements OnInit {
   selectedFile!: File
   constructor(
     private formBuilder: FormBuilder,
-    private adminBookService: AdminBookService,
+    private bookFormService: BookFormService,
     public dialog: MatDialog,
     private messageService: MessageService
   ) { }
@@ -50,7 +51,7 @@ export class BookFormComponent implements OnInit {
 
     console.log(formData);
 
-    this.adminBookService.addBook(formData).subscribe(data => {
+    this.bookFormService.addBook(formData).subscribe(data => {
       console.log(data);
       this.dialog.closeAll()
       this.messageService.add({ severity: 'success', summary: 'Done', detail: "New book has been added Successfully", life: 2000 });

@@ -2,10 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { Book } from 'src/app/book/models/book';
-import { AdminBookService } from '../../services/admin-book.service';
 import { BookListService } from 'src/app/book/services/book-list.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BookFormComponent } from '../book-form/book-form.component';
+import { BookFormService } from '../../services/book-form.service';
 
 @Component({
   selector: 'app-book-dashboard',
@@ -20,18 +20,28 @@ export class BookDashboardComponent {
   selectedBooks!: any[];
   submitted!: boolean;
 
-  constructor(private bookListService: BookListService,
-    private adminBookService: AdminBookService,
+  constructor(
+    private bookListService: BookListService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
+    private bookFormService: BookFormService,
     public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
+    this.getBooks()
+    this.bookFormService.bookAdded.subscribe(() => {
+      this.getBooks()
+      console.log(this.books);
+    })
+
+  }
+  getBooks() {
     this.bookListService.getAllBooks().subscribe((data) => {
       this.books = data;
       console.log(data);
     });
+
   }
 
   openNew() {
