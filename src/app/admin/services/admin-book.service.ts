@@ -31,9 +31,9 @@ export class AdminBookService {
     return this.http.put<any>(url, formData);
   }
 
-  deleteBook(id: number): Observable<Book> {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.delete<Book>(url);
+  deleteBook(bookId: string): Observable<any> {
+    const url = `${this.apiUrl}/${bookId}`;
+    return this.http.delete<any>(url);
   }
 
 }

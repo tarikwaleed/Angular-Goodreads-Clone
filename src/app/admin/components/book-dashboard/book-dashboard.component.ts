@@ -6,7 +6,6 @@ import { BookListService } from 'src/app/book/services/book-list.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BookFormComponent } from '../book-form/book-form.component';
 import { BookFormService } from '../../services/book-form.service';
-import { BookDataService } from 'src/app/book/services/book-data.service';
 import { BookDashboardService } from '../../services/book-dashboard.service';
 
 @Component({
@@ -41,6 +40,10 @@ export class BookDashboardComponent {
       this.getBooks()
       console.log(this.books);
     })
+    this.bookDashboardService.bookDeleted.subscribe(() => {
+      this.getBooks()
+      console.log(this.books);
+    })
 
   }
   getBooks() {
@@ -48,7 +51,6 @@ export class BookDashboardComponent {
       this.books = data;
       console.log(data);
     });
-
   }
 
 
@@ -76,8 +78,9 @@ export class BookDashboardComponent {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.books = this.books.filter(val => val._id !== book._id);
-        this.book = {};
+        this.bookDashboardService.deleteBook(book._id).subscribe(data => {
+          console.log(data);
+        })
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'book Deleted', life: 3000 });
       }
     });

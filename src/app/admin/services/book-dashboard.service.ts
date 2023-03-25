@@ -8,6 +8,7 @@ import { Observable, tap } from 'rxjs';
 export class BookDashboardService {
 
   bookUpdated = new EventEmitter<void>();
+  bookDeleted = new EventEmitter<void>();
 
   constructor(private adminBookService: AdminBookService) { }
   updateBook(bookId: string, formData: any): Observable<any> {
@@ -17,8 +18,18 @@ export class BookDashboardService {
       })
     )
   }
+  deleteBook(bookId: string): Observable<any> {
+    return this.adminBookService.deleteBook(bookId).pipe(
+      tap(() => {
+        this.emitBookDeletedEvent()
+      })
+    )
+  }
   private emitBookUpdatedEvent() {
     this.bookUpdated.emit()
+  }
+  private emitBookDeletedEvent() {
+    this.bookDeleted.emit()
   }
 
 
