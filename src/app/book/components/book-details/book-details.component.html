@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row d-flex">
+  <div class="row d-flex justify-content-center">
     <!-- div for book picture -->
     <div class="col-lg-4 col-md-4 col-sm-6 align-items-center mt-5 ">
-      <img [src]="'http://localhost:3000/'+bookData.coverImage" class="w-75" alt="">
+      <img [src]="'http://localhost:3000/'+bookData.coverImage"  alt="">
       <div class="row d-flex justify-content-center my-3">
         <!-- user rating  -->
         <app-book-rating [rating]="userBookData.rating" [bookId]="bookId" [editable]="true"></app-book-rating>
@@ -27,7 +27,7 @@
   <app-book-shelf [bookStatus]="userBookData.shelf" [bookId]="bookId"></app-book-shelf>
 
   <form [formGroup]="reviewForm">
-    <div>
+    <div class="row d-flex justify-content-center">
       <textarea rows="5" cols="60" formControlName="reviewText" pInputTextarea [(ngModel)]="reviewText"></textarea>
       <p *ngIf="reviewForm.get('reviewText')?.invalid && reviewForm.get('reviewText')?.touched" style="color: red">
         Please Enter a review</p>
@@ -37,7 +37,6 @@
     </div>
   </form>
   <app-review-list [bookId]="bookId "></app-review-list>
-
 
 
 
