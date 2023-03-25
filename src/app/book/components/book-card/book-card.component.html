@@ -16,8 +16,12 @@
     </mat-card-actions>
 </mat-card>  -->
 
+<div class="d-flex justify-content-center">
+  <div>
+  <mat-card (click)="navigateToBookDetails(book._id)" matRipple class="example-card shadow m-4"
+        style="height: 300px; width: 300px;">
+        <img class="img-fluid " mat-card-lg-image  [src]="'http://localhost:3000/'+book.coverImage" alt="Book Photo">
+    </mat-card>
+  </div>
 
-<mat-card (click)="navigateToBookDetails(book._id)" matRipple class="example-card shadow m-4"
-    style="height: 300px; width: 300px;">
-    <img class="img-fluid " mat-card-lg-image  [src]="'http://localhost:3000/'+book.coverImage" alt="Book Photo">
-</mat-card>
+</div>
