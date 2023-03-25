@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthorSelectService } from '../../services/author-select.service';
 
 @Component({
@@ -7,8 +7,10 @@ import { AuthorSelectService } from '../../services/author-select.service';
   styleUrls: ['./author-select.component.css']
 })
 export class AuthorSelectComponent {
-  authors!: any[]
+  @Output()
+  authorSelected = new EventEmitter<string>();
   selectedAuthorId!: string
+  authors!: any[]
   constructor(private authorSelectService: AuthorSelectService) {
     this.authorSelectService.getAuthors().subscribe(data => {
       this.authors = data
@@ -16,6 +18,9 @@ export class AuthorSelectComponent {
   }
   printSeletedAuthor() {
     console.log(this.selectedAuthorId);
+  }
+  onSelectionChange() {
+    this.authorSelected.emit(this.selectedAuthorId);
   }
 
 }

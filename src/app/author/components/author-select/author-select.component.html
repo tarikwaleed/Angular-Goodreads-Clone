@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
     <mat-label>Select Author</mat-label>
-    <mat-select [(ngModel)]="selectedAuthorId" (selectionChange)="printSeletedAuthor()">
+    <mat-select [(ngModel)]="selectedAuthorId" (selectionChange)="onSelectionChange()">
         <mat-option *ngFor="let author of authors" [value]="author._id">{{author.authorName}}</mat-option>
     </mat-select>
 </mat-form-field>

@@ -4,6 +4,8 @@ import { Table } from 'primeng/table';
 import { Book } from 'src/app/book/models/book';
 import { AdminBookService } from '../../services/admin-book.service';
 import { BookListService } from 'src/app/book/services/book-list.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BookFormComponent } from '../book-form/book-form.component';
 
 @Component({
   selector: 'app-book-dashboard',
@@ -18,7 +20,12 @@ export class BookDashboardComponent {
   selectedBooks!: any[];
   submitted!: boolean;
 
-  constructor(private bookListService:BookListService, private adminBookService: AdminBookService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(private bookListService: BookListService,
+    private adminBookService: AdminBookService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
     this.bookListService.getAllBooks().subscribe((data) => {
@@ -37,6 +44,14 @@ export class BookDashboardComponent {
   editBook(book: Book) {
     this.book = { ...book };
     this.bookDialog = true;
+  }
+
+  openBookForm() {
+    this.dialog.closeAll()
+    const dialogRef = this.dialog.open(BookFormComponent, {
+      width: '500px',
+      height: '600px'
+    });
   }
 
   deleteBook(book: Book) {

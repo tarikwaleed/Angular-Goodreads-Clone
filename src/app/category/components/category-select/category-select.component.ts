@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
@@ -9,14 +9,17 @@ import { CategoryService } from '../../services/category.service';
 export class CategorySelectComponent {
   categories!: any[]
   selectedCategoryId!: string
+  @Output()
+  categorySelected = new EventEmitter<string>()
   constructor(private categoryService: CategoryService) {
     this.categoryService.getCategories().subscribe(data => {
       this.categories = data
       console.log(data);
     })
   }
-  printSelectedCategory() {
-    console.log(this.selectedCategoryId);
+  onCategorySelected() {
+    this.categorySelected.emit(this.selectedCategoryId)
+
 
   }
 }

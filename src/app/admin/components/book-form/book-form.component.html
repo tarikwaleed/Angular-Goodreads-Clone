@@ -1,0 +1,38 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="p-field">
+    <label for="title">Title</label>
+    <input type="text" pInputText formControlName="title" id="title" required autofocus />
+    <small class="p-invalid text-danger" *ngIf="submitted && bookForm.controls['title'].errors?.['required']">Title is
+      required.</small>
+  </div>
+  <div class="p-field">
+    <label for="isbn">ISBN</label>
+    <input type="text" pInputText formControlName="isbn" id="isbn" required autofocus />
+    <small class="p-invalid text-danger" *ngIf="submitted && bookForm.controls['isbn'].errors?.['required']">ISBN is
+      required.</small>
+  </div>
+  <div class="p-field">
+    <label for="summary">Summary</label>
+    <textarea pInputTextarea formControlName="summary" id="summary" required rows="3" cols="20"></textarea>
+    <small class="p-invalid text-danger" *ngIf="submitted && bookForm.controls['summary'].errors?.['required']">Summary
+      is required.</small>
+  </div>
+
+  <div class="p-field">
+    <label class="p-mb-3">Category</label>
+    <app-category-select (categorySelected)="onCategorySelected($event)"
+      formControlName="category"></app-category-select>
+  </div>
+  <div class="p-field">
+    <label class="p-mb-3">Author</label>
+    <app-author-select (authorSelected)="onAuthorSelected($event)" formControlName="author"></app-author-select>
+  </div>
+
+  <label class="p-mb-3">Upload Image</label>
+  <p-fileUpload mode="basic" chooseLabel="Choose" name="file" accept="image/*"
+    (onSelect)="onFileSelected($event)"></p-fileUpload>
+
+  <div class="p-dialog-footer">
+    <button pButton type="submit" label="Submit" class="p-button-success"></button>
+  </div>
+</form>

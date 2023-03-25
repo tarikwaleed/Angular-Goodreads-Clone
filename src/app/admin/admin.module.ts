@@ -8,6 +8,8 @@ import { CategoryDashboardComponent } from './components/category-dashboard/cate
 import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
 import { AuthorModule } from "../author/author.module";
 import { CategoryModule } from "../category/category.module";
+import { BookFormComponent } from './components/book-form/book-form.component';
+import { SharedModule } from "../shared/shared.module";
 
 
 
@@ -18,13 +20,15 @@ import { CategoryModule } from "../category/category.module";
     NotAuthErrorComponent,
     BookDashboardComponent,
     AuthorDashboardComponent,
-    CategoryDashboardComponent
+    CategoryDashboardComponent,
+    BookFormComponent,
   ],
   imports: [
     CommonModule,
     DashboardsSharedModule,
     AuthorModule,
-    CategoryModule
+    CategoryModule,
+    SharedModule
 
   ],
 })

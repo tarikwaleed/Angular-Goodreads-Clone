@@ -21,8 +21,10 @@ export class AdminBookService {
     return this.http.get<Book>(url);
   }
 
-  addBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.apiUrl, book);
+  addBook(formData: any): Observable<any> {
+  const url = 'http://localhost:3000/api/admin/book';
+    return this.http.post<any>(url, formData);
+
   }
 
   updateBook(book: Book): Observable<Book> {
