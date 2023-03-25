@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { CategoryService } from '../../services/category.service';
 })
 export class CategorySelectComponent {
   categories!: any[]
+  @Input()
   selectedCategoryId!: string
   @Output()
   categorySelected = new EventEmitter<string>()

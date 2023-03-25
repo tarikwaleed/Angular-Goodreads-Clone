@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthorSelectService } from '../../services/author-select.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { AuthorSelectService } from '../../services/author-select.service';
 export class AuthorSelectComponent {
   @Output()
   authorSelected = new EventEmitter<string>();
+  @Input()
   selectedAuthorId!: string
   authors!: any[]
   constructor(private authorSelectService: AuthorSelectService) {

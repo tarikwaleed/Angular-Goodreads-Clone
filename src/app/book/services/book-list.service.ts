@@ -32,7 +32,13 @@ export class BookListService {
             title: book.title,
             coverImage: coverImage,
             summary: book.summary,
-            genre:book.genre[0]?.name
+            genre:book.genre[0]?.name,
+            categoryId:book.genre[0]?._id,
+            authorId:book.author[0]?._id,
+            isbn:book.isbn
+
+
+
           };
         });
       })

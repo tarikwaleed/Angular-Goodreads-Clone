@@ -34,6 +34,7 @@
                 <th>Image </th>
                 <th>Category </th>
                 <th>Author </th>
+                <th>Controls</th>
                 <th></th>
             </tr>
         </ng-template>
@@ -46,10 +47,10 @@
                 <!-- <td><span [class]="'book-badge status-' + book.author">{{book.author}}</span> -->
                 <td>{{book.author_name}} </td>
                 <td>
-                    <!-- <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning p-mr-2"
-                        (click)="editbook(product)"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning p-mr-2"
+                        (click)="editBook(book)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
-                        (click)="deletebook(product)"></button> -->
+                        (click)="deleteBook(book)"></button>
                 </td>
             </tr>
         </ng-template>

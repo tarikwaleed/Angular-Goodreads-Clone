@@ -8,7 +8,7 @@ import { Book } from 'src/app/book/models/book';
 })
 export class AdminBookService {
 
-  private apiUrl = 'http://localhost:3000/api/book';
+  private apiUrl = 'http://localhost:3000/api/admin/book';
 
   constructor(private http: HttpClient) { }
 
@@ -22,14 +22,13 @@ export class AdminBookService {
   }
 
   addBook(formData: any): Observable<any> {
-  const url = 'http://localhost:3000/api/admin/book';
-    return this.http.post<any>(url, formData);
+    return this.http.post<any>(this.apiUrl, formData);
 
   }
 
-  updateBook(book: Book): Observable<Book> {
-    const url = `${this.apiUrl}/${book._id}`;
-    return this.http.put<Book>(url, book);
+  updateBook(bookId: string, formData: any): Observable<any> {
+    const url = `${this.apiUrl}/${bookId}`;
+    return this.http.put<any>(url, formData);
   }
 
   deleteBook(id: number): Observable<Book> {

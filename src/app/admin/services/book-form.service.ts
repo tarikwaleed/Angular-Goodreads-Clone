@@ -8,6 +8,7 @@ import { Observable, tap } from 'rxjs';
 export class BookFormService {
 
   bookAdded: EventEmitter<void> = new EventEmitter<void>();
+  bookUpdated: EventEmitter<void> = new EventEmitter<void>();
   constructor(private http: HttpClient) { }
   addBook(formData: any): Observable<any> {
     const url = 'http://localhost:3000/api/admin/book';
@@ -18,7 +19,20 @@ export class BookFormService {
     )
 
   }
+  updateBook(formData: any): Observable<any> {
+    const url = 'http://localhost:3000/api/admin/book/';
+    console.log(formData);
+    return this.http.put<any>(url, formData).pipe(
+      tap(() => {
+        this.emitbookUpdatedEvent()
+      })
+    )
+
+  }
   private emitbookAddedEvent() {
     this.bookAdded.emit();
+  }
+  private emitbookUpdatedEvent() {
+    this.bookUpdated.emit();
   }
 }

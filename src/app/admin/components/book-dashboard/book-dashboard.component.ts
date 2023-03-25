@@ -6,6 +6,8 @@ import { BookListService } from 'src/app/book/services/book-list.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BookFormComponent } from '../book-form/book-form.component';
 import { BookFormService } from '../../services/book-form.service';
+import { BookDataService } from 'src/app/book/services/book-data.service';
+import { BookDashboardService } from '../../services/book-dashboard.service';
 
 @Component({
   selector: 'app-book-dashboard',
@@ -26,11 +28,16 @@ export class BookDashboardComponent {
     private confirmationService: ConfirmationService,
     private bookFormService: BookFormService,
     public dialog: MatDialog,
+    private bookDashboardService: BookDashboardService
   ) { }
 
   ngOnInit() {
     this.getBooks()
     this.bookFormService.bookAdded.subscribe(() => {
+      this.getBooks()
+      console.log(this.books);
+    })
+    this.bookFormService.bookUpdated.subscribe(() => {
       this.getBooks()
       console.log(this.books);
     })
@@ -44,16 +51,15 @@ export class BookDashboardComponent {
 
   }
 
-  openNew() {
-    this.book = {};
-    this.submitted = false;
-    this.bookDialog = true;
-  }
 
 
   editBook(book: Book) {
-    this.book = { ...book };
-    this.bookDialog = true;
+    this.dialog.closeAll()
+    const dialogRef = this.dialog.open(BookFormComponent, {
+      width: '500px',
+      height: '600px',
+      data: { book }
+    });
   }
 
   openBookForm() {

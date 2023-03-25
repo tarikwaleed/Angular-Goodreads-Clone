@@ -20,12 +20,12 @@
 
   <div class="p-field">
     <label class="p-mb-3">Category</label>
-    <app-category-select (categorySelected)="onCategorySelected($event)"
+    <app-category-select [selectedCategoryId]="data?.book.categoryId" (categorySelected)="onCategorySelected($event)"
       formControlName="category"></app-category-select>
   </div>
   <div class="p-field">
     <label class="p-mb-3">Author</label>
-    <app-author-select (authorSelected)="onAuthorSelected($event)" formControlName="author"></app-author-select>
+    <app-author-select [selectedAuthorId]="data?.book.authorId" (authorSelected)="onAuthorSelected($event)" formControlName="author"></app-author-select>
   </div>
 
   <label class="p-mb-3">Upload Image</label>
