@@ -22,7 +22,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FieldsetModule } from 'primeng/fieldset';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -46,7 +46,7 @@ import { CardModule } from 'primeng/card';
     DropdownModule,
     InputTextareaModule,
     FieldsetModule,
-    ButtonModule, CardModule
+    ButtonModule, CardModule,MatNativeDateModule
 
 
   ],
@@ -71,7 +71,7 @@ import { CardModule } from 'primeng/card';
     DropdownModule,
     InputTextareaModule,
     FieldsetModule,
-    ButtonModule, CardModule
+    ButtonModule, CardModule,MatNativeDateModule
 
 
   ]

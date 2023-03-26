@@ -1,7 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BookDataService } from 'src/app/book/services/book-data.service';
-import { AdminBookService } from '../../services/admin-book.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MessageService } from 'primeng/api';
 import { BookFormService } from '../../services/book-form.service';
@@ -61,6 +59,7 @@ export class BookFormComponent implements OnInit {
       formData.append('_id', this.data.book._id)
 
     }
+    console.log(formData);
     if (this.isUpdate) {
       this.bookFormService.updateBook(formData).subscribe(data => {
         console.log(data);

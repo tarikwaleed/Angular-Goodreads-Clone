@@ -7,6 +7,10 @@ import { AuthorListComponent } from "./components/author-list/author-list.compon
 import { BookModule } from '../book/book.module';
 import { AuthorDetailsComponent } from './components/author-details/author-details.component';
 import { AuthorSelectComponent } from './components/author-select/author-select.component';
+import { AuthorFormComponent } from './components/author-form/author-form.component';
+import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 
 
@@ -15,15 +19,17 @@ import { AuthorSelectComponent } from './components/author-select/author-select.
     AuthorCardComponent,
     AuthorListComponent,
     AuthorDetailsComponent,
-    AuthorSelectComponent
+    AuthorSelectComponent,
+    AuthorFormComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    BookModule
+    BookModule, DashboardsSharedModule,MatDatepickerModule
   ],
   exports: [
-    AuthorSelectComponent
+    AuthorSelectComponent,
+    AuthorFormComponent
   ]
 })
 export class AuthorModule { }
