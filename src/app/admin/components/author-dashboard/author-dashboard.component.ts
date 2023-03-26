@@ -27,6 +27,10 @@ export class AuthorDashboardComponent implements OnInit {
     this.authorFormService.authorAdded.subscribe(() => {
       this.getAuthors()
     })
+    this.authorFormService.authorUpdated.subscribe(() => {
+      this.getAuthors()
+    })
+
   }
   private getAuthors() {
     this.authorDashboardService.getAuthors().subscribe(data => {

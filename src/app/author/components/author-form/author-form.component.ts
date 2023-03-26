@@ -32,9 +32,10 @@ export class AuthorFormComponent {
     });
     if (this.data) {
       this.isUpdate = true
+      const date = new Date(this.data.author.dateOfBirth)
       this.authorForm.patchValue({
         authorName: this.data.author.authorName,
-        dateOfBirth: this.data.author.dateOfBirth,
+        dateOfBirth: date,
       })
     }
   }
@@ -52,32 +53,30 @@ export class AuthorFormComponent {
     const formData = new FormData();
     formData.append('authorName', this.authorForm.get('authorName')?.value);
     formData.append('dateOfBirth', this.authorForm.get('dateOfBirth')?.value.toISOString());
-    formData.append('photo', this.selectedFile ?? this.data?.author.photo);
-    if (this.data) {
-      formData.append('_id', this.data.author._id)
-    }
-    console.log(formData);
-
     if (this.isUpdate) {
-      // this.authorFormService.updateBook(formData).subscribe(data => {
-      //   console.log(data);
-      //   this.dialog.closeAll()
-      //   this.messageService.add({ severity: 'success', summary: 'Done', detail: "Book has been updated Successfully", life: 2000 });
-      // })
+      formData.append('_id', this.data.author._id)
+      formData.append('photo', this.selectedFile ?? this.data?.author.photo);
+      formData.append('dateOfBirth', this.authorForm.get('dateOfBirth')?.value.toISOString());
+      console.log(formData);
+      this.authorFormService.updateAuthor(formData).subscribe(data => {
+        console.log(data);
+        this.dialog.closeAll()
+        this.messageService.add({ severity: 'success', summary: 'Done', detail: "Author has been updated Successfully", life: 2000 });
+      })
+      this.authorFormService.updateAuthor(formData)
     }
     else {
+      formData.append('photo', this.selectedFile);
+      console.log(formData);
       this.authorFormService.addAuthor(formData).subscribe(data => {
         console.log(data);
         this.dialog.closeAll()
-        this.messageService.add({ severity: 'success', summary: 'Done', detail: "New book has been added Successfully", life: 2000 });
+        this.messageService.add({ severity: 'success', summary: 'Done', detail: "New Author has been added Successfully", life: 2000 });
       })
     }
-
-
   }
   onDateChange(event: any) {
     const date = event.value.toISOString()
     console.log(date);
-
   }
 }

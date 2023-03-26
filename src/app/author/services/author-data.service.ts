@@ -19,5 +19,8 @@ export class AuthorDataService {
   addAuthor(formData: any): Observable<any> {
     return this.http.post<any>(this.adminUrl, formData)
   }
+  updateAuthor(formData: any): Observable<any> {
+    return this.http.put<any>(this.adminUrl, formData)
+  }
 
 }
