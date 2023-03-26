@@ -4,14 +4,8 @@
         <ng-template pTemplate="left">
             <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
                 (click)="openBookForm()"></button>
-            <!-- <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger"
-                (click)="deleteSelectedbooks()" [disabled]="!selectedProducts || !selectedProducts.length"></button> -->
         </ng-template>
 
-        <!-- <ng-template pTemplate="right">
-            <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import"
-                class="p-mr-2 p-d-inline-block"></p-fileUpload>
-        </ng-template> -->
     </p-toolbar>
 
     <p-table #dt [value]="books" [rows]="10" [paginator]="true"

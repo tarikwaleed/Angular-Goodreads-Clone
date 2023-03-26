@@ -15,11 +15,7 @@ import { BookDashboardService } from '../../services/book-dashboard.service';
 })
 export class BookDashboardComponent {
   @ViewChild('dt') dt: Table | undefined;
-  bookDialog!: boolean;
   books!: any[];
-  book!: any;
-  selectedBooks!: any[];
-  submitted!: boolean;
 
   constructor(
     private bookListService: BookListService,
@@ -85,43 +81,6 @@ export class BookDashboardComponent {
       }
     });
   }
-
-  hideDialog() {
-    this.bookDialog = false;
-    this.submitted = false;
-  }
-
-  saveBook() {
-    this.submitted = true;
-
-    if (this.book.title?.trim()) {
-      if (this.book._id) {
-        this.books[this.findIndexById(this.book.id)] = this.book;
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'book Updated', life: 3000 });
-      }
-      else {
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'book Created', life: 3000 });
-      }
-
-      this.books = [...this.books];
-      this.bookDialog = false;
-      this.book = {};
-    }
-  }
-
-  findIndexById(id: string): number {
-    let index = -1;
-    for (let i = 0; i < this.books.length; i++) {
-      if (this.books[i]._id === id) {
-        index = i;
-        break;
-      }
-    }
-
-    return index;
-  }
-
-
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
