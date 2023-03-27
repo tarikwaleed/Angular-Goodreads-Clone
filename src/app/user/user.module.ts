@@ -6,6 +6,7 @@ import { UserCurrentlyReadingBooksComponent } from './components/user-currently-
 import { UserWantToReadBooksComponent } from './components/user-want-to-read-books/user-want-to-read-books.component';
 import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
 import { UserAllBooksComponent } from './components/user-all-books/user-all-books.component';
+import { BookModule } from "../book/book.module";
 
 
 
@@ -19,7 +20,7 @@ import { UserAllBooksComponent } from './components/user-all-books/user-all-book
   ],
   imports: [
     CommonModule,
-    DashboardsSharedModule
+    DashboardsSharedModule, BookModule
   ],
   exports: [
     UserReadBooksComponent,

@@ -15,11 +15,37 @@ export class UserBookService {
     this.authService.getUser().subscribe(user => this.userId = user?._id)
   }
 
-  getUserBooks(): Observable<UserBook[]> {
-    const url = `${this.baseUrl}/${this.userId}/book`
-    // const url = `${this.baseUrl}/640c0061aeffb8f34a17f789/book`
-    console.log(url);
-    return this.http.get<UserBook[]>(url);
+  getUserBooks(shelf: string): Observable<any> {
+    let url = `${this.baseUrl}/${shelf}`
+    if (shelf === 'a') {
+      url = `${this.baseUrl}`
+    }
+    const params = new HttpParams()
+      .set('userId', `${this.userId}`)
+    return this.http.get<any>(url, { params }).pipe(
+      map((books: any) => {
+        return books.map((book: any) => {
+          let coverImage!: string
+          const originalCoverImage = book.coverImage.split('/')
+          if (originalCoverImage[0] === 'uploads') {
+            coverImage = originalCoverImage[1]
+          }
+          else {
+            coverImage = originalCoverImage[0]
+          }
+          return {
+            _id: book.id,
+            title: book.title,
+            coverImage: coverImage,
+            authorName: book.author[0].authorName,
+            shelf: book.shelf,
+            rating: book.rating,
+            averageRating: book.averageRating,
+          };
+
+        })
+      })
+    )
   }
   getUserBook(bookId: string): Observable<any> {
     const url = `${this.baseUrl}/search`
