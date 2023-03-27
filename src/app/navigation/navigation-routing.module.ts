@@ -11,6 +11,7 @@ import { BookDetailsComponent } from '../book/components/book-details/book-detai
 import { UserProfileComponent } from '../user/components/user-profile/user-profile.component';
 import { LandingPageComponent } from '../landing-page/landing-page.component';
 import { AuthorDetailsComponent } from '../author/components/author-details/author-details.component';
+import { CategoryDetailsComponent } from '../category/components/category-details/category-details.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: 'home', redirectTo: '/home', component: LandingPageComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'authors', component: AuthorListComponent },
   { path: 'author/:id', component: AuthorDetailsComponent },
   { path: 'categories', component: CategoryListComponent },
+  { path: 'category/:id', component: CategoryDetailsComponent },
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   { path: 'not-auth-error', component: NotAuthErrorComponent },
   { path: 'profile', component: UserProfileComponent },

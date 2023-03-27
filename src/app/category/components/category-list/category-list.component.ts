@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Category } from '../../models/category';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-category-list',
@@ -7,58 +8,13 @@ import { Category } from '../../models/category';
   styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent {
-  categories: Category[]
-  constructor() {
-    this.categories = [
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-      {
-        _id:"1",
-        name: "Computer Science"
-      },
-    ]
+  categories!: Category[]
+  constructor(private categoryService:CategoryService) {
+  }
+  ngOnInit(){
+    this.categoryService.getCategories().subscribe(data=>{
+      this.categories=data
+    })
   }
 
 
