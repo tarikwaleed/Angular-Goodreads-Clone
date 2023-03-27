@@ -11,12 +11,11 @@ import { Author } from 'src/app/author/models/author';
 export class AuthorCardComponent {
 
   @Input()
-  author!: Author;
+  author!: any;
 
-  constructor(private _Router:Router) {}
-  navigateToAuthorDetails(AuthorId:string)
-  {
-    this._Router.navigate(['/author',AuthorId]);
+  constructor(private _Router: Router) { }
+  navigateToAuthorDetails(AuthorId: string) {
+    this._Router.navigate(['/author', AuthorId]);
   }
 
 
