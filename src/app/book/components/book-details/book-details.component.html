@@ -1,44 +1,50 @@
-<div class="container">
-  <div class="row d-flex justify-content-center">
-    <!-- div for book picture -->
-    <div class="col-lg-4 col-md-4 col-sm-6 align-items-center mt-5 ">
-      <img [src]="'http://localhost:3000/'+bookData.coverImage"  alt="">
-      <div class="row d-flex justify-content-center my-3">
-        <!-- user rating  -->
-        <app-book-rating [rating]="userBookData.rating" [bookId]="bookId" [editable]="true" ></app-book-rating>
+<div *ngIf="isLoading else loadedData" class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
+</div>
+<ng-template #loadedData>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <!-- div for book picture -->
+      <div class="col-lg-4 col-md-4 col-sm-6 align-items-center mt-5 ">
+        <img [src]="'http://localhost:3000/'+bookData.coverImage" alt="">
+        <div class="row d-flex justify-content-center my-3">
+          <!-- user rating  -->
+          <app-book-rating [rating]="userBookData.rating" [bookId]="bookId" [editable]="true"></app-book-rating>
+        </div>
+
       </div>
 
+      <div class="col-lg-8 col-md-8 col-sm-6 my-2">
+        <p class="fs-2 fw-bold mb-3 mt-5">{{bookData.title}}</p>
+        <p class="mb-3">{{bookData.author_name}}</p>
+
+
+        <!-- average rating -->
+        <app-book-rating [rating]="bookData.averageRating" [bookId]="bookId" [editable]="false"></app-book-rating>
+        <span *ngIf="bookData.ratingCount>0 ">({{bookData.averageRating|number:'1.1-1'}}) </span>
+        <span>{{bookData.ratingCount}} Ratings</span>
+        <p>{{bookData.summary}}</p>
+
+      </div>
     </div>
 
-    <div class="col-lg-8 col-md-8 col-sm-6 my-2">
-      <p class="fs-2 fw-bold mb-3 mt-5">{{bookData.title}}</p>
-      <p class="mb-3">{{bookData.author_name}}</p>
+    <app-book-shelf [bookStatus]="userBookData.shelf" [bookId]="bookId"></app-book-shelf>
+
+    <form [formGroup]="reviewForm">
+      <div class="row d-flex justify-content-center">
+        <textarea rows="5" cols="60" formControlName="reviewText" pInputTextarea [(ngModel)]="reviewText"></textarea>
+        <p *ngIf="reviewForm.get('reviewText')?.invalid && reviewForm.get('reviewText')?.touched" style="color: red">
+          Please Enter a review</p>
+      </div>
+      <div class="my-3">
+        <p-button label="Submit" (onClick)="submitReview()"></p-button>
+      </div>
+    </form>
+
+    <app-review-list [bookId]="bookId "></app-review-list>
 
 
-      <!-- average rating -->
-      <app-book-rating [rating]="bookData.averageRating" [bookId]="bookId" [editable]="false"></app-book-rating>
-      <span *ngIf="bookData.ratingCount>0 ">({{bookData.averageRating|number:'1.1-1'}}) </span>
-      <span>{{bookData.ratingCount}} Ratings</span>
-      <p>{{bookData.summary}}</p>
 
-    </div>
   </div>
 
-  <app-book-shelf [bookStatus]="userBookData.shelf" [bookId]="bookId"></app-book-shelf>
-
-  <form [formGroup]="reviewForm">
-    <div class="row d-flex justify-content-center">
-      <textarea rows="5" cols="60" formControlName="reviewText" pInputTextarea [(ngModel)]="reviewText"></textarea>
-      <p *ngIf="reviewForm.get('reviewText')?.invalid && reviewForm.get('reviewText')?.touched" style="color: red">
-        Please Enter a review</p>
-    </div>
-    <div class="my-3">
-      <p-button label="Submit" (onClick)="submitReview()"></p-button>
-    </div>
-  </form>
-
-  <app-review-list [bookId]="bookId "></app-review-list>
-
-
-
-</div>
+</ng-template>

@@ -13,12 +13,14 @@ export class AuthorListComponent {
   authors!: any[]
   pageSize = 10;
   pageSizeOptions = [5, 10, 20];
+  isLoading=true
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource = new MatTableDataSource<Author>(this.authors);
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.authorDashboardService.getAuthors().subscribe(data => {
       this.authors = data
+      this.isLoading=false
     })
   }
 

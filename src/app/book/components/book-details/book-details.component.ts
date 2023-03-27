@@ -17,6 +17,7 @@ export class BookDetailsComponent {
   userBookData!: any
   reviewText!: string
   reviewForm!: FormGroup;
+  isLoading=true
 
   constructor(private route: ActivatedRoute,
     private userBookService: UserBookService,
@@ -38,6 +39,7 @@ export class BookDetailsComponent {
     })
     this.userBookService.getUserBook(this.bookId).subscribe(data => {
       this.userBookData = data
+      this.isLoading=false
     })
   }
   submitReview() {

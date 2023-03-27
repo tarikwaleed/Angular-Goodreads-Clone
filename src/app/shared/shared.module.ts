@@ -23,6 +23,8 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AvatarModule } from 'primeng/avatar';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [],
@@ -46,7 +48,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     DropdownModule,
     InputTextareaModule,
     FieldsetModule,
-    ButtonModule, CardModule,MatNativeDateModule
+    ButtonModule, CardModule, MatNativeDateModule, AvatarModule,ProgressSpinnerModule
 
 
   ],
@@ -71,7 +73,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     DropdownModule,
     InputTextareaModule,
     FieldsetModule,
-    ButtonModule, CardModule,MatNativeDateModule
+    ButtonModule, CardModule, MatNativeDateModule, AvatarModule,ProgressSpinnerModule
 
 
   ]

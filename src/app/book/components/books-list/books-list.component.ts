@@ -14,6 +14,7 @@ export class BooksListComponent {
   books!: BookCardModel[]
   pageSize = 10;
   pageSizeOptions = [5, 10, 20];
+  isLoading =true
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource = new MatTableDataSource<BookCardModel>(this.books);
   constructor(private bookListService: BookListService) { }
@@ -21,9 +22,8 @@ export class BooksListComponent {
     this.dataSource.paginator = this.paginator;
     this.bookListService.getAllBooks().subscribe(data => {
       this.books = data;
-      console.log(data);
+      this.isLoading = false
     })
-
   }
 
 
