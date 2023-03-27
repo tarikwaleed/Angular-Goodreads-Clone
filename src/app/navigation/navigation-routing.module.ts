@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'books', component: BooksListComponent },
   { path: 'book/:id', component: BookDetailsComponent },
   { path: 'authors', component: AuthorListComponent },
-  { path: 'authors/:id', component: AuthorDetailsComponent },
+  { path: 'author/:id', component: AuthorDetailsComponent },
   { path: 'categories', component: CategoryListComponent },
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   { path: 'not-auth-error', component: NotAuthErrorComponent },

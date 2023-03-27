@@ -13,9 +13,9 @@ export class AuthorCardComponent {
   @Input()
   author!: any;
 
-  constructor(private _Router: Router) { }
-  navigateToAuthorDetails(AuthorId: string) {
-    this._Router.navigate(['/author', AuthorId]);
+  constructor(private router: Router) { }
+  navigateToAuthorDetails(authorId: string) {
+    this.router.navigate(['/author', authorId]);
   }
 
 
