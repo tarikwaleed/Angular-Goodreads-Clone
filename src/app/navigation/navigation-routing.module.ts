@@ -12,7 +12,7 @@ import { UserProfileComponent } from '../user/components/user-profile/user-profi
 import { LandingPageComponent } from '../landing-page/landing-page.component';
 import { AuthorDetailsComponent } from '../author/components/author-details/author-details.component';
 const routes: Routes = [
-  // { path: '', redirectTo: '/books', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: 'home', redirectTo: '/home', component: LandingPageComponent },
 
   { path: 'home', component: LandingPageComponent },
