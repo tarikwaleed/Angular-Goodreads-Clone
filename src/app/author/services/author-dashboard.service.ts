@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { AuthorDataService } from './author-data.service';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorDashboardService {
 
+  authorDeleted = new EventEmitter()
   constructor(
     private authorDataService: AuthorDataService
   ) { }
@@ -31,6 +32,14 @@ export class AuthorDashboardService {
           }
           return data
         })
+      })
+    )
+
+  }
+  deleteAuthor(authorId: string) {
+    return this.authorDataService.deleteAuthor(authorId).pipe(
+      tap(() => {
+        this.authorDeleted.emit()
       })
     )
 

@@ -29,6 +29,9 @@ export class AuthorDashboardComponent implements OnInit {
     })
     this.authorFormService.authorUpdated.subscribe(() => {
       this.getAuthors()
+    })  
+    this.authorDashboardService.authorDeleted.subscribe(()=>{
+      this.getAuthors()
     })
 
   }
@@ -54,6 +57,19 @@ export class AuthorDashboardComponent implements OnInit {
       width: '500px',
       height: '600px',
       data: { author }
+    });
+  }
+  deleteAuthor(author: any) {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete ' + author.authorName + '?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.authorDashboardService.deleteAuthor(author._id).subscribe(data => {
+          console.log(data);
+        })
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Author Deleted', life: 3000 });
+      }
     });
   }
 

@@ -22,5 +22,8 @@ export class AuthorDataService {
   updateAuthor(formData: any): Observable<any> {
     return this.http.put<any>(this.adminUrl, formData)
   }
+  deleteAuthor(authorId: string): Observable<any> {
+    return this.http.delete<any>(`${this.adminUrl}/${authorId}`)
+  }
 
 }
