@@ -1,3 +1,12 @@
-<p>
-  author-details works! {{authorId}}
-</p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-4 col-md-4 col-sm-6 align-items-center mt-5 ">
+      <img [src]="'http://localhost:3000/'+authorData.author.photo" width="200px" alt="">
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-6 my-2">
+      <p class="fs-2 fw-bold mb-3 mt-5">{{authorData.author.authorName}}</p>
+      <p class="mb-3">{{authorData.author.dateOfBirth|date}}</p>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthorDetailsService } from '../../services/author-details.service';
 
 
 @Component({
@@ -8,14 +9,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./author-details.component.css']
 })
 export class AuthorDetailsComponent implements OnInit {
-  authorId:string | undefined
-  authorData:any
-  
+  authorId!: string
+  authorData: any
 
-  constructor(private _ActivatedRoute:ActivatedRoute) { }
-  
+
+  constructor(private _ActivatedRoute: ActivatedRoute, private authorDetailsService: AuthorDetailsService) { }
+
   ngOnInit() {
     this.authorId = this._ActivatedRoute.snapshot.params['id'];
+    this.authorDetailsService.getAuthorDetails(this.authorId).subscribe(data => {
+      this.authorData = data
+      console.log(data);
+    })
   }
 
 }

@@ -25,5 +25,9 @@ export class AuthorDataService {
   deleteAuthor(authorId: string): Observable<any> {
     return this.http.delete<any>(`${this.adminUrl}/${authorId}`)
   }
+  getAuthorDetails(authorId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${authorId}`)
+  }
 
 }
+
