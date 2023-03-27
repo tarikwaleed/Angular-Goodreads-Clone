@@ -10,6 +10,7 @@ import { AuthorSelectComponent } from './components/author-select/author-select.
 import { AuthorFormComponent } from './components/author-form/author-form.component';
 import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AuthorsBookComponent } from './components/authors-book/authors-book.component';
 
 
 
@@ -20,7 +21,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     AuthorListComponent,
     AuthorDetailsComponent,
     AuthorSelectComponent,
-    AuthorFormComponent
+    AuthorFormComponent,
+    AuthorsBookComponent
   ],
   imports: [
     CommonModule,

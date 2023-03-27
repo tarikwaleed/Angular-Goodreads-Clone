@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthorDetailsService } from '../../services/author-details.service';
+import { BookRatingService } from 'src/app/book/services/book-rating.service';
 
 
 @Component({
@@ -11,16 +12,27 @@ import { AuthorDetailsService } from '../../services/author-details.service';
 export class AuthorDetailsComponent implements OnInit {
   authorId!: string
   authorData: any
-
-
-  constructor(private _ActivatedRoute: ActivatedRoute, private authorDetailsService: AuthorDetailsService) { }
+  authorBooks!: any[]
+  constructor(
+    private _ActivatedRoute: ActivatedRoute, private authorDetailsService: AuthorDetailsService,
+    private bookRatingService: BookRatingService
+  ) { }
 
   ngOnInit() {
     this.authorId = this._ActivatedRoute.snapshot.params['id'];
+    this.getAuthorData()
+    this.bookRatingService.bookRatingChanged.subscribe(() => {
+      this.getAuthorData()
+    })
+
+  }
+  private getAuthorData() {
     this.authorDetailsService.getAuthorDetails(this.authorId).subscribe(data => {
       this.authorData = data
-      console.log(data);
+      this.authorDetailsService.getAuthorBooks(this.authorData.books).subscribe(data => {
+        console.log(data);
+        this.authorBooks = data
+      })
     })
   }
-
 }
