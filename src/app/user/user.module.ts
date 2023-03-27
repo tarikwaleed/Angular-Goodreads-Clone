@@ -7,6 +7,7 @@ import { UserWantToReadBooksComponent } from './components/user-want-to-read-boo
 import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
 import { UserAllBooksComponent } from './components/user-all-books/user-all-books.component';
 import { BookModule } from "../book/book.module";
+import { SharedModule } from "../shared/shared.module";
 
 
 
@@ -20,7 +21,7 @@ import { BookModule } from "../book/book.module";
   ],
   imports: [
     CommonModule,
-    DashboardsSharedModule, BookModule
+    DashboardsSharedModule, BookModule,SharedModule
   ],
   exports: [
     UserReadBooksComponent,

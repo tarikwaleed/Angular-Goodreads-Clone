@@ -1,1 +1,7 @@
-<p>category-details works!</p>
+<div *ngIf="isLoading else loadedData" class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
+</div>
+<ng-template #loadedData>
+    <p>category-details works!</p>
+
+</ng-template>

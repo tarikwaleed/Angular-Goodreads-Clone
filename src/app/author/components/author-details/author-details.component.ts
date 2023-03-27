@@ -13,6 +13,7 @@ export class AuthorDetailsComponent implements OnInit {
   authorId!: string
   authorData: any
   authorBooks!: any[]
+  isLoading = true
   constructor(
     private _ActivatedRoute: ActivatedRoute, private authorDetailsService: AuthorDetailsService,
     private bookRatingService: BookRatingService
@@ -32,6 +33,7 @@ export class AuthorDetailsComponent implements OnInit {
       this.authorDetailsService.getAuthorBooks(this.authorData.books).subscribe(data => {
         console.log(data);
         this.authorBooks = data
+        this.isLoading = false
       })
     })
   }

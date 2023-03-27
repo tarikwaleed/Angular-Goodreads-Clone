@@ -1,6 +1,12 @@
-<h1 class="mx-3 mt-3 text-center">Browse All Categories</h1>
-<div class="m-5 row row-cols-2 row-cols-md-3 row-cols-lg-4 ">
-  <div class="col" *ngFor="let category of categories; let i = index">
-    <app-category-card [category]="category"></app-category-card>
-  </div>
+<div *ngIf="isLoading else loadedData" class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
 </div>
+<ng-template #loadedData>
+  <h1 class="mx-3 mt-3 text-center">Browse All Categories</h1>
+  <div class="m-5 row row-cols-2 row-cols-md-3 row-cols-lg-4 ">
+    <div class="col" *ngFor="let category of categories; let i = index">
+      <app-category-card [category]="category"></app-category-card>
+    </div>
+  </div>
+
+</ng-template>

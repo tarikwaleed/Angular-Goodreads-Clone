@@ -1,44 +1,52 @@
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-lg-4 col-md-4 col-sm-6 align-items-center mt-5 ">
-            <img [src]="'http://localhost:3000/'+authorData.author.photo" width="200px" alt="">
-        </div>
+<div *ngIf="isLoading else loadedData" class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
+</div>
+<ng-template #loadedData>
 
-        <div class="col-lg-8 col-md-8 col-sm-6 my-2">
-            <p class="fs-2 fw-bold mb-3 mt-5">{{authorData.author.authorName}}</p>
-            <p class="mb-3">{{authorData.author.dateOfBirth|date}}</p>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 col-md-4 col-sm-6 align-items-center mt-5 ">
+                <img [src]="'http://localhost:3000/'+authorData.author.photo" width="200px" alt="">
+            </div>
+
+            <div class="col-lg-8 col-md-8 col-sm-6 my-2">
+                <p class="fs-2 fw-bold mb-3 mt-5">{{authorData.author.authorName}}</p>
+                <p class="mb-3">{{authorData.author.dateOfBirth|date}}</p>
+            </div>
         </div>
     </div>
-</div>
 
-<h1 *ngIf="authorBooks.length>0">Author's Books</h1>
-<h1 class="text-warning" *ngIf="authorBooks.length<1">This Author has no Books</h1>
-<p-table *ngIf="authorBooks.length>0" [value]="authorBooks" responsiveLayout="scroll">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Title</th>
-            <th>Image</th>
-            <th>Average Rating</th>
-            <th>Rating Count</th>
-            <th>Your Rating</th>
-            <th>Shelf</th>
+    <h1 *ngIf="authorBooks.length>0">Author's Books</h1>
+    <h1 class="text-warning" *ngIf="authorBooks.length<1">This Author has no Books</h1>
+    <p-table *ngIf="authorBooks.length>0" [value]="authorBooks" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Average Rating</th>
+                <th>Rating Count</th>
+                <th>Your Rating</th>
+                <th>Shelf</th>
 
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-book>
-        <tr>
-            <td>{{book.title}}</td>
-            <td><img [src]="'http://localhost:3000/'+book.coverImage" [alt]="book.name" width="100" class="shadow-4" />
-            </td>
-            <td><p-rating [ngModel]="book.averageRating" [readonly]="true" [cancel]="false"></p-rating></td>
-            <td>{{book.ratingCount}}</td>
-            <td>
-                <app-book-rating [bookId]="book._id" [rating]="book.userBook.rating"
-                    [editable]="true"></app-book-rating>
-            </td>
-            <td>
-                <app-book-shelf [bookId]="book._id" [bookStatus]="book.userBook.shelf"></app-book-shelf>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-book>
+            <tr>
+                <td>{{book.title}}</td>
+                <td><img [src]="'http://localhost:3000/'+book.coverImage" [alt]="book.name" width="100"
+                        class="shadow-4" />
+                </td>
+                <td><p-rating [ngModel]="book.averageRating" [readonly]="true" [cancel]="false"></p-rating></td>
+                <td>{{book.ratingCount}}</td>
+                <td>
+                    <app-book-rating [bookId]="book._id" [rating]="book.userBook.rating"
+                        [editable]="true"></app-book-rating>
+                </td>
+                <td>
+                    <app-book-shelf [bookId]="book._id" [bookStatus]="book.userBook.shelf"></app-book-shelf>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+</ng-template>

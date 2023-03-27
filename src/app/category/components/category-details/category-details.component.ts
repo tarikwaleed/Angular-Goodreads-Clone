@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./category-details.component.css']
 })
 export class CategoryDetailsComponent {
+  isLoading = true
 
 }

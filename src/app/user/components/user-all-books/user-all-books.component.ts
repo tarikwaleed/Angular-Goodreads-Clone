@@ -17,8 +17,8 @@ export class UserAllBooksComponent {
 
   ngOnInit() {
     this.userBookService.getUserBooks('a').subscribe(data => {
-      console.log(data);
       this.userAllBooks = data
+      this.isLoading=false
     })
   }
 }
