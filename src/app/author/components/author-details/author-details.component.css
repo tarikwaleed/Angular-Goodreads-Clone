@@ -1,0 +1,12 @@
+.mainColor {
+  background-image: url(../../../../assets/images/background3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.Fasthand {
+  font-family: "Fasthand", cursive;
+  font-size: 5rem !important;
+}

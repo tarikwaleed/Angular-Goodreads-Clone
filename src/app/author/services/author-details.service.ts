@@ -6,39 +6,40 @@ import { identifierName } from '@angular/compiler';
 import { UserBookService } from 'src/app/user/services/user-book.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthorDetailsService {
-  authorBooks!: any[]
+  authorBooks!: any[];
 
   constructor(
     private authorDataService: AuthorDataService,
     private bookDetailsService: BookDetailsService,
     private userBookService: UserBookService
-  ) { }
+  ) {}
   getAuthorDetails(authorId: string): Observable<any> {
     return this.authorDataService.getAuthorDetails(authorId).pipe(
       map((author) => {
-        const authorName = author.author.first_name + ' ' + author.author.last_name
-        let photo!: string
-        const originalPhoto = author.author.photo.split('/')
+        const authorName =
+          author.author.first_name + ' ' + author.author.last_name;
+        let photo!: string;
+        const originalPhoto = author.author.photo.split('/');
         if (originalPhoto[0] === 'uploads') {
-          photo = originalPhoto[1]
-        }
-        else {
-          photo = originalPhoto[0]
+          photo = originalPhoto[1];
+        } else {
+          photo = originalPhoto[0];
         }
         const data = {
           author: {
             authorName: authorName,
             dateOfBirth: author.author.date_of_birth,
-            photo: photo
+            dateOfDeath: author.author.date_of_death ?? '',
+            photo: photo,
           },
-          books: author.authors_books.map((book: any) => book._id)
-        }
-        return data
+          books: author.authors_books.map((book: any) => book._id),
+        };
+        return data;
       })
-    )
+    );
   }
   getAuthorBooks(bookIds: string[]): Observable<any[]> {
     if (bookIds.length === 0) {
@@ -53,7 +54,10 @@ export class AuthorDetailsService {
       this.userBookService.getUserBook(id)
     );
 
-    return combineLatest([forkJoin(bookObservables), forkJoin(userBookObservables)]).pipe(
+    return combineLatest([
+      forkJoin(bookObservables),
+      forkJoin(userBookObservables),
+    ]).pipe(
       map(([books, userBooks]) => {
         return books.map((book, index) => {
           return { ...book, userBook: userBooks[index] };
@@ -61,6 +65,4 @@ export class AuthorDetailsService {
       })
     );
   }
-
-
 }

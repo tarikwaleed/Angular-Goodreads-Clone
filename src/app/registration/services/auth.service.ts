@@ -4,7 +4,6 @@
 // import { filter, map, tap } from 'rxjs/operators';
 // import { User } from 'src/app/user/models/user';
 
-
 // @Injectable({
 //   providedIn: 'root'
 // })
@@ -55,7 +54,6 @@
 //       );
 //   }
 
-
 //   getToken(): string | null {
 //     return this.token;
 //   }
@@ -89,7 +87,6 @@
 //     localStorage.removeItem('user');
 //   }
 
-
 //   initAuth(): void {
 //     const token = localStorage.getItem('token');
 //     if (token) {
@@ -109,24 +106,24 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { User } from 'src/app/user/models/user';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private readonly API_URL = 'http://localhost:3000/api/auth';
   private token: string | null = null;
   private user$ = new BehaviorSubject<User | null>(null);
-  public isAuthenticated$ = this.user$.asObservable().pipe(map(user => !!user));
+  public isAuthenticated$ = this.user$
+    .asObservable()
+    .pipe(map((user) => !!user));
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
-  login(credentials: { email: string, password: string }): Observable<void> {
-    return this.http.post<{ token: string, user: User }>(`${this.API_URL}/login`, credentials)
+  login(credentials: { email: string; password: string }): Observable<void> {
+    return this.http
+      .post<{ token: string; user: User }>(`${this.API_URL}/login`, credentials)
       .pipe(
-        tap(response => {
+        tap((response) => {
           const { token, user } = response;
           this.setToken(token);
           this.setUser(user);
@@ -135,9 +132,10 @@ export class AuthService {
       );
   }
   register(userData: any): Observable<void> {
-    return this.http.post<{ token: string, user: User }>(`${this.API_URL}/register`, userData)
+    return this.http
+      .post<{ token: string; user: User }>(`${this.API_URL}/register`, userData)
       .pipe(
-        tap(response => {
+        tap((response) => {
           const { token, user } = response;
           this.setToken(token);
           this.setUser(user);
@@ -163,7 +161,7 @@ export class AuthService {
   }
 
   getUser(): Observable<User | null> {
-    return this.user$.asObservable()
+    return this.user$.asObservable();
   }
 
   initAuth(): void {

@@ -1,6 +1,12 @@
 <!-- <p-rating [(ngModel)]="rating" [readonly]="false" [cancel]="false"  (onRate)="applyRating()" class="star"></p-rating> -->
 
-<p-rating [(ngModel)]="rating" [readonly]="!editable" [cancel]="false" (onRate)="applyRating()" ></p-rating>
+<p-rating
+  style="color: green !important"
+  [(ngModel)]="rating"
+  [readonly]="!editable"
+  [cancel]="false"
+  (onRate)="applyRating()"
+></p-rating>
 
-
+<!-- <p-rating [stars]="6" iconCancelClass="pi pi-times" [(ngModel)]="2"> </p-rating> -->
 <!-- <p-rating [(ngModel)]="rating" [readonly]="!editable" [cancel]="false" (onRate)="applyRating()" starIconStyleClass="yellow-star"></p-rating> -->

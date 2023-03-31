@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BooksListComponent } from '../book/components/books-list/books-list.component';
@@ -23,14 +22,17 @@ const routes: Routes = [
   { path: 'author/:id', component: AuthorDetailsComponent },
   { path: 'categories', component: CategoryListComponent },
   { path: 'category/:id', component: CategoryDetailsComponent },
-  { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
+  {
+    path: 'admin',
+    component: AdminDashboardComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'not-auth-error', component: NotAuthErrorComponent },
   { path: 'profile', component: UserProfileComponent },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NavigationRoutingModule { }
+export class NavigationRoutingModule {}

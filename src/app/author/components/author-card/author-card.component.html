@@ -1,10 +1,24 @@
-<mat-card (click)="navigateToAuthorDetails(author._id)" matRipple class="example-card shadow m-3" style="width: 400px;height: 300px;">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{author.authorName}}</mat-card-title>
-    <mat-card-subtitle>{{author.first_name}}</mat-card-subtitle>
-  </mat-card-header>
-  <img class="img-fluid " mat-card-lg-image [src]="'http://localhost:3000/'+author.photo" alt="Author Photo">
-</mat-card>
-
-<!-- (click)="navigateToAuthorDetails(author._id)" -->
+<div class="d-flex justify-content-center mb-5">
+  <div class="card" style="width: 17rem; height: 23rem">
+    <div class="d-flex flex-column justify-content-between h-100">
+      <div>
+        <img
+          [src]="'http://localhost:3000/' + author.photo"
+          class="card-img-top"
+          alt="..."
+          style="height: 15rem"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title mb-3">
+            {{ author.first_name }} {{ author.last_name }}
+          </h5>
+        </div>
+      </div>
+      <a
+        (click)="navigateToAuthorDetails(author.id)"
+        class="btn btn-primary mx-5 mb-3"
+        >View Author Details</a
+      >
+    </div>
+  </div>
+</div>

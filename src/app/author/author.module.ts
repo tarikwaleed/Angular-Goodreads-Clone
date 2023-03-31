@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from "../shared/shared.module";
-import { AuthorCardComponent } from "./components/author-card/author-card.component";
-import { AuthorListComponent } from "./components/author-list/author-list.component";
-
+import { SharedModule } from '../shared/shared.module';
+import { AuthorCardComponent } from './components/author-card/author-card.component';
+import { AuthorListComponent } from './components/author-list/author-list.component';
 import { BookModule } from '../book/book.module';
 import { AuthorDetailsComponent } from './components/author-details/author-details.component';
 import { AuthorSelectComponent } from './components/author-select/author-select.component';
 import { AuthorFormComponent } from './components/author-form/author-form.component';
-import { DashboardsSharedModule } from "../dashboards-shared/dashboards-shared.module";
+import { DashboardsSharedModule } from '../dashboards-shared/dashboards-shared.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AuthorsBookComponent } from './components/authors-book/authors-book.component';
-
-
-
 
 @NgModule({
   declarations: [
@@ -22,16 +18,15 @@ import { AuthorsBookComponent } from './components/authors-book/authors-book.com
     AuthorDetailsComponent,
     AuthorSelectComponent,
     AuthorFormComponent,
-    AuthorsBookComponent
+    AuthorsBookComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
-    BookModule, DashboardsSharedModule,MatDatepickerModule
+    BookModule,
+    DashboardsSharedModule,
+    MatDatepickerModule,
   ],
-  exports: [
-    AuthorSelectComponent,
-    AuthorFormComponent
-  ]
+  exports: [AuthorSelectComponent, AuthorFormComponent],
 })
-export class AuthorModule { }
+export class AuthorModule {}

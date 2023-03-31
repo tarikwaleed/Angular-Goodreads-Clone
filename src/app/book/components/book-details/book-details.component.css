@@ -1,4 +1,4 @@
-.asd
+/* .asd
 {
 margin-bottom: 1rem;
 }
@@ -7,15 +7,20 @@ color:  #7B68EE;
 margin-bottom:10px;
 text-decoration: none;
 }
-img{
+.rate{
+  margin: auto;
+  margin: 1rem 0;
+  margin-left: 14rem;
+}
+*/
+
+img {
   border-radius: 10px;
 
   max-width: 100%;
   height: auto;
 }
-.rate{
-margin: auto;
-margin: 1rem 0;
-margin-left: 14rem;
-}
 
+.btn {
+  background-color: #7b68ee !important;
+}

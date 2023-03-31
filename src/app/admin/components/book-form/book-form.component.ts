@@ -7,23 +7,23 @@ import { BookFormService } from '../../services/book-form.service';
 @Component({
   selector: 'app-book-form',
   templateUrl: './book-form.component.html',
-  styleUrls: ['./book-form.component.css']
+  styleUrls: ['./book-form.component.css'],
 })
 export class BookFormComponent implements OnInit {
   bookForm!: FormGroup;
   submitted = false;
   book: any;
   selectedAuthorId!: string;
-  selectedCategoryId!: string
-  selectedFile!: File
-  isUpdate: boolean = false
+  selectedCategoryId!: string;
+  selectedFile!: File;
+  isUpdate: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private bookFormService: BookFormService,
     public dialog: MatDialog,
     private messageService: MessageService,
     @Inject(MAT_DIALOG_DATA) public data: { book: any }
-  ) { }
+  ) {}
   ngOnInit(): void {
     this.bookForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -31,12 +31,12 @@ export class BookFormComponent implements OnInit {
       summary: ['', Validators.required],
     });
     if (this.data) {
-      this.isUpdate = true
+      this.isUpdate = true;
       this.bookForm.patchValue({
         title: this.data.book.title,
         summary: this.data.book.summary,
         isbn: this.data.book.isbn,
-      })
+      });
     }
   }
   onFileSelected(event: any): void {
@@ -44,6 +44,8 @@ export class BookFormComponent implements OnInit {
     console.log('Selected file:', this.selectedFile);
   }
   onSubmit() {
+    console.log('===============================');
+    console.log(this.data?.book.coverImage);
     this.submitted = true;
     if (this.bookForm.invalid) {
       return;
@@ -52,31 +54,45 @@ export class BookFormComponent implements OnInit {
     formData.append('title', this.bookForm.get('title')?.value);
     formData.append('isbn', this.bookForm.get('isbn')?.value);
     formData.append('summary', this.bookForm.get('summary')?.value);
-    formData.append('coverImage', this.selectedFile ?? this.data?.book.coverImage);
-    formData.append('author', this.selectedAuthorId ?? this.data?.book.authorId);
-    formData.append('genre', this.selectedCategoryId ?? this.data?.book.categoryId);
+    formData.append(
+      'coverImage',
+      this.selectedFile ?? this.data?.book.coverImage
+    );
+    formData.append(
+      'author',
+      this.selectedAuthorId ?? this.data?.book.authorId
+    );
+    formData.append(
+      'genre',
+      this.selectedCategoryId ?? this.data?.book.categoryId
+    );
     if (this.data) {
-      formData.append('_id', this.data.book._id)
-
+      formData.append('_id', this.data.book._id);
     }
     console.log(formData);
     if (this.isUpdate) {
-      this.bookFormService.updateBook(formData).subscribe(data => {
+      this.bookFormService.updateBook(formData).subscribe((data) => {
         console.log(data);
-        this.dialog.closeAll()
-        this.messageService.add({ severity: 'success', summary: 'Done', detail: "Book has been updated Successfully", life: 2000 });
-      })
-
+        this.dialog.closeAll();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Done',
+          detail: 'Book has been updated Successfully',
+          life: 2000,
+        });
+      });
+    } else {
+      this.bookFormService.addBook(formData).subscribe((data) => {
+        //console.log(data);
+        this.dialog.closeAll();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Done',
+          detail: 'New book has been added Successfully',
+          life: 2000,
+        });
+      });
     }
-    else {
-      this.bookFormService.addBook(formData).subscribe(data => {
-        console.log(data);
-        this.dialog.closeAll()
-        this.messageService.add({ severity: 'success', summary: 'Done', detail: "New book has been added Successfully", life: 2000 });
-      })
-    }
-
-
   }
 
   onAuthorSelected(authorId: string) {
@@ -87,5 +103,4 @@ export class BookFormComponent implements OnInit {
     this.selectedCategoryId = categoryId;
     console.log(`selected category id is ${this.selectedCategoryId}`);
   }
-
 }

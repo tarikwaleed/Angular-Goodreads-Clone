@@ -16,7 +16,7 @@
     </mat-card-actions>
 </mat-card>  -->
 
-<div class="d-flex justify-content-center">
+<!-- <div class="d-flex justify-content-center">
   <div>
   <mat-card (click)="navigateToBookDetails(book._id)" matRipple class="example-card shadow m-4"
         style="height: 300px; width: 300px;">
@@ -24,4 +24,46 @@
     </mat-card>
   </div>
 
+</div> -->
+<div class="d-flex justify-content-center mb-5">
+  <div class="card" style="width: 17rem; height: 32rem">
+    <div class="d-flex flex-column justify-content-between h-100">
+      <div>
+        <img
+          [src]="'http://localhost:3000/' + book.coverImage"
+          class="card-img-top"
+          alt="..."
+          style="height: 15rem"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title mb-3">{{ book.title }}</h5>
+          <div *ngFor="let genre of book.genre">
+            <h6 class="card-subtitle mb-2 text-muted">{{ genre.name }}</h6>
+          </div>
+          <p
+            class="card-text"
+            style="
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+              white-space: pre-wrap; /* let the text wrap preserving spaces */
+            "
+          >
+            {{ book.summary }}
+          </p>
+          <div>
+            <i class="fa-solid fa-star me-2" style="color: #7a67ed"></i>
+            <span>{{ book.avgRating | number : "1.2-2" }} / 5.00</span>
+          </div>
+        </div>
+        <!-- ({{ book.ratings.length }} ratings) -->
+      </div>
+      <a
+        (click)="navigateToBookDetails(book._id)"
+        class="btn btn-primary mx-5 mb-3"
+        >View book</a
+      >
+    </div>
+  </div>
 </div>

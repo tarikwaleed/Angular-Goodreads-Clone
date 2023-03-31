@@ -1,49 +1,137 @@
-<mat-sidenav-container class="example-container ">
-    <mat-sidenav #sidenav class="mat-elevation-z10 col-3 back_ground" mode="side" closed style="position:fixed">
-        <mat-list class="text-center">
-            <div mat-subheader>Menu</div>
-            <mat-list-item matRipple (click)="navigateTo('books')">
-                <div matListItemTitle>Books</div>
-            </mat-list-item>
+<!-- <mat-sidenav-container class="example-container">
+  <mat-sidenav
+    #sidenav
+    class="mat-elevation-z10 col-3 back_ground"
+    mode="side"
+    closed
+    style="position: fixed"
+  >
+    <mat-list class="text-center">
+      <div mat-subheader>Menu</div>
+      <mat-list-item matRipple (click)="navigateTo('books')">
+        <div matListItemTitle>Books</div>
+      </mat-list-item>
 
-            <mat-list-item matRipple (click)="navigateTo('authors')">
-                <div matListItemTitle>Authors</div>
-            </mat-list-item>
-            <mat-list-item matRipple (click)="navigateTo('categories')">
-                <div matListItemTitle>Categories</div>
-            </mat-list-item>
-            <mat-list-item matRipple (click)="navigateTo('admin')">
-                <div matListItemTitle class="text-danger">Admin Dashboard</div>
-            </mat-list-item>
-        </mat-list>
+      <mat-list-item matRipple (click)="navigateTo('authors')">
+        <div matListItemTitle>Authors</div>
+      </mat-list-item>
+      <mat-list-item matRipple (click)="navigateTo('categories')">
+        <div matListItemTitle>Categories</div>
+      </mat-list-item>
+      <mat-list-item matRipple (click)="navigateTo('admin')">
+        <div matListItemTitle class="text-danger">Admin Dashboard</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar color="secondary">
+      <div
+        class="container-fluid d-flex flex-row justify-content-between align-items-center"
+      >
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <label for="titile">Book Store </label>
+        <div class="d-flex flex-row align-items-center">
+          <div class="d-flex flex-column">
+            <app-user-avatar
+              (click)="navigateTo('profile')"
+              *ngIf="isLoggedIn$ | async"
+              class="mx-3"
+            ></app-user-avatar> -->
+<!-- {{(user$|async)?.username}} -->
+<!-- </div>
+          <app-login-button *ngIf="!(isLoggedIn$ | async)"></app-login-button>
+          <app-logout-button *ngIf="isLoggedIn$ | async"></app-logout-button>
+        </div>
+      </div> -->
+<!-- /.container -->
+<!-- </mat-toolbar> -->
+<!-- home -->
 
-    </mat-sidenav>
-    <mat-sidenav-content class="sidenav-content">
-        <mat-toolbar color="secondary">
-            <div class="container-fluid d-flex flex-row justify-content-between align-items-center">
-                <button mat-button (click)="sidenav.toggle()">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <label for="titile">Book Store </label>
-                <div class="d-flex flex-row align-items-center">
-                    <div class="d-flex flex-column">
-                        <app-user-avatar (click)="navigateTo('profile')" *ngIf="(isLoggedIn$|async)" class="mx-3"></app-user-avatar>
-                        <!-- {{(user$|async)?.username}} -->
-                    </div>
-                    <app-login-button *ngIf="!(isLoggedIn$|async)"></app-login-button>
-                    <app-logout-button *ngIf="(isLoggedIn$|async)"></app-logout-button>
+<!-- <router-outlet></router-outlet> -->
+<!-- </mat-sidenav-content> -->
+<!-- </mat-sidenav-container> -->
 
-                </div>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <i class="fa-solid fa-book-open fs-3 ms-3 me-2" style="color: #7b68ee"></i>
+    <a class="navbar-brand fw-bold">BookStore</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLinkActive]="['active']"
+            [routerLink]="['home']"
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLinkActive]="['active']"
+            [routerLink]="['books']"
+            >Books</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLinkActive]="['active']"
+            [routerLink]="['authors']"
+            >Authors</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLinkActive]="['active']"
+            [routerLink]="['categories']"
+            >Categories</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="(isLoggedIn$ | async) && isAdmin">
+          <a
+            class="nav-link"
+            [routerLinkActive]="['active']"
+            [routerLink]="['admin']"
+            >Admin Dashboard</a
+          >
+        </li>
+      </ul>
+      <app-login-button
+        class="me-3"
+        *ngIf="!(isLoggedIn$ | async)"
+      ></app-login-button>
+      <app-register-button
+        class="me-4"
+        *ngIf="!(isLoggedIn$ | async)"
+      ></app-register-button>
+      <app-user-avatar
+        (click)="navigateTo('profile')"
+        *ngIf="isLoggedIn$ | async"
+        class="mx-3"
+      ></app-user-avatar>
+      <app-logout-button
+        *ngIf="isLoggedIn$ | async"
+        class="me-4"
+      ></app-logout-button>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
 
-
-
-            </div>
-            <!-- /.container -->
-        </mat-toolbar>
-        <!-- home -->
-        
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
-
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>

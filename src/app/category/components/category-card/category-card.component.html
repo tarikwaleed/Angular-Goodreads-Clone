@@ -1,5 +1,15 @@
-<div class="cateogery_card">
-    <mat-card (click)="navigateToCategoryDetails(category._id)">
-        <mat-card-content matRipple>{{category.name}}</mat-card-content>
-    </mat-card>
+<div class="d-flex justify-content-center">
+  <div
+    class="cateogery_card my-3 card"
+    (click)="navigateToCategoryDetails(category._id)"
+  >
+    <div class="card-design">
+      <p>
+        {{ category.name }}
+      </p>
+      <!-- <mat-card (click)="navigateToCategoryDetails(category._id)">
+        <mat-card-content matRipple>{{ category.name }}</mat-card-content>
+      </mat-card> -->
+    </div>
+  </div>
 </div>

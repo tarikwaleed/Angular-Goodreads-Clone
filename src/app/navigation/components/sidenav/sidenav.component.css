@@ -1,4 +1,8 @@
-.back_ground{
-  background-color: #7B68EE;
+.back_ground {
+  background-color: #7b68ee;
+}
 
+.active {
+  color: #7b68ee !important;
+  font-weight: bold;
 }

@@ -1,16 +1,17 @@
-@import '~primeicons/primeicons.css';
+@import "~primeicons/primeicons.css";
 /* You can add global styles to this file, and also import other style files */
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* .shadowEffect {
+  backdrop-filter: blur(2px) brightness(0.6);
+} */

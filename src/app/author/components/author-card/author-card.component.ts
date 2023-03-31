@@ -1,23 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Author } from 'src/app/author/models/author';
-
+import { AuthorCardModel } from 'src/app/author/models/author-card.model';
 
 @Component({
   selector: 'app-author-card',
   templateUrl: './author-card.component.html',
-  styleUrls: ['./author-card.component.css']
+  styleUrls: ['./author-card.component.css'],
 })
 export class AuthorCardComponent {
+  @Input() author!: AuthorCardModel;
 
-  @Input()
-  author!: any;
-
-  constructor(private router: Router) { }
-  navigateToAuthorDetails(authorId: string) {
-    this.router.navigate(['/author', authorId]);
+  constructor(private _Router: Router) {}
+  navigateToAuthorDetails(AuthorId: string) {
+    this._Router.navigate(['/author', AuthorId]);
   }
-
-
-
 }

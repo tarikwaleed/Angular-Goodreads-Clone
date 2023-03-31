@@ -1,4 +1,4 @@
-.yellow-stars .ui-rating-star {
+/* .yellow-stars .ui-rating-star {
   color: yellow;
 }
 ::ng-deep .ui-rating .ui-rating-star {
@@ -16,4 +16,9 @@
 
 .yellow-star .pi-star {
   color: yellow;
+} */
+
+:host ::ng-deep .p-rating-icon:not(.p-rating-cancel),
+:host ::ng-deep .p-rating-icon:not(.p-rating-cancel):hover {
+  color: #7b68ee !important;
 }

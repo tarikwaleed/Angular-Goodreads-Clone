@@ -2,7 +2,7 @@
   <div mat-dialog-content class="container-fluid d-flex flex-column my-3">
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email">
+      <input matInput formControlName="email" />
       <mat-error *ngIf="loginForm.controls['email'].errors?.['required']">
         Email is required
       </mat-error>
@@ -12,7 +12,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput type="password" formControlName="password">
+      <input matInput type="password" formControlName="password" />
       <mat-error *ngIf="loginForm.controls['password'].errors?.['required']">
         Password is required
       </mat-error>
@@ -22,10 +22,19 @@
     </mat-form-field>
     <div>
       <span>Don't have an account yet?</span>
-      <button mat-button (click)="openSignupForm()">Register</button>
+      <button class="login" mat-button (click)="openSignupForm()">
+        Register
+      </button>
     </div>
-    <button matRipple mat-raised-button class="bg-dark text-light" type="submit"
-      [disabled]="loginForm.invalid">Login</button>
+    <button
+      matRipple
+      mat-raised-button
+      class="btn"
+      type="submit"
+      [disabled]="loginForm.invalid"
+    >
+      Login
+    </button>
   </div>
   <!-- /.container -->
 </form>

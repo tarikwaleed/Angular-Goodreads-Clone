@@ -1,0 +1,103 @@
+body {
+  overflow-x: hidden;
+}
+
+.my-input {
+  outline: 2px solid #7b68ee;
+}
+.drop {
+  color: #7b68ee;
+}
+.asd {
+  color: #7b68ee;
+}
+.card {
+  transition: all 0.3s ease-in-out;
+}
+#viewmore {
+  padding: 0px !important;
+}
+.viewmore-img {
+  height: 140px;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+#latest_news {
+  height: 24rem;
+}
+
+.icons {
+  width: 10px;
+  height: 10px;
+  color: #7b68ee;
+  font-size: 2rem;
+  margin: auto;
+}
+.cover_photo {
+  width: 25%;
+  height: 200px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.statistic i {
+  width: 80px;
+  height: 80px;
+  color: #7b68ee;
+  font-size: 5rem;
+  margin: auto;
+}
+
+.Subscribe {
+  box-shadow: 15px 15px 15px lightgray;
+
+  width: 80%;
+  height: 350px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background-color: #7b68ee;
+  border-radius: 20px;
+}
+.Subscribe p {
+  font-size: large;
+  font-weight: 500;
+  color: aliceblue;
+  margin-left: 8%;
+  padding-top: 10%;
+}
+.input-email {
+  height: 60px;
+}
+
+.view_more {
+  width: 200px;
+  height: 60px;
+  font-weight: 700;
+  border-radius: 10%;
+  background-color: #7b68ee;
+  text-align: center;
+  color: white;
+}
+
+.Contact {
+  color: #7b68ee;
+}
+
+.facebook {
+  color: blue;
+}
+.linkedin {
+  color: #0077b5;
+}
+.instagram {
+  color: #d1485e;
+}
+.twitter {
+  color: #a020f0;
+}
+.info {
+  font-weight: 500;
+}

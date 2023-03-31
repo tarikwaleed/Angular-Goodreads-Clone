@@ -1,7 +1,26 @@
-<h1 *ngIf="reviews.length>0">All Reviews</h1>
-<p-card class="m-1" *ngFor="let rev of reviews" [header]="rev.userName">
+<div
+  *ngIf="isLoading; else loadedData"
+  class="d-flex align-items-center justify-content-center"
+  style="height: 100vh"
+>
+  <p-progressSpinner
+    styleClass="w-4rem h-4rem"
+    strokeWidth="8"
+    animationDuration=".5s"
+  ></p-progressSpinner>
+</div>
+<ng-template #loadedData>
+  <h1 *ngIf="reviews.length > 0">All Reviews</h1>
+  <p-card class="m-1" *ngFor="let rev of reviews">
+    <div class="d-flex">
+      <p-avatar matRipple size="medium" shape="circle">
+        <mat-icon>person</mat-icon>
+      </p-avatar>
+      <h3 class="ms-3">{{ rev.userName }}</h3>
+    </div>
     <p class="m-0">
-        {{rev.reviewText}}
+      {{ rev.reviewText }}
     </p>
-</p-card>
-<h1 class="text-warning" *ngIf="reviews.length==0">Book has no Reviews</h1>
+  </p-card>
+  <h1 class="text-warning" *ngIf="reviews.length == 0">Book has no Reviews</h1>
+</ng-template>

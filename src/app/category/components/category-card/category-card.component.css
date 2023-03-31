@@ -1,7 +1,35 @@
-.cateogery_card{
-text-align: center;
-margin-bottom: 1rem ;
-  border-style: double;
-  border-color: #7B68EE;
-border-radius: 10px;
+.cateogery_card {
+  text-align: center;
+  /* margin-bottom: 1rem; */
+  /* border-style: double; */
+  border: 1px solid rgb(123, 104, 238);
+  border-radius: 10px;
+  width: 12rem;
+  height: 12rem;
+  background-image: url(../../../../assets/images/books.png);
+  background-position: center;
+  background-size: contain;
+}
+
+.card-design {
+  border-radius: 10px;
+  backdrop-filter: blur(3px) brightness(0.8);
+  background-color: rgba(123, 104, 238, 0.4);
+  color: white;
+  width: 12rem;
+  height: 12rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px black;
+  font-size: 30px;
+}
+
+.card {
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.07);
 }

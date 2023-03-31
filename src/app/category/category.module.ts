@@ -3,25 +3,18 @@ import { CommonModule } from '@angular/common';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
-import { SharedModule } from "../shared/shared.module";
+import { SharedModule } from '../shared/shared.module';
 import { CategorySelectComponent } from './components/category-select/category-select.component';
-
-
+import { BookModule } from '../book/book.module';
 
 @NgModule({
   declarations: [
     CategoryCardComponent,
     CategoryListComponent,
     CategoryDetailsComponent,
-    CategorySelectComponent
+    CategorySelectComponent,
   ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
-  exports: [
-    CategorySelectComponent
-  ]
-
+  imports: [CommonModule, SharedModule, BookModule],
+  exports: [CategorySelectComponent],
 })
-export class CategoryModule { }
+export class CategoryModule {}

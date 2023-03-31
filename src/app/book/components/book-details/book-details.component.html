@@ -1,50 +1,163 @@
-<div *ngIf="isLoading else loadedData" class="d-flex align-items-center justify-content-center" style="height: 100vh;">
-  <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
+<div
+  *ngIf="isLoading; else loadedData"
+  class="d-flex align-items-center justify-content-center"
+  style="height: 100vh"
+>
+  <p-progressSpinner
+    styleClass="w-4rem h-4rem"
+    strokeWidth="8"
+    animationDuration=".5s"
+  ></p-progressSpinner>
 </div>
 <ng-template #loadedData>
   <div class="container">
     <div class="row d-flex justify-content-center">
       <!-- div for book picture -->
-      <div class="col-lg-4 col-md-4 col-sm-6 align-items-center mt-5 ">
-        <img [src]="'http://localhost:3000/'+bookData.coverImage" alt="">
-        <div class="row d-flex justify-content-center my-3">
+      <div
+        class="col-lg-4 col-md-4 col-sm-6 d-flex flex-column align-items-center mt-5"
+      >
+        <img
+          [src]="'http://localhost:3000/' + bookData.coverImage"
+          alt=""
+          style="width: 18rem; height: 22rem"
+        />
+        <div class="text-center mt-3">
+          <h5>Your Rating:</h5>
           <!-- user rating  -->
-          <app-book-rating [rating]="userBookData.rating" [bookId]="bookId" [editable]="true"></app-book-rating>
-        </div>
+          <div>
+            <app-book-rating
+              *ngIf="isLoggedIn$ | async; else defaultRating"
+              [rating]="userBookData?.rating"
+              [bookId]="bookId"
+              [editable]="true"
+            ></app-book-rating>
+          </div>
 
+          <ng-template #defaultRating>
+            <app-book-rating
+              [rating]="0"
+              [bookId]="bookId"
+              [editable]="false"
+            ></app-book-rating>
+          </ng-template>
+
+          <div class="mt-3">
+            <app-book-shelf
+              *ngIf="isLoggedIn$ | async; else defaultReview"
+              [bookStatus]="userBookData?.shelf"
+              [bookId]="bookId"
+            ></app-book-shelf>
+          </div>
+
+          <ng-template #defaultReview>
+            <app-book-shelf
+              [bookStatus]="'c'"
+              [bookId]="bookId"
+            ></app-book-shelf>
+          </ng-template>
+        </div>
       </div>
 
       <div class="col-lg-8 col-md-8 col-sm-6 my-2">
-        <p class="fs-2 fw-bold mb-3 mt-5">{{bookData.title}}</p>
-        <p class="mb-3">{{bookData.author_name}}</p>
-
+        <p class="fs-2 fw-bold mb-2 mt-5">{{ bookData.title }}</p>
+        <div class="mb-3">
+          <a
+            style="cursor: pointer"
+            *ngFor="let author of bookData.author"
+            (click)="navigateToAuthorDetails(author.author_id)"
+            class="mb-3 mt-5 text-muted"
+            >{{ author.author_name }}
+          </a>
+        </div>
+        <!-- <p class="mb-3">{{ bookData.author_name }}</p> -->
 
         <!-- average rating -->
-        <app-book-rating [rating]="bookData.averageRating" [bookId]="bookId" [editable]="false"></app-book-rating>
-        <span *ngIf="bookData.ratingCount>0 ">({{bookData.averageRating|number:'1.1-1'}}) </span>
-        <span>{{bookData.ratingCount}} Ratings</span>
-        <p>{{bookData.summary}}</p>
-
+        <div class="d-flex align-items-center">
+          <app-book-rating
+            [rating]="bookData.avgRating"
+            [bookId]="bookId"
+            [editable]="false"
+          ></app-book-rating>
+          <span class="ms-2 fs-4"
+            >{{ bookData.avgRating | number : "1.2-2" }} / 5.00
+          </span>
+        </div>
+        <div class="mt-3 d-flex align-items-center">
+          <i
+            class="fa-solid fa-thumbs-up me-2"
+            style="color: #7b68ee; font-size: 20px"
+          ></i>
+          <span>{{ bookData.ratingCount }} Ratings</span>
+          <i
+            class="fa-solid fa-comments ms-3 me-2"
+            style="color: #7b68ee; font-size: 20px"
+          ></i>
+          <span>
+            {{ bookData.reviews.length }}
+            Reviews
+          </span>
+        </div>
+        <p class="mt-5 fs-4">{{ bookData.summary }}</p>
       </div>
     </div>
 
-    <app-book-shelf [bookStatus]="userBookData.shelf" [bookId]="bookId"></app-book-shelf>
+    <h2 class="mt-5">Details about book</h2>
+    <table class="table table-hover table-bordered fs-5 fw-bold">
+      <tbody>
+        <tr>
+          <td>Book Name</td>
+          <td>{{ bookData.title }}</td>
+        </tr>
+        <tr>
+          <td>Author Name</td>
+          <td>
+            <span *ngFor="let author of bookData.author">{{
+              author.author_name
+            }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Book isbn</td>
+          <td>{{ bookData.isbn }}</td>
+        </tr>
+        <tr>
+          <td>Genre</td>
+
+          <td>
+            <span *ngFor="let gen of bookData.genre">{{ gen.name }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <app-review-list [bookId]="bookId"></app-review-list>
 
     <form [formGroup]="reviewForm">
-      <div class="row d-flex justify-content-center">
-        <textarea rows="5" cols="60" formControlName="reviewText" pInputTextarea [(ngModel)]="reviewText"></textarea>
-        <p *ngIf="reviewForm.get('reviewText')?.invalid && reviewForm.get('reviewText')?.touched" style="color: red">
-          Please Enter a review</p>
+      <div class="row d-flex justify-content-center px-2">
+        <textarea
+          rows="3"
+          placeholder="Enter comment"
+          formControlName="reviewText"
+          pInputTextarea
+          [(ngModel)]="reviewText"
+        ></textarea>
+        <p
+          *ngIf="
+            reviewForm.get('reviewText')?.invalid &&
+            reviewForm.get('reviewText')?.touched
+          "
+          style="color: red"
+        >
+          Please Enter a review
+        </p>
       </div>
-      <div class="my-3">
-        <p-button label="Submit" (onClick)="submitReview()"></p-button>
-      </div>
+      <button
+        type="button"
+        (click)="submitReview()"
+        class="btn btn-primary my-3"
+      >
+        Submit
+      </button>
     </form>
-
-    <app-review-list [bookId]="bookId "></app-review-list>
-
-
-
   </div>
-
 </ng-template>
