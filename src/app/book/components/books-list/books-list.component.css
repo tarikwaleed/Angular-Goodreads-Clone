@@ -1,36 +1,18 @@
-/* mat-grid-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.pagination .page-link {
+  background-color: #7B68EE;
+  border-color: #7B68EE;
+  color: #FFFFFF;
 }
 
-mat-grid-tile {
-  flex: 1 1 100%;
-  margin: 10px;
+.pagination .page-link:hover {
+  background-color: #6A5ACD;
+  border-color: #6A5ACD;
+  color: #FFFFFF;
 }
 
-@media (min-width: 768px) {
-  mat-grid-tile {
-    flex: 1 1 300px;
-  }
-} */
-/* .asd{
-background-color: aquamarine;
-text-decoration: none;
-}
-a {
-  text-decoration: none;
-} */
-
-@media only screen and (min-width: 992px) {
-  .card {
-    width: calc(33.33% - 20px);
-  }
+.pagination .page-item.active .page-link {
+  background-color: #6A5ACD;
+  border-color: #6A5ACD;
+  color: #FFFFFF;
 }
 
-/* For small screens */
-@media only screen and (max-width: 991px) {
-  .card {
-    width: 100%;
-  }
-}
