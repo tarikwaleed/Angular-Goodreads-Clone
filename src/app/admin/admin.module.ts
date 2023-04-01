@@ -10,6 +10,7 @@ import { AuthorModule } from "../author/author.module";
 import { CategoryModule } from "../category/category.module";
 import { BookFormComponent } from './components/book-form/book-form.component';
 import { SharedModule } from "../shared/shared.module";
+import { DeleteItemComponent } from './components/delete-item/delete-item.component';
 
 
 
@@ -22,6 +23,7 @@ import { SharedModule } from "../shared/shared.module";
     AuthorDashboardComponent,
     CategoryDashboardComponent,
     BookFormComponent,
+    DeleteItemComponent,
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,7 @@ import { Table } from 'primeng/table';
 import { AuthorFormComponent } from 'src/app/author/components/author-form/author-form.component';
 import { AuthorDashboardService } from 'src/app/author/services/author-dashboard.service';
 import { AuthorFormService } from 'src/app/author/services/author-form.service';
+import { DeleteItemComponent } from '../delete-item/delete-item.component';
 
 @Component({
   selector: 'app-author-dashboard',
@@ -58,24 +59,29 @@ export class AuthorDashboardComponent implements OnInit {
     });
   }
   deleteAuthor(author: any) {
-    this.confirmationService.confirm({
-      message: 'Are you sure you want to delete ' + author.authorName + '?',
-      header: 'Confirm',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.authorDashboardService
-          .deleteAuthor(author.id)
-          .subscribe((data) => {
-            console.log(data);
-          });
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Successful',
-          detail: 'Author Deleted',
-          life: 3000,
-        });
-      },
+    let dialogRef = this.dialog.open(DeleteItemComponent, {
+      width: '30rem',
+      height: '20rem',
+      data: { data: author, type: 'author' },
     });
+    // this.confirmationService.confirm({
+    //   message: 'Are you sure you want to delete ' + author.authorName + '?',
+    //   header: 'Confirm',
+    //   icon: 'pi pi-exclamation-triangle',
+    //   accept: () => {
+    //     this.authorDashboardService
+    //       .deleteAuthor(author.id)
+    //       .subscribe((data) => {
+    //         console.log(data);
+    //       });
+    //     this.messageService.add({
+    //       severity: 'success',
+    //       summary: 'Successful',
+    //       detail: 'Author Deleted',
+    //       life: 3000,
+    //     });
+    //   },
+    // });
   }
 
   applyFilterGlobal($event: any, stringVal: any) {

@@ -7,7 +7,7 @@ import { CategoryService } from 'src/app/category/services/category.service';
 @Component({
   selector: 'app-category-dashboard',
   templateUrl: './category-dashboard.component.html',
-  styleUrls: ['./category-dashboard.component.css']
+  styleUrls: ['./category-dashboard.component.css'],
 })
 export class CategoryDashboardComponent {
   @ViewChild('dt') dt: Table | undefined;
@@ -15,25 +15,30 @@ export class CategoryDashboardComponent {
   categories!: Category[];
   category!: Category;
   submitted!: boolean;
-  isPostRequest: boolean = false
-  errorMessage: string = ''
+  isPostRequest: boolean = false;
+  errorMessage: string = '';
 
-  constructor(private categoryService: CategoryService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(
+    private categoryService: CategoryService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService
+  ) {}
 
   ngOnInit() {
-    this.categoryService.getCategories().subscribe(categories => this.categories = categories);
+    this.categoryService
+      .getCategories()
+      .subscribe((categories) => (this.categories = categories));
   }
 
   openNew() {
-    this.isPostRequest = true
-    this.category = { _id: "", name: "" };
+    this.isPostRequest = true;
+    this.category = { _id: '', name: '' };
     this.submitted = false;
     this.categoryDialog = true;
   }
 
-
   editCategory(category: Category) {
-    this.isPostRequest = false
+    this.isPostRequest = false;
     this.category = { ...category };
     console.log(category);
     this.categoryDialog = true;
@@ -45,20 +50,32 @@ export class CategoryDashboardComponent {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: async () => {
-        this.categoryService.deleteCategory(category,
+        this.categoryService.deleteCategory(
+          category,
           () => {
             this.errorMessage = '';
-            this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'category Deleted', life: 1000 });
-            this.categories = this.categories.filter(val => val._id !== category._id);
-            this.category = { _id: "", name: "" };
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Successful',
+              detail: 'category Deleted',
+              life: 1000,
+            });
+            this.categories = this.categories.filter(
+              (val) => val._id !== category._id
+            );
+            this.category = { _id: '', name: '' };
           },
           (message) => {
             this.errorMessage = message;
-            this.messageService.add({ severity: 'warn', summary: 'Failed', detail: this.errorMessage, life: 1000 });
+            this.messageService.add({
+              severity: 'warn',
+              summary: 'Failed',
+              detail: this.errorMessage,
+              life: 1000,
+            });
           }
         );
-
-      }
+      },
     });
   }
 
@@ -70,27 +87,40 @@ export class CategoryDashboardComponent {
   saveCategory() {
     this.submitted = true;
     if (this.isPostRequest) {
-      this.categoryService.createCategory(this.category).subscribe(ceratedCategory => {
-        this.categories.push(ceratedCategory);
-        console.log(this.categories);
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Category Added Successfully', life: 1000 });
-      })
-    }
-    else {
+      this.categoryService
+        .createCategory(this.category)
+        .subscribe((ceratedCategory) => {
+          this.categories.push(ceratedCategory);
+          console.log(this.categories);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Successful',
+            detail: 'Category Added Successfully',
+            life: 1000,
+          });
+        });
+    } else {
       //send PUT
-      this.categories[this.findIndexById(this.category._id)] = this.category
-      this.categoryService.updateCategory(this.category).subscribe(updatedCategory => {
-        this.categories[this.findIndexById(this.category._id)] = updatedCategory
-        console.log(this.categories);
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Category Updated Successfully', life: 1000 });
-      })
+      this.categories[this.findIndexById(this.category._id)] = this.category;
+      this.categoryService
+        .updateCategory(this.category)
+        .subscribe((updatedCategory) => {
+          this.categories[this.findIndexById(this.category._id)] =
+            updatedCategory;
+          console.log(this.categories);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Successful',
+            detail: 'Category Updated Successfully',
+            life: 1000,
+          });
+        });
       console.log(`PUT ${this.category.name}??`);
     }
 
-
-    this.categories = [...this.categories]
+    this.categories = [...this.categories];
     this.categoryDialog = false;
-    this.category = { _id: "", name: "" };
+    this.category = { _id: '', name: '' };
   }
   findIndexById(id: string): number {
     let index = -1;
@@ -104,9 +134,7 @@ export class CategoryDashboardComponent {
     return index;
   }
 
-
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
-
 }

@@ -3,31 +3,29 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookFormService {
-
   bookAdded: EventEmitter<void> = new EventEmitter<void>();
   bookUpdated: EventEmitter<void> = new EventEmitter<void>();
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   addBook(formData: any): Observable<any> {
     const url = 'http://localhost:3000/api/admin/book';
     return this.http.post<any>(url, formData).pipe(
       tap(() => {
-        this.emitbookAddedEvent()
+        this.emitbookAddedEvent();
       })
-    )
-
+    );
   }
   updateBook(formData: any): Observable<any> {
+    console.log(formData.get('coverImage'));
     const url = 'http://localhost:3000/api/admin/book/';
     console.log(formData);
     return this.http.put<any>(url, formData).pipe(
       tap(() => {
-        this.emitbookUpdatedEvent()
+        this.emitbookUpdatedEvent();
       })
-    )
-
+    );
   }
   private emitbookAddedEvent() {
     this.bookAdded.emit();
