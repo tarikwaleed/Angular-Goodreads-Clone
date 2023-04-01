@@ -82,6 +82,11 @@ body {
   color: white;
 }
 
+.nabigationLinks:hover {
+  color: #7b68ee;
+  transform: scale(1.1);
+}
+
 .Contact {
   color: #7b68ee;
 }

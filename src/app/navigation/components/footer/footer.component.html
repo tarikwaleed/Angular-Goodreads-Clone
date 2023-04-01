@@ -25,14 +25,14 @@
           <h6 class="fw-bold mb-4">Book Categories</h6>
           <div class="container">
             <div class="row d-flex info">
-              <p>Angular</p>
-              <p>React</p>
-              <p>Vue</p>
-              <p>Laravel</p>
-              <p>Phycology</p>
-              <p>Law</p>
-              <p>Advanture</p>
-              <p>Drama</p>
+              <p
+                *ngFor="let category of categories"
+                (click)="navigateToCategoryDetails(category._id)"
+                style="cursor: pointer"
+                class="nabigationLinks"
+              >
+                {{ category.name }}
+              </p>
             </div>
           </div>
         </div>
@@ -42,13 +42,36 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 info">
           <!-- Links -->
           <h6 class="fw-bold mb-4">Quick Links</h6>
-          <p>About us</p>
-          <p>Contact us</p>
-          <p>Categories</p>
-          <p>Login</p>
-          <p>Sign Up</p>
-          <p>FAQ</p>
+          <p
+            class="nabigationLinks"
+            style="cursor: pointer"
+            [routerLink]="['home']"
+          >
+            Home
+          </p>
+          <p
+            class="nabigationLinks"
+            style="cursor: pointer"
+            [routerLink]="['books']"
+          >
+            Books
+          </p>
+          <p
+            class="nabigationLinks"
+            style="cursor: pointer"
+            [routerLink]="['authors']"
+          >
+            Authors
+          </p>
+          <p
+            class="nabigationLinks"
+            style="cursor: pointer"
+            [routerLink]="['categories']"
+          >
+            Categories
+          </p>
         </div>
+
         <!-- Grid column -->
 
         <!-- Grid column -->
@@ -58,17 +81,21 @@
           <!-- Links -->
           <div class="text-start">
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p>
-              <i class="Contact fas fa-home me-3"></i> New York, NY 10012, US
-            </p>
+            <p><i class="Contact fas fa-home me-3"></i> Assiut, Egypt</p>
             <p>
               <i class="Contact fas fa-envelope me-3"></i>
               info@example.com
             </p>
-            <p><i class="Contact fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="Contact fas fa-phone me-3"></i> + 02 234 5678</p>
           </div>
           <div class="text-center mx-auto">
-            <img src="assets/images/map.png" class="img-fluid" alt="..." />
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2044.5780609867707!2d31.170880704517373!3d27.187307021993053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x144509579233c833%3A0xd4989f47ed2a41e4!2z2YXYqNmG2Ykg2KfZhNin2KrYtdin2YTYp9iqIC0gSVRJ!5e0!3m2!1sar!2seg!4v1680360911396!5m2!1sar!2seg"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
         <!-- Grid column -->
@@ -83,7 +110,7 @@
     class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
   >
     <!-- Left -->
-    <div class="me-5 d-none fw-bold d-lg-block">
+    <div class="container me-5 d-none fw-bold d-lg-block">
       <span>Follow US:</span>
 
       <div>
@@ -115,7 +142,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025)">
-    © 2021 Copyright:
+    © 2023 Copyright:
     <a class="text-reset fw-bold" href="#">All Rights Reserved</a>
   </div>
   <!-- Copyright -->

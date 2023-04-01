@@ -27,6 +27,6 @@ import { AuthorsBookComponent } from './components/authors-book/authors-book.com
     DashboardsSharedModule,
     MatDatepickerModule,
   ],
-  exports: [AuthorSelectComponent, AuthorFormComponent],
+  exports: [AuthorSelectComponent, AuthorFormComponent, AuthorCardComponent],
 })
 export class AuthorModule {}

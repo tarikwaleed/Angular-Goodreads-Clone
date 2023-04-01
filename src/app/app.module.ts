@@ -7,6 +7,7 @@ import { AuthorModule } from './author/author.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { CategoryModule } from './category/category.module';
 import { RegistrationModule } from './registration/registration.module';
+import { LandingPageModule } from './landing-page/landing-page.module';
 import { AdminModule } from './admin/admin.module';
 import { ToastModule } from 'primeng/toast';
 import { LoginButtonComponent } from './registration/components/login-button/login-button.component';
@@ -23,6 +24,7 @@ import { LoginButtonComponent } from './registration/components/login-button/log
     RegistrationModule,
     AdminModule,
     ToastModule,
+    LandingPageModule,
   ],
   providers: [LoginButtonComponent],
   bootstrap: [AppComponent],

@@ -121,6 +121,7 @@
         *ngIf="!(isLoggedIn$ | async)"
       ></app-register-button>
       <app-user-avatar
+        [userName]="userName"
         (click)="navigateTo('profile')"
         *ngIf="isLoggedIn$ | async"
         class="mx-3"

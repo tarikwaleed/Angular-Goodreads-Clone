@@ -9,54 +9,52 @@ import { AuthorFormService } from 'src/app/author/services/author-form.service';
 @Component({
   selector: 'app-author-dashboard',
   templateUrl: './author-dashboard.component.html',
-  styleUrls: ['./author-dashboard.component.css']
+  styleUrls: ['./author-dashboard.component.css'],
 })
 export class AuthorDashboardComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
-  authors!: any[]
+  authors!: any[];
   constructor(
     private authorDashboardService: AuthorDashboardService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private authorFormService: AuthorFormService,
-    public dialog: MatDialog,
-
-  ) { }
+    public dialog: MatDialog
+  ) {}
   ngOnInit(): void {
-    this.getAuthors()
+    this.getAuthors();
     this.authorFormService.authorAdded.subscribe(() => {
-      this.getAuthors()
-    })
+      this.getAuthors();
+    });
     this.authorFormService.authorUpdated.subscribe(() => {
-      this.getAuthors()
-    })  
-    this.authorDashboardService.authorDeleted.subscribe(()=>{
-      this.getAuthors()
-    })
-
+      this.getAuthors();
+    });
+    this.authorDashboardService.authorDeleted.subscribe(() => {
+      this.getAuthors();
+    });
   }
   private getAuthors() {
-    this.authorDashboardService.getAuthors().subscribe(data => {
-      console.log("Authors:");
+    this.authorDashboardService.getAuthors().subscribe((data) => {
+      console.log('Authors:');
       console.log(data);
-      this.authors = data
-    })
+      this.authors = data;
+    });
   }
 
   openAuthorForm() {
-    this.dialog.closeAll()
+    this.dialog.closeAll();
     const dialogRef = this.dialog.open(AuthorFormComponent, {
       width: '500px',
-      height: '600px'
+      height: '600px',
     });
   }
 
   editAuthor(author: any) {
-    this.dialog.closeAll()
+    this.dialog.closeAll();
     const dialogRef = this.dialog.open(AuthorFormComponent, {
       width: '500px',
       height: '600px',
-      data: { author }
+      data: { author },
     });
   }
   deleteAuthor(author: any) {
@@ -65,16 +63,22 @@ export class AuthorDashboardComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.authorDashboardService.deleteAuthor(author._id).subscribe(data => {
-          console.log(data);
-        })
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Author Deleted', life: 3000 });
-      }
+        this.authorDashboardService
+          .deleteAuthor(author.id)
+          .subscribe((data) => {
+            console.log(data);
+          });
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Author Deleted',
+          life: 3000,
+        });
+      },
     });
   }
 
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
-
 }

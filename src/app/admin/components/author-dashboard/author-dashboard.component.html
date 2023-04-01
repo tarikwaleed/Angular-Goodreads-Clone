@@ -5,7 +5,7 @@
       <button
         pButton
         pRipple
-        label="New"ِ
+        label="New"
         icon="pi pi-plus"
         class="p-button-success p-mr-2"
         (click)="openAuthorForm()"
@@ -27,12 +27,16 @@
     <ng-template pTemplate="caption">
       <div class="d-flex justify-content-center">
         <div class="p-d-flex p-ai-center p-jc-between">
-            <h4 class="p-m-0 ms-3">Manage Authors</h4>
-            <span class="p-input-icon-left">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
-                    placeholder="Search for Authors" />
-            </span>
+          <h4 class="p-m-0 ms-3">Manage Authors</h4>
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              (input)="applyFilterGlobal($event, 'contains')"
+              placeholder="Search for Authors"
+            />
+          </span>
         </div>
       </div>
     </ng-template>
