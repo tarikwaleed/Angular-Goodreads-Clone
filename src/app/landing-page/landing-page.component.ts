@@ -92,6 +92,7 @@ export class LandingPageComponent {
   ngOnInit() {
     this.landingPageService.getPopularBooks().subscribe((data) => {
       this.books = data.slice(0, 3);
+      this.isLoading = false;
     });
 
     this.landingPageService.getPopularAuthors().subscribe((data) => {
@@ -100,6 +101,7 @@ export class LandingPageComponent {
     });
     setInterval(() => {
       this.randomQuote = this.getRandomQuote();
+      this.isLoading = false;
     }, 2000);
   }
 

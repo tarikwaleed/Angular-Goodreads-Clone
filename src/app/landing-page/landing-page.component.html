@@ -1,22 +1,12 @@
-<div
-  *ngIf="isLoading; else loadedData"
-  class="d-flex align-items-center justify-content-center"
-  style="height: 100vh"
->
-  <p-progressSpinner
-    styleClass="w-4rem h-4rem"
-    strokeWidth="8"
-    animationDuration=".5s"
-  ></p-progressSpinner>
+<div *ngIf="isLoading; else loadedData" class="d-flex align-items-center justify-content-center" style="height: 100vh">
+  <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
 </div>
 <ng-template #loadedData>
   <div class="all_conternt">
     <div class="container">
       <section id="home mb-5">
-        <div
-          class="row justify-content-center align-items-center my-5 text-center"
-          style="background-color: #e6e6fa; border-radius: 15px"
-        >
+        <div class="row justify-content-center align-items-center my-5 text-center"
+          style="background-color: #e6e6fa; border-radius: 15px">
           <div class="col-12 col-xl-6 mt-5">
             <div>
               <h1 class="w3-center" style="color: #7b68ee">Back To SCHOOL</h1>
@@ -28,14 +18,8 @@
                 perferendis nihil hic accu
               </p>
               <div class="mb-5">
-                <button
-                  class="btn btn-lg me-3"
-                  style="background-color: #7b68ee"
-                >
-                  Get the deals<i
-                    class="fa-solid fa-arrow-right mx-2"
-                    style="color: white"
-                  ></i>
+                <button class="btn btn-lg me-3" style="background-color: #7b68ee">
+                  Get the deals<i class="fa-solid fa-arrow-right mx-2" style="color: white"></i>
                 </button>
                 <button class="btn btn-lg btn-outline-secondary">
                   see other promos
@@ -101,10 +85,7 @@
 
     <!--  third section-->
     <div class="container justify-content-center">
-      <div
-        class="text-center my-5 py-4"
-        style="background-color: antiquewhite; border-radius: 10px"
-      >
+      <div class="text-center my-5 py-4" style="background-color: antiquewhite; border-radius: 10px">
         <h3 class="fw-bold mx-5 my-3">Popular Books</h3>
         <p class="mx-5 my-3 fs-4">
           Recommendations on books to read next. Find books that are similar to
@@ -119,10 +100,7 @@
     </div>
 
     <div class="container justify-content-center">
-      <div
-        class="text-center my-5 py-4"
-        style="background-color: rgb(178, 178, 241); border-radius: 10px"
-      >
+      <div class="text-center my-5 py-4" style="background-color: rgb(178, 178, 241); border-radius: 10px">
         <h3 class="fw-bold mx-5 my-3">Popular Authors</h3>
         <p class="mx-5 my-3 fs-4">
           Find out Some of the world's most renowned authors and their most
@@ -150,11 +128,8 @@
       <div class="row d-flex justify-content-center">
         <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card mx-3" id="latest_news">
-            <img
-              class="card-img-top viewmore-img"
-              src="../../assets/images/18e3f4aa-b8e8-4240-a6af-822e9a79f2d8.jpg"
-              alt="Card image cap"
-            />
+            <img class="card-img-top viewmore-img" src="../../assets/images/18e3f4aa-b8e8-4240-a6af-822e9a79f2d8.jpg"
+              alt="Card image cap" />
             <div class="card-body">
               <h5 class="card-title">Why Reading is important for children?</h5>
               <p class="card-text">
@@ -169,11 +144,8 @@
 
         <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card mx-3" id="latest_news">
-            <img
-              class="card-img-top viewmore-img"
-              src="../../assets/images/2ada1a6b-5983-4cbb-b0d2-61daa529dee5.jpg"
-              alt="Card image cap"
-            />
+            <img class="card-img-top viewmore-img" src="../../assets/images/2ada1a6b-5983-4cbb-b0d2-61daa529dee5.jpg"
+              alt="Card image cap" />
             <div class="card-body">
               <h5 class="card-title">
                 Benifits of reading: Smart,Happy,Dilignt
@@ -195,11 +167,8 @@
 
         <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card mx-3" id="latest_news">
-            <img
-              class="card-img-top viewmore-img"
-              src="../../assets/images/a035b34e-2dcb-42df-ba97-50f4382db28b.jpg"
-              alt="Card image cap"
-            />
+            <img class="card-img-top viewmore-img" src="../../assets/images/a035b34e-2dcb-42df-ba97-50f4382db28b.jpg"
+              alt="Card image cap" />
             <div class="card-body">
               <h5 class="card-title">What books you should read in 2023?</h5>
               <p class="card-text">
@@ -218,11 +187,8 @@
 
         <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
           <div class="card mx-3" id="latest_news">
-            <img
-              class="card-img-top viewmore-img"
-              src="assets/images/e3b7d66a-0c80-4457-9266-3efa0ade2118.jpg"
-              alt="Card image cap"
-            />
+            <img class="card-img-top viewmore-img" src="assets/images/e3b7d66a-0c80-4457-9266-3efa0ade2118.jpg"
+              alt="Card image cap" />
             <div class="card-body">
               <h5 class="card-title">
                 10 things you must know to improve your reading skills
@@ -276,19 +242,9 @@
           Subscribe to our news letter for the latest book updates
         </p>
         <div class="input-group mx-auto mb-3 w-50 d-flex align-items-center">
-          <input
-            type="text"
-            class="input-email form-control my-2"
-            placeholder="Type your email here"
-            aria-label="Recipient's username"
-            aria-describedby="button-addon2"
-          />
-          <button
-            class="btn btn-light my-2"
-            type="button"
-            id="button-addon2"
-            style="padding: 1.08rem"
-          >
+          <input type="text" class="input-email form-control my-2" placeholder="Type your email here"
+            aria-label="Recipient's username" aria-describedby="button-addon2" />
+          <button class="btn btn-light my-2" type="button" id="button-addon2" style="padding: 1.08rem">
             Subscribe
           </button>
         </div>
@@ -298,56 +254,49 @@
     <!-- section about us -->
     <div class="container">
       <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-12">
-       <div class="card" style="width: 18rem ; height: 32rem;">
-         <img src="assets/images/tarek.jpg" class="card-img-top" alt="..." />
-         <div class="card-body">
-           <h5 class="card-title">Tarik Waleed</h5>
-           <a
-             href="https://www.linkedin.com/in/tarikwaleed"
-             class="btn btn-primary" style="background-color:  #7B68EE;"
-             >Profile</a>
-         </div>
-       </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card" style="width: 18rem ; height: 32rem;">
+            <img src="assets/images/tarek.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Tarik Waleed</h5>
+              <a href="https://www.linkedin.com/in/tarikwaleed" class="btn btn-primary"
+                style="background-color:  #7B68EE;">Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
 
-       <div class="card" style="width: 18rem; height: 32rem;">
-         <img src="assets/images/norhan.jpeg" class="card-img-top" alt="..." />
-         <div class="card-body">
-           <h5 class="card-title">Norhan Khaled</h5>
-           <a href="https://www.linkedin.com/in/norhan-khaled-066b1218b/"
-           class="btn btn-primary" style="background-color:  #7B68EE;" >Profile</a
-           >
-         </div>
-       </div>
-      </div>
+          <div class="card" style="width: 18rem; height: 32rem;">
+            <img src="assets/images/norhan.jpeg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Norhan Khaled</h5>
+              <a href="https://www.linkedin.com/in/norhan-khaled-066b1218b/" class="btn btn-primary"
+                style="background-color:  #7B68EE;">Profile</a>
+            </div>
+          </div>
+        </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-12">
-       <div class="card" style="width: 18rem; height: 32rem;">
-         <img src="assets/images/merna.jpg" class="card-img-top" alt="..." />
-         <div class="card-body">
-           <h5 class="card-title">Merna Fathy</h5>
-           <a
-             href="https://www.linkedin.com/in/merna-fathy-yacoub-35b6ba198"
-             class="btn btn-primary"
-             style="background-color:  #7B68EE;">Profile</a
-           >
-         </div>
-       </div>
-      </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card" style="width: 18rem; height: 32rem;">
+            <img src="assets/images/merna.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Merna Fathy</h5>
+              <a href="https://www.linkedin.com/in/merna-fathy-yacoub-35b6ba198" class="btn btn-primary"
+                style="background-color:  #7B68EE;">Profile</a>
+            </div>
+          </div>
+        </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-12">
-       <div class="card" style="width: 18rem ; height: 32rem;">
-         <img src="assets/images/youssef.jpg" class="card-img-top" alt="..." />
-         <div class="card-body">
-           <h5 class="card-title">Youssef Fathy</h5>
-           <a
-             href="https://www.linkedin.com/in/youssef-mohamed-4568b1244"
-             class="btn btn-primary" style="background-color:  #7B68EE;">Profile</a>
-         </div>
-       </div>
-     </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card" style="width: 18rem ; height: 32rem;">
+            <img src="assets/images/youssef.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Youssef Fathy</h5>
+              <a href="https://www.linkedin.com/in/youssef-mohamed-4568b1244" class="btn btn-primary"
+                style="background-color:  #7B68EE;">Profile</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

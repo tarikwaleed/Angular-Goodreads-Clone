@@ -57,79 +57,33 @@
   <div class="container-fluid">
     <i class="fa-solid fa-book-open fs-3 ms-3 me-2" style="color: #7b68ee"></i>
     <a class="navbar-brand fw-bold">BookStore</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLinkActive]="['active']"
-            [routerLink]="['home']"
-            aria-current="page"
-            >Home</a
-          >
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['home']" aria-current="page">Home</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLinkActive]="['active']"
-            [routerLink]="['books']"
-            >Books</a
-          >
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['books']">Books</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLinkActive]="['active']"
-            [routerLink]="['authors']"
-            >Authors</a
-          >
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['authors']">Authors</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLinkActive]="['active']"
-            [routerLink]="['categories']"
-            >Categories</a
-          >
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['categories']">Categories</a>
         </li>
         <li class="nav-item" *ngIf="(isLoggedIn$ | async) && isAdmin">
-          <a
-            class="nav-link"
-            [routerLinkActive]="['active']"
-            [routerLink]="['admin']"
-            >Admin Dashboard</a
-          >
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['admin']">Admin Dashboard</a>
         </li>
       </ul>
-      <app-login-button
-        class="me-3"
-        *ngIf="!(isLoggedIn$ | async)"
-      ></app-login-button>
-      <app-register-button
-        class="me-4"
-        *ngIf="!(isLoggedIn$ | async)"
-      ></app-register-button>
-      <app-user-avatar
-        [userName]="userName"
-        (click)="navigateTo('profile')"
-        *ngIf="isLoggedIn$ | async"
-        class="mx-3"
-      ></app-user-avatar>
-      <app-logout-button
-        *ngIf="isLoggedIn$ | async"
-        class="me-4"
-      ></app-logout-button>
+      <app-login-button class="me-3" *ngIf="!(isLoggedIn$ | async)"></app-login-button>
+      <app-register-button class="me-4" *ngIf="!(isLoggedIn$ | async)"></app-register-button>
+      <app-user-avatar [userName]="userName" (click)="navigateTo('profile')" *ngIf="isLoggedIn$ | async"
+        class="mx-3"></app-user-avatar>
+      <app-logout-button *ngIf="isLoggedIn$ | async" class="me-4"></app-logout-button>
     </div>
   </div>
 </nav>
